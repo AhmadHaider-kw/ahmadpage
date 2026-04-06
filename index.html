@@ -3,1206 +3,1352 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Admin — ahmadov.me</title>
+<title>Ahmad — Private</title>
 <meta name="robots" content="noindex,nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;0,9..144,400;1,9..144,200;1,9..144,300;1,9..144,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+<!-- ═══════════════════════════════════════════
+     DESIGN SYSTEM — RENAISSANCE MAN 2026
+     Earthy cream · Teal gradient · Fraunces
+═══════════════════════════════════════════ -->
 <style>
+/* ── RESET ── */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+img,svg{display:block}
+button{cursor:pointer;font-family:inherit;background:none;border:none}
+a{color:inherit;text-decoration:none}
+textarea,input,select{font-family:inherit}
+
+/* ── TOKENS ── */
 :root{
---black:#0a0a0a;--white:#fff;
---gray-100:#1a1a1a;--gray-200:#252525;--gray-300:#333;--gray-400:#555;--gray-500:#888;--gray-600:#aaa;
---teal-400:#2dd4bf;--teal-500:#14b8a6;--teal-600:#0d9488;--teal-700:#0f766e;
---red-400:#f87171;--red-500:#ef4444;
---amber-400:#fbbf24;--amber-500:#f59e0b;
---blue-400:#60a5fa;--blue-500:#3b82f6;
---purple-400:#a78bfa;--purple-500:#8b5cf6;
---pink-400:#f472b6;--pink-500:#ec4899;
---green-400:#4ade80;--green-500:#22c55e;
---bg:var(--black);--bg-card:var(--gray-100);--bg-elevated:var(--gray-200);
---text:var(--white);--text-secondary:var(--gray-500);--text-muted:var(--gray-400);
---accent:var(--teal-500);--accent-glow:rgba(20,184,166,.15);
---font-display:'Fraunces',serif;--font-body:'DM Sans',sans-serif;
---radius:12px;--radius-sm:8px;--radius-lg:16px;
---ease:cubic-bezier(.16,1,.3,1);
---shadow:0 4px 24px rgba(0,0,0,.4);
+  /* Surfaces */
+  --c-bg:        #f4ede4;
+  --c-bg-warm:   #ede4d8;
+  --c-surface:   #fdf8f3;
+  --c-surface-2: #f7f0e8;
+  --c-surface-3: #ede6dc;
+
+  /* Borders */
+  --c-border:    rgba(80,55,35,.1);
+  --c-border-md: rgba(80,55,35,.18);
+  --c-border-dk: rgba(80,55,35,.28);
+
+  /* Text */
+  --c-ink:       #1a120a;
+  --c-ink-2:     rgba(26,18,10,.55);
+  --c-ink-3:     rgba(26,18,10,.35);
+  --c-ink-4:     rgba(26,18,10,.2);
+
+  /* Teal gradient system */
+  --teal-deep:   #0a7c70;
+  --teal-mid:    #0d9488;
+  --teal-bright: #14b8a6;
+  --teal-pale:   #a7f3d0;
+  --teal-wash:   rgba(13,148,136,.07);
+  --teal-glow:   rgba(13,148,136,.2);
+  --grad-teal:   linear-gradient(135deg,#0a7c70 0%,#14b8a6 100%);
+  --grad-teal-h: linear-gradient(135deg,#0d9488 0%,#2dd4bf 100%);
+  --grad-hero:   linear-gradient(160deg,#dff5f0 0%,#f4ede4 50%);
+
+  /* Pillar palette — earthy, desaturated */
+  --p-mind:      #6d5fa0;   /* bruised violet */
+  --p-body:      #4d8b62;   /* forest sage */
+  --p-soul:      #b8793a;   /* terracotta amber */
+  --p-finance:   #3a7a9c;   /* slate ocean */
+  --p-social:    #a84f72;   /* aged rose */
+
+  /* Typography */
+  --ff-serif:  'Fraunces', 'Georgia', serif;
+  --ff-sans:   'DM Sans', system-ui, sans-serif;
+
+  /* Motion */
+  --ease:      cubic-bezier(.16,1,.3,1);
+  --ease-in:   cubic-bezier(.4,0,1,1);
+  --t-fast:    .18s;
+  --t-mid:     .35s;
+  --t-slow:    .65s;
+
+  /* Space scale */
+  --sp-1: .25rem; --sp-2: .5rem; --sp-3: .75rem; --sp-4: 1rem;
+  --sp-5: 1.25rem; --sp-6: 1.5rem; --sp-8: 2rem; --sp-10: 2.5rem;
+  --sp-12: 3rem; --sp-16: 4rem; --sp-20: 5rem;
+
+  /* Radius */
+  --r-sm: 4px; --r-md: 8px; --r-lg: 14px; --r-xl: 20px; --r-pill: 999px;
 }
-::selection{background:var(--accent);color:var(--black)}
-html{scroll-behavior:smooth}
-body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;overflow-x:hidden}
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-a{color:var(--accent);text-decoration:none}
 
-/* ═══ ENCRYPTION UTILS ═══ */
-/* Using SubtleCrypto for AES-GCM encryption of localStorage data */
+/* ── BASE ── */
+html { scroll-behavior:smooth; -webkit-tap-highlight-color:transparent; }
+body {
+  font-family: var(--ff-sans);
+  background: var(--c-bg);
+  color: var(--c-ink);
+  font-size: 15px;
+  line-height: 1.65;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--teal-mid); color: #fff; }
+:focus-visible { outline: 2px solid var(--teal-mid); outline-offset: 3px; border-radius: var(--r-sm); }
 
-/* ═══ LOGIN SCREEN ═══ */
-.login-screen{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:2rem;background:var(--bg)}
-.login-box{width:100%;max-width:380px;text-align:center}
-.login-box .logo{font-family:var(--font-display);font-size:2rem;font-weight:600;color:var(--text);margin-bottom:.5rem;letter-spacing:-.02em}
-.login-box .subtitle{color:var(--text-secondary);font-size:.875rem;margin-bottom:2.5rem}
-.login-box input{width:100%;padding:1rem 1.25rem;background:var(--bg-card);border:1px solid var(--gray-300);border-radius:var(--radius);color:var(--text);font-size:1rem;font-family:var(--font-body);transition:border .3s}
-.login-box input:focus{border-color:var(--accent);outline:none;box-shadow:0 0 0 3px var(--accent-glow)}
-.login-box input::placeholder{color:var(--gray-400)}
-.login-btn{width:100%;padding:1rem;margin-top:1rem;background:var(--accent);color:var(--black);border:none;border-radius:var(--radius);font-size:1rem;font-weight:600;font-family:var(--font-body);cursor:pointer;transition:all .3s var(--ease)}
-.login-btn:hover{background:var(--teal-400);transform:translateY(-1px);box-shadow:0 8px 24px rgba(20,184,166,.3)}
-.login-error{color:var(--red-400);font-size:.85rem;margin-top:1rem;opacity:0;transition:opacity .3s}
-.login-error.show{opacity:1}
-.login-lockout{color:var(--amber-400);font-size:.85rem;margin-top:.5rem}
+/* ── GRAIN ── */
+body::after {
+  content:'';
+  position:fixed; inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity:.032; pointer-events:none; z-index:9998;
+}
 
-/* ═══ MAIN LAYOUT ═══ */
-.app{display:none;min-height:100vh}
-.app.active{display:flex}
-.sidebar{width:260px;background:var(--bg-card);border-right:1px solid var(--gray-300);padding:1.5rem 0;display:flex;flex-direction:column;position:fixed;top:0;left:0;height:100vh;z-index:50;transition:transform .3s var(--ease)}
-.sidebar-header{padding:0 1.5rem 1.5rem;border-bottom:1px solid var(--gray-300)}
-.sidebar-header h1{font-family:var(--font-display);font-size:1.25rem;font-weight:600;letter-spacing:-.02em}
-.sidebar-header p{font-size:.75rem;color:var(--text-secondary);margin-top:.25rem}
-.sidebar-nav{flex:1;overflow-y:auto;padding:1rem 0}
-.nav-section{padding:0 1rem;margin-bottom:.5rem}
-.nav-section-label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);padding:.5rem .75rem}
-.nav-item{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;margin:2px .5rem;border-radius:var(--radius-sm);cursor:pointer;transition:all .2s;font-size:.9rem;color:var(--text-secondary);border:none;background:none;width:calc(100% - 1rem);text-align:left;font-family:var(--font-body)}
-.nav-item:hover{background:var(--bg-elevated);color:var(--text)}
-.nav-item.active{background:var(--accent-glow);color:var(--accent);font-weight:600}
-.nav-item .icon{width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-size:1rem}
-.nav-item .badge{margin-left:auto;background:var(--accent);color:var(--black);font-size:.65rem;font-weight:700;padding:2px 6px;border-radius:10px}
-.sidebar-footer{padding:1rem 1.5rem;border-top:1px solid var(--gray-300)}
-.sidebar-footer button{background:none;border:none;color:var(--text-muted);font-size:.8rem;cursor:pointer;font-family:var(--font-body);padding:.5rem 0;transition:color .2s}
-.sidebar-footer button:hover{color:var(--red-400)}
+/* ════════════════════════════════════════
+   GATE / LOGIN
+════════════════════════════════════════ */
+#gate {
+  position:fixed; inset:0; z-index:500;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  padding:var(--sp-8);
+  background:var(--c-bg);
+  transition:opacity var(--t-slow) var(--ease), transform var(--t-slow) var(--ease);
+}
+#gate.out { opacity:0; transform:scale(.97) translateY(-8px); pointer-events:none; }
 
-.main{flex:1;margin-left:260px;padding:2rem 2.5rem;min-height:100vh}
-.main-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem}
-.main-header h2{font-family:var(--font-display);font-size:1.75rem;font-weight:600;letter-spacing:-.02em}
-.main-header-actions{display:flex;gap:.75rem;align-items:center}
+/* top teal rule */
+#gate::before {
+  content:''; position:absolute; top:0; left:0; right:0;
+  height:2px; background:var(--grad-teal);
+}
 
-/* ═══ CARDS ═══ */
-.card{background:var(--bg-card);border:1px solid var(--gray-300);border-radius:var(--radius-lg);padding:1.5rem;transition:border-color .2s}
-.card:hover{border-color:var(--gray-400)}
-.card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
-.card-title{font-weight:600;font-size:1rem}
-.card-subtitle{font-size:.8rem;color:var(--text-secondary)}
+.gate-monogram {
+  width:52px; height:52px; margin-bottom:var(--sp-8);
+  opacity:.9;
+}
 
-/* ═══ PILLAR COLORS ═══ */
-.pillar-mind{--pillar:var(--purple-500);--pillar-light:var(--purple-400);--pillar-glow:rgba(139,92,246,.15)}
-.pillar-body{--pillar:var(--green-500);--pillar-light:var(--green-400);--pillar-glow:rgba(34,197,94,.15)}
-.pillar-soul{--pillar:var(--amber-500);--pillar-light:var(--amber-400);--pillar-glow:rgba(245,158,11,.15)}
-.pillar-finance{--pillar:var(--blue-500);--pillar-light:var(--blue-400);--pillar-glow:rgba(59,130,246,.15)}
-.pillar-social{--pillar:var(--pink-500);--pillar-light:var(--pink-400);--pillar-glow:rgba(236,72,153,.15)}
+.gate-title {
+  font-family:var(--ff-serif);
+  font-size:clamp(2rem,6vw,3.75rem);
+  font-weight:300; letter-spacing:-.035em;
+  line-height:1.1; text-align:center;
+  color:var(--c-ink); margin-bottom:var(--sp-2);
+}
+.gate-title em { font-style:italic; color:var(--teal-mid); }
 
-.pillar-dot{width:10px;height:10px;border-radius:50%;background:var(--pillar);box-shadow:0 0 8px var(--pillar-glow)}
+.gate-sub {
+  font-size:.82rem; color:var(--c-ink-3);
+  letter-spacing:.04em; margin-bottom:var(--sp-10);
+  text-align:center;
+}
 
-/* ═══ DASHBOARD GRID ═══ */
-.dashboard-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin-bottom:2rem}
-.pillar-card{position:relative;overflow:hidden;cursor:pointer}
-.pillar-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--pillar)}
-.pillar-card .pillar-icon{font-size:2rem;margin-bottom:.75rem}
-.pillar-card .pillar-name{font-family:var(--font-display);font-size:1.1rem;font-weight:600;margin-bottom:.25rem}
-.pillar-card .pillar-score{font-size:2.5rem;font-weight:700;color:var(--pillar);line-height:1;margin:.75rem 0}
-.pillar-card .pillar-meta{font-size:.8rem;color:var(--text-secondary)}
+.gate-form { width:100%; max-width:300px; display:flex; flex-direction:column; gap:var(--sp-3); }
 
-/* ═══ SCORE RING ═══ */
-.score-ring{width:64px;height:64px;position:relative}
-.score-ring svg{transform:rotate(-90deg)}
-.score-ring circle{fill:none;stroke-width:5}
-.score-ring .ring-bg{stroke:var(--gray-300)}
-.score-ring .ring-fill{stroke:var(--pillar);stroke-linecap:round;transition:stroke-dashoffset .8s var(--ease)}
-.score-ring .ring-text{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700}
+.gate-input {
+  width:100%; padding:.9rem var(--sp-5);
+  background:var(--c-surface); color:var(--c-ink);
+  border:1.5px solid var(--c-border);
+  border-radius:var(--r-md);
+  font-size:.95rem; letter-spacing:.03em;
+  transition:border-color var(--t-fast), box-shadow var(--t-fast);
+}
+.gate-input:focus { border-color:var(--teal-mid); outline:none; box-shadow:0 0 0 3px var(--teal-wash); }
+.gate-input::placeholder { color:var(--c-ink-4); }
 
-/* ═══ PROGRESS BAR ═══ */
-.progress-bar{height:6px;background:var(--gray-300);border-radius:3px;overflow:hidden;margin-top:.5rem}
-.progress-bar .fill{height:100%;border-radius:3px;transition:width .6s var(--ease)}
+.gate-btn {
+  padding:.9rem; border-radius:var(--r-md);
+  background:var(--grad-teal); color:#fff;
+  font-size:.8rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+  box-shadow:0 4px 20px var(--teal-glow);
+  transition:transform var(--t-fast), box-shadow var(--t-fast);
+}
+.gate-btn:hover { transform:translateY(-2px); box-shadow:0 8px 28px var(--teal-glow); }
 
-/* ═══ STATS ROW ═══ */
-.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin-bottom:2rem}
-.stat-card{text-align:center;padding:1.25rem}
-.stat-value{font-size:1.75rem;font-weight:700;color:var(--accent)}
-.stat-label{font-size:.75rem;color:var(--text-secondary);margin-top:.25rem;text-transform:uppercase;letter-spacing:.05em}
+.gate-err { font-size:.78rem; color:#b03a2e; text-align:center; opacity:0; transition:opacity .3s; }
+.gate-err.on { opacity:1; }
+.gate-lock { font-size:.78rem; color:var(--p-soul); text-align:center; }
 
-/* ═══ HABIT TRACKER ═══ */
-.habits-list{display:flex;flex-direction:column;gap:.75rem}
-.habit-row{display:flex;align-items:center;gap:1rem;padding:.75rem 1rem;background:var(--bg-elevated);border-radius:var(--radius-sm)}
-.habit-name{flex:1;font-size:.9rem;font-weight:500}
-.habit-streak{font-size:.75rem;color:var(--text-secondary);min-width:60px;text-align:right}
-.habit-days{display:flex;gap:4px}
-.habit-day{width:28px;height:28px;border-radius:6px;border:1px solid var(--gray-300);display:flex;align-items:center;justify-content:center;font-size:.65rem;color:var(--text-muted);cursor:pointer;transition:all .2s}
-.habit-day:hover{border-color:var(--pillar)}
-.habit-day.checked{background:var(--pillar);border-color:var(--pillar);color:var(--black)}
-.habit-day.today{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-glow)}
+/* ════════════════════════════════════════
+   APP SHELL
+════════════════════════════════════════ */
+#app {
+  display:none; min-height:100vh;
+  opacity:0; transform:translateY(10px);
+  transition:opacity var(--t-slow) var(--ease), transform var(--t-slow) var(--ease);
+}
+#app.on  { display:block; }
+#app.vis { opacity:1; transform:none; }
 
-/* ═══ JOURNAL ═══ */
-.journal-entry{margin-bottom:1rem}
-.journal-date{font-size:.75rem;color:var(--text-secondary);margin-bottom:.5rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
-.journal-textarea{width:100%;min-height:120px;padding:1rem;background:var(--bg-elevated);border:1px solid var(--gray-300);border-radius:var(--radius);color:var(--text);font-family:var(--font-body);font-size:.9rem;line-height:1.7;resize:vertical;transition:border-color .3s}
-.journal-textarea:focus{border-color:var(--accent);outline:none}
-.journal-past{padding:1rem;background:var(--bg-elevated);border-radius:var(--radius-sm);margin-bottom:.75rem}
-.journal-past p{font-size:.9rem;line-height:1.7;white-space:pre-wrap}
+/* ── NAV ── */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:var(--sp-4) var(--sp-10);
+  background:rgba(244,237,228,.88);
+  backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--c-border);
+}
+.nav-logo {
+  font-family:var(--ff-serif); font-size:1rem; font-weight:300;
+  letter-spacing:-.01em; color:var(--c-ink-2); cursor:pointer;
+}
+.nav-logo:hover { color:var(--c-ink); }
 
-/* ═══ GOALS ═══ */
-.goal-item{padding:1rem;background:var(--bg-elevated);border-radius:var(--radius-sm);margin-bottom:.75rem;border-left:3px solid var(--pillar)}
-.goal-item h4{font-size:.9rem;font-weight:600;margin-bottom:.25rem}
-.goal-item p{font-size:.8rem;color:var(--text-secondary)}
-.goal-actions{display:flex;gap:.5rem;margin-top:.75rem}
+.nav-links { display:flex; gap:var(--sp-1); align-items:center; }
+.nav-link {
+  font-size:.72rem; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--c-ink-3); padding:var(--sp-2) var(--sp-3);
+  border-radius:var(--r-sm); transition:all var(--t-fast);
+}
+.nav-link:hover { color:var(--teal-mid); background:var(--teal-wash); }
 
-/* ═══ REVIEW TEMPLATE ═══ */
-.review-section{margin-bottom:1.5rem}
-.review-section h4{font-size:.9rem;font-weight:600;margin-bottom:.75rem;color:var(--pillar-light,var(--accent))}
-.review-question{margin-bottom:1rem}
-.review-question label{display:block;font-size:.85rem;color:var(--text-secondary);margin-bottom:.5rem}
-.review-question textarea{width:100%;min-height:80px;padding:.75rem;background:var(--bg-elevated);border:1px solid var(--gray-300);border-radius:var(--radius-sm);color:var(--text);font-family:var(--font-body);font-size:.85rem;resize:vertical}
-.review-question textarea:focus{border-color:var(--accent);outline:none}
-.review-question select,.review-question input[type="number"]{padding:.5rem .75rem;background:var(--bg-elevated);border:1px solid var(--gray-300);border-radius:var(--radius-sm);color:var(--text);font-family:var(--font-body);font-size:.85rem}
+/* ── VIEWS ── */
+.view { display:none; }
+.view.on { display:block; }
 
-/* ═══ LINKS SECTION ═══ */
-.links-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.75rem}
-.link-card{display:flex;align-items:center;gap:.75rem;padding:1rem;background:var(--bg-elevated);border-radius:var(--radius-sm);cursor:pointer;transition:all .2s;border:1px solid transparent}
-.link-card:hover{border-color:var(--pillar,var(--accent));transform:translateY(-1px)}
-.link-card .link-icon{font-size:1.5rem}
-.link-card .link-info h4{font-size:.85rem;font-weight:600}
-.link-card .link-info p{font-size:.75rem;color:var(--text-secondary)}
+/* ════════════════════════════════════════
+   HOME — LANDING
+════════════════════════════════════════ */
+#v-home {
+  min-height:100vh;
+  background:var(--grad-hero);
+  display:flex; flex-direction:column; justify-content:flex-end;
+  padding:0 var(--sp-10) var(--sp-16);
+}
 
-/* ═══ BUTTONS ═══ */
-.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1.25rem;border-radius:var(--radius-sm);font-size:.85rem;font-weight:600;font-family:var(--font-body);border:none;cursor:pointer;transition:all .2s var(--ease)}
-.btn-primary{background:var(--accent);color:var(--black)}
-.btn-primary:hover{background:var(--teal-400);transform:translateY(-1px)}
-.btn-secondary{background:var(--bg-elevated);color:var(--text);border:1px solid var(--gray-300)}
-.btn-secondary:hover{border-color:var(--gray-400)}
-.btn-danger{background:transparent;color:var(--red-400);border:1px solid var(--red-400)}
-.btn-danger:hover{background:rgba(239,68,68,.1)}
-.btn-sm{padding:.4rem .75rem;font-size:.75rem}
-.btn-icon{width:36px;height:36px;padding:0;display:flex;align-items:center;justify-content:center;border-radius:var(--radius-sm);background:var(--bg-elevated);border:1px solid var(--gray-300);color:var(--text-secondary);cursor:pointer;transition:all .2s}
-.btn-icon:hover{border-color:var(--accent);color:var(--accent)}
+.home-kicker {
+  font-size:.68rem; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--c-ink-3); margin-bottom:var(--sp-5);
+  display:flex; align-items:center; gap:var(--sp-3);
+}
+.home-kicker::before {
+  content:''; display:block; width:28px; height:1px; background:var(--teal-mid);
+}
 
-/* ═══ MODALS ═══ */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);z-index:200;display:none;align-items:center;justify-content:center;padding:2rem}
-.modal-overlay.show{display:flex}
-.modal{background:var(--bg-card);border:1px solid var(--gray-300);border-radius:var(--radius-lg);width:100%;max-width:520px;max-height:85vh;overflow-y:auto;padding:2rem}
-.modal h3{font-family:var(--font-display);font-size:1.25rem;margin-bottom:1.5rem}
-.modal label{display:block;font-size:.85rem;color:var(--text-secondary);margin-bottom:.5rem}
-.modal input,.modal textarea,.modal select{width:100%;padding:.75rem;background:var(--bg-elevated);border:1px solid var(--gray-300);border-radius:var(--radius-sm);color:var(--text);font-family:var(--font-body);font-size:.9rem;margin-bottom:1rem}
-.modal input:focus,.modal textarea:focus,.modal select:focus{border-color:var(--accent);outline:none}
-.modal-actions{display:flex;gap:.75rem;justify-content:flex-end;margin-top:1rem}
+.home-h {
+  font-family:var(--ff-serif);
+  font-size:clamp(3.5rem,9vw,7rem);
+  font-weight:200; letter-spacing:-.04em; line-height:.97;
+  color:var(--c-ink); margin-bottom:var(--sp-8);
+  max-width:900px;
+}
+.home-h em {
+  font-style:italic; font-weight:300;
+  background:var(--grad-teal);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
 
-/* ═══ TABS ═══ */
-.tabs{display:flex;gap:2px;background:var(--bg-elevated);border-radius:var(--radius-sm);padding:3px;margin-bottom:1.5rem;overflow-x:auto}
-.tab{padding:.6rem 1.25rem;border-radius:6px;font-size:.85rem;font-weight:500;color:var(--text-secondary);cursor:pointer;border:none;background:none;font-family:var(--font-body);white-space:nowrap;transition:all .2s}
-.tab:hover{color:var(--text)}
-.tab.active{background:var(--bg-card);color:var(--text);box-shadow:var(--shadow)}
+/* meta strip */
+.home-meta {
+  display:flex; gap:0; flex-wrap:wrap;
+  margin-bottom:var(--sp-10);
+  background:var(--c-surface);
+  border:1px solid var(--c-border);
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  width:fit-content;
+}
+.home-meta-cell {
+  display:flex; flex-direction:column; gap:.15rem;
+  padding:.9rem var(--sp-6);
+  border-right:1px solid var(--c-border);
+}
+.home-meta-cell:last-child { border-right:none; }
+.hmc-label {
+  font-size:.6rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--c-ink-3);
+}
+.hmc-value {
+  font-size:.95rem; font-weight:600; color:var(--c-ink);
+}
+.hmc-value.teal {
+  background:var(--grad-teal);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
 
-/* ═══ EMPTY STATE ═══ */
-.empty-state{text-align:center;padding:3rem;color:var(--text-secondary)}
-.empty-state .empty-icon{font-size:3rem;margin-bottom:1rem;opacity:.5}
-.empty-state p{font-size:.9rem;margin-bottom:1.5rem}
+/* pillar grid */
+.pillars-grid {
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:.6rem;
+  max-width:860px;
+}
 
-/* ═══ MOBILE NAV ═══ */
-.mobile-nav-toggle{display:none;position:fixed;bottom:1.5rem;right:1.5rem;width:56px;height:56px;border-radius:50%;background:var(--accent);color:var(--black);border:none;font-size:1.5rem;cursor:pointer;z-index:100;box-shadow:0 4px 16px rgba(20,184,166,.4)}
-.sidebar-close{display:none;position:absolute;top:1rem;right:1rem;background:none;border:none;color:var(--text-secondary);font-size:1.25rem;cursor:pointer}
+.p-card {
+  position:relative;
+  background:var(--c-surface);
+  border:1px solid var(--c-border);
+  border-radius:var(--r-lg);
+  padding:var(--sp-5) var(--sp-4);
+  cursor:pointer;
+  transition:all var(--t-mid) var(--ease);
+  overflow:hidden;
+  display:flex; flex-direction:column; gap:var(--sp-3);
+}
+.p-card::before {
+  content:''; position:absolute;
+  top:0; left:0; right:0; height:2px;
+  background:var(--pillar-c);
+  transform:scaleX(0); transform-origin:left;
+  transition:transform var(--t-mid) var(--ease);
+}
+.p-card:hover {
+  border-color:var(--pillar-c);
+  transform:translateY(-4px);
+  box-shadow:0 12px 32px rgba(26,18,10,.07);
+}
+.p-card:hover::before { transform:scaleX(1); }
 
-/* ═══ TOAST ═══ */
-.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(100px);background:var(--bg-card);border:1px solid var(--gray-300);padding:.75rem 1.5rem;border-radius:var(--radius);font-size:.85rem;z-index:300;transition:transform .3s var(--ease);box-shadow:var(--shadow)}
-.toast.show{transform:translateX(-50%) translateY(0)}
-.toast.success{border-color:var(--green-500)}
-.toast.error{border-color:var(--red-500)}
+.p-card-icon {
+  width:36px; height:36px;
+  color:var(--pillar-c);
+}
+.p-card-icon svg { width:100%; height:100%; }
 
-/* ═══ RESPONSIVE ═══ */
-@media(max-width:768px){
-  .sidebar{transform:translateX(-100%)}
-  .sidebar.open{transform:translateX(0)}
-  .sidebar-close{display:block}
-  .mobile-nav-toggle{display:flex;align-items:center;justify-content:center}
-  .main{margin-left:0;padding:1.5rem}
-  .dashboard-grid{grid-template-columns:1fr}
-  .habit-days{flex-wrap:wrap}
+.p-card-label {
+  font-size:.65rem; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--c-ink-3);
+}
+.p-card-score {
+  font-family:var(--ff-serif);
+  font-size:2rem; font-weight:300; line-height:1;
+  color:var(--pillar-c);
+}
+.p-card-streak { font-size:.68rem; color:var(--c-ink-3); }
+
+/* ════════════════════════════════════════
+   PILLAR PAGE
+════════════════════════════════════════ */
+.pv {
+  min-height:100vh;
+  max-width:820px; margin:0 auto;
+  padding:6.5rem var(--sp-10) var(--sp-16);
+}
+
+.pv-header { margin-bottom:var(--sp-10); }
+.pv-eyebrow {
+  font-size:.65rem; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--c-ink-3); margin-bottom:var(--sp-4);
+  display:flex; align-items:center; gap:var(--sp-3);
+}
+.pv-eyebrow span {
+  display:block; width:32px; height:1px; background:var(--pillar-c,var(--teal-mid));
+}
+.pv-title {
+  font-family:var(--ff-serif);
+  font-size:clamp(2.5rem,6vw,4.5rem);
+  font-weight:200; letter-spacing:-.04em; line-height:1;
+  color:var(--c-ink); margin-bottom:var(--sp-5);
+}
+.pv-title em { font-style:italic; color:var(--pillar-c,var(--teal-mid)); }
+
+.pv-score-row {
+  display:flex; align-items:center; gap:var(--sp-4);
+}
+.pv-score-val {
+  font-size:.85rem; font-weight:500;
+  color:var(--pillar-c,var(--teal-mid));
+  min-width:36px;
+}
+.pv-score-track {
+  flex:1; max-width:240px; height:3px;
+  background:var(--c-border); border-radius:2px; overflow:hidden;
+}
+.pv-score-fill {
+  height:100%; border-radius:2px;
+  background:var(--pillar-c,var(--grad-teal));
+  transition:width .9s var(--ease);
+}
+
+/* tabs */
+.pv-tabs {
+  display:flex; gap:3px;
+  background:var(--c-surface-2);
+  border-radius:var(--r-md); padding:3px;
+  width:fit-content; margin-bottom:var(--sp-8);
+}
+.pv-tab {
+  padding:.5rem var(--sp-5);
+  font-size:.72rem; font-weight:500;
+  letter-spacing:.06em; text-transform:uppercase;
+  color:var(--c-ink-3); border-radius:6px;
+  transition:all var(--t-fast);
+}
+.pv-tab:hover { color:var(--c-ink-2); }
+.pv-tab.on {
+  background:var(--c-surface);
+  color:var(--c-ink);
+  box-shadow:0 1px 6px rgba(26,18,10,.08);
+}
+
+/* ── HABIT ROWS ── */
+.habits { display:flex; flex-direction:column; }
+.habit-r {
+  display:grid;
+  grid-template-columns:1fr auto auto;
+  align-items:center; gap:var(--sp-6);
+  padding:var(--sp-4) var(--sp-4);
+  border-radius:var(--r-md);
+  transition:background var(--t-fast);
+}
+.habit-r:hover { background:var(--c-surface-2); }
+.habit-name-wrap { display:flex; flex-direction:column; gap:.15rem; }
+.habit-name { font-size:.9rem; font-weight:400; }
+.habit-streak-label { font-size:.68rem; color:var(--c-ink-3); letter-spacing:.03em; }
+.hweek { display:flex; gap:5px; }
+.hd {
+  width:30px; height:30px; border-radius:var(--r-sm);
+  border:1.5px solid var(--c-border);
+  background:var(--c-surface);
+  display:flex; align-items:center; justify-content:center;
+  font-size:.6rem; color:var(--c-ink-3);
+  cursor:pointer; transition:all var(--t-fast);
+  user-select:none;
+}
+.hd:hover { border-color:var(--pillar-c,var(--teal-mid)); color:var(--pillar-c,var(--teal-mid)); }
+.hd.done { background:var(--pillar-c,var(--teal-mid)); border-color:transparent; color:#fff; }
+.hd.today { border-color:var(--pillar-c,var(--teal-mid)); font-weight:600; }
+.hdel {
+  color:var(--c-ink-4); font-size:.8rem;
+  opacity:0; padding:var(--sp-2); border-radius:var(--r-sm);
+  transition:all var(--t-fast);
+}
+.habit-r:hover .hdel { opacity:1; }
+.hdel:hover { color:#b03a2e; background:rgba(176,58,46,.08); }
+
+/* ── GOAL ROWS ── */
+.goals { display:flex; flex-direction:column; gap:var(--sp-3); }
+.goal-r {
+  padding:var(--sp-5) var(--sp-5) var(--sp-5) var(--sp-6);
+  background:var(--c-surface);
+  border:1px solid var(--c-border);
+  border-left:2.5px solid var(--pillar-c,var(--teal-mid));
+  border-radius:var(--r-md);
+  transition:box-shadow var(--t-fast);
+}
+.goal-r:hover { box-shadow:0 4px 18px rgba(26,18,10,.06); }
+.goal-top { display:flex; justify-content:space-between; align-items:flex-start; gap:var(--sp-4); margin-bottom:var(--sp-2); }
+.goal-title { font-size:.95rem; font-weight:500; }
+.goal-desc { font-size:.8rem; color:var(--c-ink-3); margin-bottom:var(--sp-4); }
+.goal-track { height:3px; background:var(--c-border); border-radius:2px; margin-bottom:var(--sp-2); }
+.goal-fill { height:100%; background:var(--pillar-c,var(--teal-mid)); border-radius:2px; transition:width .6s var(--ease); }
+.goal-prog-label { font-size:.7rem; color:var(--c-ink-3); }
+.goal-acts { display:flex; gap:var(--sp-4); margin-top:var(--sp-4); }
+
+/* ── JOURNAL ── */
+.j-date-lbl {
+  font-size:.65rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--c-ink-3); margin-bottom:var(--sp-4);
+}
+.j-area {
+  width:100%; min-height:220px; resize:vertical;
+  padding:var(--sp-5) var(--sp-5);
+  background:var(--c-surface);
+  border:1.5px solid var(--c-border); border-radius:var(--r-lg);
+  color:var(--c-ink); font-size:.95rem; line-height:1.85;
+  transition:border-color var(--t-fast), box-shadow var(--t-fast);
+}
+.j-area:focus { outline:none; border-color:var(--teal-mid); box-shadow:0 0 0 3px var(--teal-wash); }
+.j-area::placeholder { color:var(--c-ink-4); font-style:italic; }
+.j-hint { font-size:.68rem; color:var(--c-ink-4); margin-top:var(--sp-2); letter-spacing:.04em; }
+
+.j-past { margin-top:var(--sp-12); }
+.j-past-label {
+  font-size:.65rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--c-ink-3); margin-bottom:var(--sp-5);
+  display:flex; align-items:center; gap:var(--sp-3);
+}
+.j-past-label::after { content:''; flex:1; height:1px; background:var(--c-border); }
+.j-entry {
+  padding:var(--sp-5);
+  background:var(--c-surface);
+  border:1px solid var(--c-border); border-radius:var(--r-md);
+  margin-bottom:var(--sp-3);
+}
+.j-entry-date { font-size:.68rem; color:var(--c-ink-3); margin-bottom:var(--sp-2); letter-spacing:.04em; }
+.j-entry-text { font-size:.88rem; color:var(--c-ink-2); line-height:1.8; white-space:pre-wrap; }
+
+/* ── LINKS ── */
+.links { display:flex; flex-direction:column; gap:var(--sp-2); }
+.link-r {
+  display:flex; align-items:center; gap:var(--sp-4);
+  padding:.85rem var(--sp-4);
+  background:var(--c-surface); border:1px solid var(--c-border);
+  border-radius:var(--r-md); transition:all var(--t-fast);
+}
+.link-r:hover { border-color:var(--c-border-md); transform:translateX(4px); box-shadow:0 2px 14px rgba(26,18,10,.05); }
+.link-ico { width:28px; text-align:center; font-size:1rem; flex-shrink:0; }
+.link-body { flex:1; min-width:0; }
+.link-title-t { font-size:.88rem; font-weight:500; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.link-url-t { font-size:.68rem; color:var(--c-ink-3); letter-spacing:.02em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.link-arr { color:var(--c-ink-4); font-size:.8rem; transition:all var(--t-fast); flex-shrink:0; }
+.link-r:hover .link-arr { color:var(--teal-mid); transform:translateX(3px); }
+
+/* ── REVIEW ── */
+.rv-section {
+  padding:var(--sp-5) var(--sp-5) var(--sp-5) var(--sp-6);
+  background:var(--c-surface);
+  border:1px solid var(--c-border);
+  border-top:2.5px solid var(--pillar-c,var(--teal-mid));
+  border-radius:var(--r-md); margin-bottom:var(--sp-5);
+}
+.rv-head {
+  font-family:var(--ff-serif); font-size:1rem;
+  font-weight:300; color:var(--c-ink);
+  margin-bottom:var(--sp-5);
+  padding-bottom:var(--sp-4);
+  border-bottom:1px solid var(--c-border);
+}
+.rv-q { margin-bottom:var(--sp-5); }
+.rv-q label {
+  display:block; font-size:.65rem; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--c-ink-3); margin-bottom:var(--sp-3);
+}
+.rv-q textarea,.rv-q input[type=number] {
+  width:100%; background:var(--c-surface-2);
+  border:1.5px solid var(--c-border); border-radius:var(--r-md);
+  color:var(--c-ink); font-size:.88rem; line-height:1.7;
+  padding:.65rem var(--sp-4); resize:none; min-height:70px;
+  transition:border-color var(--t-fast);
+}
+.rv-q textarea:focus,.rv-q input:focus { outline:none; border-color:var(--teal-mid); }
+.rv-q input[type=number] { min-height:unset; width:80px; }
+
+.rv-past { margin-top:var(--sp-12); }
+.rv-past-label {
+  font-size:.65rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--c-ink-3); margin-bottom:var(--sp-5);
+  display:flex; align-items:center; gap:var(--sp-3);
+}
+.rv-past-label::after { content:''; flex:1; height:1px; background:var(--c-border); }
+.rv-item {
+  padding:var(--sp-5); background:var(--c-surface);
+  border:1px solid var(--c-border); border-radius:var(--r-md); margin-bottom:var(--sp-3);
+}
+.rv-item-date { font-size:.68rem; color:var(--c-ink-3); margin-bottom:var(--sp-4); text-transform:uppercase; letter-spacing:.06em; }
+.rv-scores { display:flex; gap:var(--sp-6); flex-wrap:wrap; }
+.rv-score { display:flex; flex-direction:column; gap:.15rem; }
+.rv-score-lbl { font-size:.62rem; letter-spacing:.1em; text-transform:uppercase; color:var(--c-ink-3); }
+.rv-score-val { font-family:var(--ff-serif); font-size:1.1rem; font-weight:300; }
+
+/* ════════════════════════════════════════
+   COMPONENTS
+════════════════════════════════════════ */
+
+/* section actions bar */
+.sa { display:flex; gap:var(--sp-4); align-items:center; margin-bottom:var(--sp-6); }
+
+/* buttons */
+.btn-outline {
+  padding:.55rem var(--sp-5);
+  border:1.5px solid var(--c-border); border-radius:var(--r-md);
+  font-size:.72rem; font-weight:500; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--c-ink-2);
+  transition:all var(--t-fast);
+  display:inline-flex; align-items:center; gap:var(--sp-2);
+}
+.btn-outline:hover { border-color:var(--teal-mid); color:var(--teal-mid); background:var(--teal-wash); }
+
+.btn-ghost-sm {
+  font-size:.72rem; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--c-ink-3); padding:.4rem var(--sp-2); border-radius:var(--r-sm);
+  transition:color var(--t-fast);
+}
+.btn-ghost-sm:hover { color:var(--c-ink-2); }
+
+.btn-primary {
+  padding:.65rem var(--sp-6);
+  background:var(--grad-teal); color:#fff;
+  border-radius:var(--r-md);
+  font-size:.78rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase;
+  box-shadow:0 4px 16px var(--teal-glow);
+  transition:all var(--t-fast);
+  display:inline-flex; align-items:center; gap:var(--sp-2);
+}
+.btn-primary:hover { transform:translateY(-1px); box-shadow:0 6px 22px var(--teal-glow); }
+
+.btn-danger {
+  font-size:.7rem; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--c-ink-3); padding:.4rem var(--sp-2);
+  border-radius:var(--r-sm); transition:all var(--t-fast);
+}
+.btn-danger:hover { color:#b03a2e; background:rgba(176,58,46,.06); }
+
+.empty-state {
+  padding:var(--sp-12) 0; color:var(--c-ink-3);
+  font-style:italic; font-size:.9rem;
+}
+
+/* ── MODAL ── */
+.modal-bg {
+  position:fixed; inset:0; z-index:400;
+  background:rgba(26,18,10,.35);
+  backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  display:none; align-items:center; justify-content:center;
+  padding:var(--sp-8);
+}
+.modal-bg.on { display:flex; }
+.modal {
+  background:var(--c-surface); border:1px solid var(--c-border-md);
+  border-radius:var(--r-xl); padding:var(--sp-8);
+  width:100%; max-width:440px;
+  box-shadow:0 32px 80px rgba(26,18,10,.14);
+}
+.modal-title {
+  font-family:var(--ff-serif); font-size:1.35rem;
+  font-weight:300; letter-spacing:-.02em;
+  margin-bottom:var(--sp-6); color:var(--c-ink);
+}
+.modal-title em { font-style:italic; color:var(--teal-mid); }
+.mf { margin-bottom:var(--sp-5); }
+.mf label {
+  display:block; font-size:.65rem; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--c-ink-3); margin-bottom:var(--sp-2);
+}
+.mf input,.mf textarea {
+  width:100%; background:var(--c-surface-2);
+  border:1.5px solid var(--c-border); border-radius:var(--r-md);
+  color:var(--c-ink); font-size:.92rem; padding:.65rem var(--sp-4);
+  transition:border-color var(--t-fast), box-shadow var(--t-fast);
+}
+.mf input:focus,.mf textarea:focus { outline:none; border-color:var(--teal-mid); box-shadow:0 0 0 3px var(--teal-wash); }
+.mf textarea { min-height:80px; resize:none; line-height:1.65; }
+.m-acts { display:flex; justify-content:flex-end; gap:var(--sp-4); margin-top:var(--sp-6); }
+
+/* ── TOAST ── */
+.toast {
+  position:fixed; bottom:var(--sp-8); left:50%;
+  transform:translateX(-50%) translateY(16px);
+  background:var(--c-ink); color:var(--c-bg);
+  border-radius:var(--r-pill); padding:.6rem var(--sp-5);
+  font-size:.78rem; letter-spacing:.04em;
+  box-shadow:0 8px 24px rgba(26,18,10,.2);
+  z-index:600; opacity:0;
+  transition:all var(--t-mid) var(--ease);
+  pointer-events:none; white-space:nowrap;
+}
+.toast.on { opacity:1; transform:translateX(-50%) translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media(max-width:680px){
+  nav { padding:var(--sp-4) var(--sp-5); }
+  #v-home { padding:0 var(--sp-5) var(--sp-10); }
+  .pv { padding:5.5rem var(--sp-5) var(--sp-10); }
+  .pillars-grid { grid-template-columns:repeat(2,1fr); }
+  .home-h { font-size:clamp(2.75rem,12vw,4rem); }
+  .habit-r { grid-template-columns:1fr; gap:var(--sp-3); }
+  .hweek { flex-wrap:wrap; }
 }
 </style>
+
+<!-- ═══════════════════════════════
+     CUSTOM SVG ICONS
+     Renaissance Man 2026
+     Single-stroke, geometric-organic
+     Inspired by Da Vinci notebooks
+═══════════════════════════════ -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <defs>
+
+    <!-- MIND — cerebral spiral within a circle, orbiting dot -->
+    <symbol id="ico-mind" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="18" cy="18" r="14" stroke-width="1"/>
+      <path d="M18 10 C18 10 24 12 24 17 C24 22 18 22 18 22 C18 22 12 22 12 17 C12 14 14 12 17 11"/>
+      <path d="M18 22 C18 22 20 24 18 26"/>
+      <circle cx="26.5" cy="10.5" r="1.5" fill="currentColor" stroke="none"/>
+    </symbol>
+
+    <!-- BODY — vitruvian circle + vertical axis + wingspan hint -->
+    <symbol id="ico-body" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="18" cy="18" r="13" stroke-width="1"/>
+      <line x1="18" y1="8" x2="18" y2="28"/>
+      <line x1="9" y1="18" x2="27" y2="18"/>
+      <circle cx="18" cy="10" r="2" stroke-width="1.2"/>
+      <line x1="14" y1="14" x2="10" y2="16"/>
+      <line x1="22" y1="14" x2="26" y2="16"/>
+      <line x1="15.5" y1="28" x2="14" y2="24"/>
+      <line x1="20.5" y1="28" x2="22" y2="24"/>
+    </symbol>
+
+    <!-- SOUL — compass rose inside circle, four cardinal marks -->
+    <symbol id="ico-soul" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="18" cy="18" r="13" stroke-width="1"/>
+      <circle cx="18" cy="18" r="2" stroke-width="1.2"/>
+      <line x1="18" y1="5" x2="18" y2="12"/>
+      <line x1="18" y1="24" x2="18" y2="31"/>
+      <line x1="5" y1="18" x2="12" y2="18"/>
+      <line x1="24" y1="18" x2="31" y2="18"/>
+      <path d="M18 5 L16 10 L18 12 L20 10 Z" fill="currentColor" stroke="none"/>
+    </symbol>
+
+    <!-- FINANCE — ascending line + grid baseline, golden ratio feel -->
+    <symbol id="ico-finance" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="5" y="5" width="26" height="26" rx="2" stroke-width="1"/>
+      <polyline points="8,24 13,18 18,20 24,12 29,8"/>
+      <circle cx="29" cy="8" r="1.8" fill="currentColor" stroke="none"/>
+      <line x1="8" y1="28" x2="29" y2="28" stroke-width="1"/>
+      <line x1="8" y1="28" x2="8" y2="10" stroke-width="1"/>
+    </symbol>
+
+    <!-- SOCIAL — three interlocking circles (Borromean rings variant) -->
+    <symbol id="ico-social" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="14" cy="16" r="7" stroke-width="1.2"/>
+      <circle cx="22" cy="16" r="7" stroke-width="1.2"/>
+      <circle cx="18" cy="23" r="7" stroke-width="1.2"/>
+    </symbol>
+
+    <!-- NAV: Home — minimal house glyph -->
+    <symbol id="ico-home" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 9L10 3L17 9V17H13V13H7V17H3V9Z"/>
+    </symbol>
+
+    <!-- NAV: Review — notebook with ruled lines -->
+    <symbol id="ico-review" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="4" y="2" width="12" height="16" rx="1.5"/>
+      <line x1="7" y1="7" x2="13" y2="7"/>
+      <line x1="7" y1="10" x2="13" y2="10"/>
+      <line x1="7" y1="13" x2="11" y2="13"/>
+    </symbol>
+
+    <!-- NAV: Export — arrow up from tray -->
+    <symbol id="ico-export" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M10 12V3M6 7L10 3L14 7"/>
+      <path d="M4 14V17H16V14"/>
+    </symbol>
+
+    <!-- NAV: Lock — minimal padlock -->
+    <symbol id="ico-lock" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="5" y="9" width="10" height="8" rx="1.5"/>
+      <path d="M7 9V7a3 3 0 0 1 6 0v2"/>
+      <circle cx="10" cy="13.5" r="1.2" fill="currentColor" stroke="none"/>
+    </symbol>
+
+    <!-- ADD -->
+    <symbol id="ico-add" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+      <line x1="8" y1="3" x2="8" y2="13"/>
+      <line x1="3" y1="8" x2="13" y2="8"/>
+    </symbol>
+
+    <!-- MONOGRAM: A+H interlocked -->
+    <symbol id="ico-mono" viewBox="0 0 52 52" fill="none">
+      <!-- outer ring -->
+      <circle cx="26" cy="26" r="24" stroke="#0d9488" stroke-width="1"/>
+      <!-- A -->
+      <path d="M16 38 L22 18 L26 28 M26 28 L30 18 L36 38" stroke="#1a120a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="19.5" y1="31" x2="32.5" y2="31" stroke="#1a120a" stroke-width="1.4" stroke-linecap="round"/>
+    </symbol>
+
+  </defs>
+</svg>
+
 </head>
 <body>
 
-<!-- ═══════════ LOGIN SCREEN ═══════════ -->
-<div id="loginScreen" class="login-screen">
-  <div class="login-box">
-    <div class="logo">ahmadov.me</div>
-    <p class="subtitle">Life Operations Center</p>
-    <form id="loginForm" autocomplete="off">
-      <input type="password" id="passwordInput" placeholder="Enter access key" autofocus>
-      <button type="submit" class="login-btn">Unlock</button>
-      <div id="loginError" class="login-error">Wrong key. Try again.</div>
-      <div id="lockoutMsg" class="login-lockout" style="display:none"></div>
-    </form>
-  </div>
+<!-- ══════════ GATE ══════════ -->
+<div id="gate">
+  <svg class="gate-monogram" viewBox="0 0 52 52">
+    <use href="#ico-mono"/>
+  </svg>
+  <h1 class="gate-title">Welcome back,<br><em>Ahmad.</em></h1>
+  <p class="gate-sub">Your private operating system.</p>
+  <form class="gate-form" id="gf" autocomplete="off">
+    <input class="gate-input" id="gp" type="password" placeholder="access key" autofocus>
+    <button class="gate-btn" type="submit">Enter</button>
+    <p class="gate-err" id="ge">Wrong key — try again.</p>
+    <p class="gate-lock" id="gl" style="display:none"></p>
+  </form>
 </div>
 
-<!-- ═══════════ MAIN APP ═══════════ -->
-<div id="app" class="app">
+<!-- ══════════ APP ══════════ -->
+<div id="app">
 
-  <!-- Sidebar -->
-  <aside class="sidebar" id="sidebar">
-    <button class="sidebar-close" id="sidebarClose">✕</button>
-    <div class="sidebar-header">
-      <h1>Command Center</h1>
-      <p>ahmadov.me/admin</p>
+  <nav>
+    <span class="nav-logo" onclick="gohome()">Ahmad</span>
+    <div class="nav-links" id="navlinks" style="display:none">
+      <button class="nav-link" onclick="gohome()">
+        <svg width="14" height="14" style="display:inline-block;vertical-align:middle;margin-right:4px"><use href="#ico-home"/></svg>Home
+      </button>
+      <button class="nav-link" onclick="showv('review')">
+        <svg width="14" height="14" style="display:inline-block;vertical-align:middle;margin-right:4px"><use href="#ico-review"/></svg>Review
+      </button>
+      <button class="nav-link" onclick="doexport()">
+        <svg width="14" height="14" style="display:inline-block;vertical-align:middle;margin-right:4px"><use href="#ico-export"/></svg>Export
+      </button>
+      <button class="nav-link" onclick="dolock()">
+        <svg width="14" height="14" style="display:inline-block;vertical-align:middle;margin-right:4px"><use href="#ico-lock"/></svg>Lock
+      </button>
     </div>
-    <nav class="sidebar-nav">
-      <div class="nav-section">
-        <div class="nav-section-label">Overview</div>
-        <button class="nav-item active" data-view="dashboard" onclick="switchView('dashboard')">
-          <span class="icon">◉</span> Dashboard
-        </button>
-      </div>
-      <div class="nav-section">
-        <div class="nav-section-label">Pillars</div>
-        <button class="nav-item pillar-mind" data-view="mind" onclick="switchView('mind')">
-          <span class="icon">🧠</span> Mind
-        </button>
-        <button class="nav-item pillar-body" data-view="body" onclick="switchView('body')">
-          <span class="icon">💪</span> Body
-        </button>
-        <button class="nav-item pillar-soul" data-view="soul" onclick="switchView('soul')">
-          <span class="icon">✦</span> Soul
-        </button>
-        <button class="nav-item pillar-finance" data-view="finance" onclick="switchView('finance')">
-          <span class="icon">📊</span> Finance
-        </button>
-        <button class="nav-item pillar-social" data-view="social" onclick="switchView('social')">
-          <span class="icon">🤝</span> Social
-        </button>
-      </div>
-      <div class="nav-section">
-        <div class="nav-section-label">System</div>
-        <button class="nav-item" data-view="review" onclick="switchView('review')">
-          <span class="icon">📋</span> Weekly Review
-        </button>
-        <button class="nav-item" data-view="links" onclick="switchView('links')">
-          <span class="icon">🔗</span> Quick Links
-        </button>
-      </div>
-    </nav>
-    <div class="sidebar-footer">
-      <button onclick="exportAllData()">⬇ Export Data</button><br>
-      <button onclick="importDataPrompt()">⬆ Import Data</button><br>
-      <button onclick="logout()">⏻ Lock & Exit</button>
-    </div>
-  </aside>
+  </nav>
 
-  <!-- Mobile Nav Toggle -->
-  <button class="mobile-nav-toggle" id="mobileNavToggle" onclick="toggleSidebar()">☰</button>
+  <!-- HOME -->
+  <section id="v-home" class="view on">
+    <p class="home-kicker" id="hkicker">—</p>
+    <h2 class="home-h" id="hh">Loading…</h2>
+    <div class="home-meta" id="hm"></div>
+    <div class="pillars-grid" id="pg"></div>
+  </section>
 
-  <!-- Main Content -->
-  <main class="main" id="mainContent">
-    <!-- Views are rendered here by JS -->
-  </main>
+  <!-- PILLAR VIEWS -->
+  <div id="v-mind"    class="view pv" data-p="mind"></div>
+  <div id="v-body"    class="view pv" data-p="body"></div>
+  <div id="v-soul"    class="view pv" data-p="soul"></div>
+  <div id="v-finance" class="view pv" data-p="finance"></div>
+  <div id="v-social"  class="view pv" data-p="social"></div>
+
+  <!-- REVIEW -->
+  <div id="v-review"  class="view pv"></div>
+
 </div>
 
-<!-- Modal Overlay -->
-<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
-  <div class="modal" id="modalContent" onclick="event.stopPropagation()"></div>
+<!-- MODAL -->
+<div class="modal-bg" id="mbg" onclick="if(event.target===this)cmodal()">
+  <div class="modal" id="mbox"></div>
 </div>
 
-<!-- Toast -->
+<!-- TOAST -->
 <div class="toast" id="toast"></div>
 
-<!-- Hidden file input for import -->
-<input type="file" id="importFile" accept=".json" style="display:none" onchange="handleImport(event)">
+<input type="file" id="impfile" accept=".json" style="display:none" onchange="doimport(event)">
 
 <script>
-/* ═══════════════════════════════════════
-   SECURITY: PASSWORD HASHING & AUTH
-   ═══════════════════════════════════════ */
-const SALT = 'ahmadov-life-ops-2024';
-const MAX_ATTEMPTS = 5;
-const LOCKOUT_MS = 5 * 60 * 1000;
-
-async function hashPassword(pwd) {
-  const enc = new TextEncoder();
-  const data = enc.encode(pwd + SALT);
-  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-  return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2,'0')).join('');
-}
-
-// Derive AES key from password for encrypting localStorage data
-async function deriveKey(pwd) {
-  const enc = new TextEncoder();
-  const keyMaterial = await crypto.subtle.importKey('raw', enc.encode(pwd), 'PBKDF2', false, ['deriveKey']);
-  return crypto.subtle.deriveKey(
-    { name:'PBKDF2', salt:enc.encode(SALT), iterations:100000, hash:'SHA-256' },
-    keyMaterial,
-    { name:'AES-GCM', length:256 },
-    false,
-    ['encrypt','decrypt']
-  );
-}
-
-async function encryptData(key, data) {
-  const enc = new TextEncoder();
-  const iv = crypto.getRandomValues(new Uint8Array(12));
-  const encrypted = await crypto.subtle.encrypt({ name:'AES-GCM', iv }, key, enc.encode(JSON.stringify(data)));
-  return { iv:Array.from(iv), data:Array.from(new Uint8Array(encrypted)) };
-}
-
-async function decryptData(key, payload) {
-  try {
-    const iv = new Uint8Array(payload.iv);
-    const data = new Uint8Array(payload.data);
-    const decrypted = await crypto.subtle.decrypt({ name:'AES-GCM', iv }, key, data);
-    return JSON.parse(new TextDecoder().decode(decrypted));
-  } catch(e) { return null; }
-}
-
-/* ═══════════════════════════════════════
-   STATE MANAGEMENT
-   ═══════════════════════════════════════ */
-let currentView = 'dashboard';
-let aesKey = null;
-let STATE = null;
-
-function defaultState() {
-  return {
-    version: 2,
-    createdAt: new Date().toISOString(),
-    pillars: {
-      mind:    { score:0, habits:[], goals:[], journal:{}, links:[] },
-      body:    { score:0, habits:[], goals:[], journal:{}, links:[] },
-      soul:    { score:0, habits:[], goals:[], journal:{}, links:[] },
-      finance: { score:0, habits:[], goals:[], journal:{}, links:[] },
-      social:  { score:0, habits:[], goals:[], journal:{}, links:[] }
-    },
-    reviews: [],
-    quickLinks: [],
-    settings: {}
-  };
-}
-
-async function saveState() {
-  if (!aesKey || !STATE) return;
-  const encrypted = await encryptData(aesKey, STATE);
-  localStorage.setItem('ahmadov_admin_data', JSON.stringify(encrypted));
-}
-
-async function loadState() {
-  const raw = localStorage.getItem('ahmadov_admin_data');
-  if (!raw) { STATE = defaultState(); return; }
-  try {
-    const payload = JSON.parse(raw);
-    const decrypted = await decryptData(aesKey, payload);
-    STATE = decrypted || defaultState();
-  } catch(e) { STATE = defaultState(); }
-}
-
-/* ═══════════════════════════════════════
-   LOGIN FLOW
-   ═══════════════════════════════════════ */
-const loginForm = document.getElementById('loginForm');
-const loginError = document.getElementById('loginError');
-const lockoutMsg = document.getElementById('lockoutMsg');
-
-function getAttempts() {
-  try { return JSON.parse(localStorage.getItem('ahmadov_attempts') || '{"count":0,"lockedUntil":0}'); }
-  catch { return { count:0, lockedUntil:0 }; }
-}
-function setAttempts(a) { localStorage.setItem('ahmadov_attempts', JSON.stringify(a)); }
-
-loginForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
-
-  // Check lockout
-  const attempts = getAttempts();
-  if (Date.now() < attempts.lockedUntil) {
-    const mins = Math.ceil((attempts.lockedUntil - Date.now()) / 60000);
-    lockoutMsg.textContent = `Locked out. Try again in ${mins} min.`;
-    lockoutMsg.style.display = 'block';
-    return;
-  }
-  lockoutMsg.style.display = 'none';
-
-  const pwd = document.getElementById('passwordInput').value;
-  if (!pwd) return;
-
-  // Check if SubtleCrypto is available (requires HTTPS or localhost)
-  if (!crypto || !crypto.subtle) {
-    // Fallback: simple hash-free mode for local file:// access
-    const storedPwd = localStorage.getItem('ahmadov_admin_pwd');
-    if (!storedPwd) {
-      localStorage.setItem('ahmadov_admin_pwd', btoa(pwd + SALT));
-      STATE = defaultState();
-      await saveStateFallback(pwd);
-      setAttempts({ count:0, lockedUntil:0 });
-      enterApp();
-      return;
-    }
-    if (btoa(pwd + SALT) === storedPwd) {
-      await loadStateFallback(pwd);
-      setAttempts({ count:0, lockedUntil:0 });
-      enterApp();
-    } else {
-      handleFailedAttempt(attempts);
-    }
-    return;
-  }
-
-  try {
-    const hash = await hashPassword(pwd);
-    const storedHash = localStorage.getItem('ahmadov_admin_hash');
-
-    // First time setup — no password stored yet
-    if (!storedHash) {
-      localStorage.setItem('ahmadov_admin_hash', hash);
-      aesKey = await deriveKey(pwd);
-      STATE = defaultState();
-      await saveState();
-      setAttempts({ count:0, lockedUntil:0 });
-      enterApp();
-      return;
-    }
-
-    if (hash === storedHash) {
-      aesKey = await deriveKey(pwd);
-      await loadState();
-      setAttempts({ count:0, lockedUntil:0 });
-      enterApp();
-    } else {
-      handleFailedAttempt(attempts);
-    }
-  } catch(err) {
-    // Crypto failed (e.g. file:// protocol) — fall back to plain storage
-    const storedPwd = localStorage.getItem('ahmadov_admin_pwd');
-    if (!storedPwd) {
-      localStorage.setItem('ahmadov_admin_pwd', btoa(pwd + SALT));
-      STATE = defaultState();
-      await saveStateFallback(pwd);
-      setAttempts({ count:0, lockedUntil:0 });
-      enterApp();
-      return;
-    }
-    if (btoa(pwd + SALT) === storedPwd) {
-      await loadStateFallback(pwd);
-      setAttempts({ count:0, lockedUntil:0 });
-      enterApp();
-    } else {
-      handleFailedAttempt(attempts);
-    }
-  }
-});
-
-function handleFailedAttempt(attempts) {
-  attempts.count++;
-  if (attempts.count >= MAX_ATTEMPTS) {
-    attempts.lockedUntil = Date.now() + LOCKOUT_MS;
-    attempts.count = 0;
-    lockoutMsg.textContent = 'Too many attempts. Locked for 5 minutes.';
-    lockoutMsg.style.display = 'block';
-  }
-  setAttempts(attempts);
-  loginError.classList.add('show');
-  document.getElementById('passwordInput').value = '';
-  setTimeout(() => loginError.classList.remove('show'), 3000);
-}
-
-// Fallback storage (for file:// — no encryption, but obfuscated)
-async function saveStateFallback(pwd) {
-  if (!STATE) return;
-  localStorage.setItem('ahmadov_admin_data_fb', JSON.stringify(STATE));
-}
-async function loadStateFallback(pwd) {
-  const raw = localStorage.getItem('ahmadov_admin_data_fb');
-  if (!raw) { STATE = defaultState(); return; }
-  try { STATE = JSON.parse(raw) || defaultState(); }
-  catch { STATE = defaultState(); }
-}
-
-function enterApp() {
-  document.getElementById('loginScreen').style.display = 'none';
-  document.getElementById('app').classList.add('active');
-  renderView();
-}
-
-function logout() {
-  aesKey = null;
-  document.getElementById('app').classList.remove('active');
-  document.getElementById('loginScreen').style.display = 'flex';
-  document.getElementById('passwordInput').value = '';
-  document.getElementById('mainContent').innerHTML = '';
-}
-
-/* ═══════════════════════════════════════
-   UTILITY HELPERS
-   ═══════════════════════════════════════ */
-function today() { return new Date().toISOString().slice(0,10); }
-function weekDates() {
-  const d = new Date(); const day = d.getDay();
-  const start = new Date(d); start.setDate(d.getDate() - (day === 0 ? 6 : day - 1));
-  return Array.from({length:7}, (_,i) => {
-    const dd = new Date(start); dd.setDate(start.getDate()+i);
-    return dd.toISOString().slice(0,10);
-  });
-}
-function dayName(dateStr) { return new Date(dateStr+'T12:00:00').toLocaleDateString('en',{weekday:'short'}); }
-function formatDate(dateStr) { return new Date(dateStr+'T12:00:00').toLocaleDateString('en',{month:'short',day:'numeric',year:'numeric'}); }
-function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2,7); }
-
-function toast(msg, type='success') {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.className = 'toast ' + type + ' show';
-  setTimeout(() => t.classList.remove('show'), 2500);
-}
-
-function toggleSidebar() {
-  document.getElementById('sidebar').classList.toggle('open');
-}
-
-/* ═══════════════════════════════════════
-   NAVIGATION & VIEW ROUTER
-   ═══════════════════════════════════════ */
-function switchView(view) {
-  currentView = view;
-  document.querySelectorAll('.nav-item').forEach(n => n.classList.toggle('active', n.dataset.view === view));
-  document.getElementById('sidebar').classList.remove('open');
-  renderView();
-}
-
-function renderView() {
-  const mc = document.getElementById('mainContent');
-  switch(currentView) {
-    case 'dashboard': mc.innerHTML = renderDashboard(); break;
-    case 'mind': case 'body': case 'soul': case 'finance': case 'social':
-      mc.innerHTML = renderPillar(currentView); break;
-    case 'review': mc.innerHTML = renderReview(); break;
-    case 'links': mc.innerHTML = renderLinks(); break;
-  }
-  bindEvents();
-}
-
-/* ═══════════════════════════════════════
-   DASHBOARD VIEW
-   ═══════════════════════════════════════ */
-function getPillarScore(name) {
-  const p = STATE.pillars[name];
-  if (!p.habits.length) return p.score || 0;
-  const week = weekDates();
-  let total = 0, possible = 0;
-  p.habits.forEach(h => {
-    week.forEach(d => { possible++; if (h.checked && h.checked[d]) total++; });
-  });
-  return possible ? Math.round((total/possible)*100) : (p.score||0);
-}
-
-function getOverallScore() {
-  const pillars = ['mind','body','soul','finance','social'];
-  const scores = pillars.map(getPillarScore);
-  return Math.round(scores.reduce((a,b)=>a+b,0)/5);
-}
-
-function getTotalStreak(name) {
-  const p = STATE.pillars[name];
-  let streak = 0;
-  const d = new Date();
-  for (let i=0; i<365; i++) {
-    const dateStr = new Date(d.getTime() - i*86400000).toISOString().slice(0,10);
-    const allDone = p.habits.length > 0 && p.habits.every(h => h.checked && h.checked[dateStr]);
-    if (allDone) streak++; else if (i>0) break;
-  }
-  return streak;
-}
-
-const PILLAR_META = {
-  mind:    { icon:'🧠', label:'Mind',    desc:'Learning, reading, focus, creativity' },
-  body:    { icon:'💪', label:'Body',    desc:'Fitness, nutrition, sleep, energy' },
-  soul:    { icon:'✦',  label:'Soul',    desc:'Spirituality, peace, gratitude, purpose' },
-  finance: { icon:'📊', label:'Finance', desc:'Income, savings, investments, goals' },
-  social:  { icon:'🤝', label:'Social',  desc:'Relationships, network, community' }
+/* ═══════════════════════════════
+   DESIGN SYSTEM DATA
+═══════════════════════════════ */
+const PILLARS = {
+  mind:    { icon:'#ico-mind',    label:'Mind',    tagline:'Learning · Focus · Craft',         c:'var(--p-mind)'    },
+  body:    { icon:'#ico-body',    label:'Body',    tagline:'Fitness · Nutrition · Vitality',   c:'var(--p-body)'    },
+  soul:    { icon:'#ico-soul',    label:'Soul',    tagline:'Spirit · Gratitude · Purpose',     c:'var(--p-soul)'    },
+  finance: { icon:'#ico-finance', label:'Finance', tagline:'Wealth · Growth · Freedom',        c:'var(--p-finance)' },
+  social:  { icon:'#ico-social',  label:'Social',  tagline:'Bonds · Presence · Legacy',        c:'var(--p-social)'  },
 };
 
-function renderDashboard() {
-  const overall = getOverallScore();
-  const pillarNames = Object.keys(PILLAR_META);
-  const todayStr = today();
+/* ═══════════════════════════════
+   SECURITY & STATE
+═══════════════════════════════ */
+const SALT    = 'ahmadov-renaissance-2025';
+const MAX_ATT = 5;
+const LOCK_MS = 5 * 60 * 1000;
 
-  let pillarCards = pillarNames.map(name => {
-    const m = PILLAR_META[name];
-    const score = getPillarScore(name);
-    const streak = getTotalStreak(name);
-    const habits = STATE.pillars[name].habits;
-    const todayDone = habits.filter(h => h.checked && h.checked[todayStr]).length;
-    return `
-    <div class="card pillar-card pillar-${name}" onclick="switchView('${name}')">
-      <div class="pillar-icon">${m.icon}</div>
-      <div class="pillar-name">${m.label}</div>
-      <div style="font-size:.8rem;color:var(--text-secondary)">${m.desc}</div>
-      <div class="pillar-score">${score}%</div>
-      <div class="pillar-meta">${todayDone}/${habits.length} today · ${streak}d streak</div>
-      <div class="progress-bar"><div class="fill" style="width:${score}%;background:var(--pillar)"></div></div>
-    </div>`;
-  }).join('');
+let S   = null;
+let KEY = null;
 
-  // Today's incomplete habits
-  let todayHabits = [];
-  pillarNames.forEach(name => {
-    STATE.pillars[name].habits.forEach(h => {
-      if (!h.checked || !h.checked[todayStr]) {
-        todayHabits.push({ ...h, pillar:name });
-      }
-    });
-  });
+const hasCrypto = () => !!crypto?.subtle;
 
-  let todaySection = '';
-  if (todayHabits.length > 0) {
-    todaySection = `
-    <div class="card" style="margin-bottom:2rem">
-      <div class="card-header"><span class="card-title">⚡ Remaining Today</span><span class="card-subtitle">${todayHabits.length} left</span></div>
-      <div class="habits-list">
-        ${todayHabits.map(h => `
-          <div class="habit-row pillar-${h.pillar}">
-            <span class="pillar-dot"></span>
-            <span class="habit-name">${h.name}</span>
-            <button class="btn btn-sm btn-primary" onclick="quickCheck('${h.pillar}','${h.id}');event.stopPropagation()">Done ✓</button>
-          </div>
-        `).join('')}
-      </div>
-    </div>`;
+async function sha256(s){
+  const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s+SALT));
+  return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('');
+}
+async function mkKey(pwd){
+  const km=await crypto.subtle.importKey('raw',new TextEncoder().encode(pwd),'PBKDF2',false,['deriveKey']);
+  return crypto.subtle.deriveKey({name:'PBKDF2',salt:new TextEncoder().encode(SALT),iterations:100000,hash:'SHA-256'},km,{name:'AES-GCM',length:256},false,['encrypt','decrypt']);
+}
+async function enc(k,d){
+  const iv=crypto.getRandomValues(new Uint8Array(12));
+  const e=await crypto.subtle.encrypt({name:'AES-GCM',iv},k,new TextEncoder().encode(JSON.stringify(d)));
+  return{iv:[...iv],d:[...new Uint8Array(e)]};
+}
+async function dec(k,p){
+  try{const r=await crypto.subtle.decrypt({name:'AES-GCM',iv:new Uint8Array(p.iv)},k,new Uint8Array(p.d));return JSON.parse(new TextDecoder().decode(r));}catch{return null;}
+}
+
+function blank(){
+  return{v:4,pillars:Object.fromEntries(Object.keys(PILLARS).map(k=>[k,{habits:[],goals:[],journal:{},links:[]}])),reviews:[],links:[]};
+}
+async function save(){
+  if(!S)return;
+  if(KEY)localStorage.setItem('ah_d',JSON.stringify(await enc(KEY,S)));
+  else localStorage.setItem('ah_d_fb',JSON.stringify(S));
+}
+async function load(){
+  if(KEY){const r=localStorage.getItem('ah_d');if(!r){S=blank();return;}S=await dec(KEY,JSON.parse(r))||blank();}
+  else{const r=localStorage.getItem('ah_d_fb');S=r?JSON.parse(r)||blank():blank();}
+}
+
+function gatts(){try{return JSON.parse(localStorage.getItem('ah_a')||'{"n":0,"u":0}');}catch{return{n:0,u:0};}}
+function satts(a){localStorage.setItem('ah_a',JSON.stringify(a));}
+
+document.getElementById('gf').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const att=gatts();
+  if(Date.now()<att.u){
+    const m=Math.ceil((att.u-Date.now())/60000);
+    const gl=document.getElementById('gl');
+    gl.textContent=`Locked for ${m}m`;gl.style.display='block';return;
   }
+  document.getElementById('gl').style.display='none';
+  const pwd=document.getElementById('gp').value; if(!pwd)return;
 
-  // Recent journal entries
-  let recentJournals = [];
-  pillarNames.forEach(name => {
-    const j = STATE.pillars[name].journal;
-    Object.keys(j).sort().reverse().slice(0,2).forEach(date => {
-      if (j[date]) recentJournals.push({ date, pillar:name, text:j[date] });
-    });
-  });
-  recentJournals.sort((a,b) => b.date.localeCompare(a.date));
-
-  let journalSection = '';
-  if (recentJournals.length > 0) {
-    journalSection = `
-    <div class="card">
-      <div class="card-header"><span class="card-title">📝 Recent Journal</span></div>
-      ${recentJournals.slice(0,4).map(j => `
-        <div class="journal-past" style="border-left:3px solid var(--pillar)" onclick="switchView('${j.pillar}')">
-          <div style="display:flex;gap:.5rem;margin-bottom:.25rem">
-            <span class="pillar-dot pillar-${j.pillar}"></span>
-            <span style="font-size:.75rem;color:var(--text-secondary)">${PILLAR_META[j.pillar].icon} ${PILLAR_META[j.pillar].label} · ${formatDate(j.date)}</span>
-          </div>
-          <p style="font-size:.85rem">${j.text.slice(0,150)}${j.text.length>150?'...':''}</p>
-        </div>
-      `).join('')}
-    </div>`;
+  // Crypto path
+  if(hasCrypto()){
+    try{
+      const hash=await sha256(pwd);
+      const stored=localStorage.getItem('ah_h');
+      if(!stored){localStorage.setItem('ah_h',hash);KEY=await mkKey(pwd);S=blank();await save();satts({n:0,u:0});enter();return;}
+      if(hash===stored){KEY=await mkKey(pwd);await load();satts({n:0,u:0});enter();return;}
+    }catch{}
   }
+  // Fallback (file://)
+  const fb=localStorage.getItem('ah_fb');
+  if(!fb){localStorage.setItem('ah_fb',btoa(pwd+SALT));S=blank();await save();satts({n:0,u:0});enter();return;}
+  if(btoa(pwd+SALT)===fb){await load();satts({n:0,u:0});enter();return;}
 
-  return `
-  <div class="main-header">
-    <div>
-      <h2>Dashboard</h2>
-      <p style="font-size:.85rem;color:var(--text-secondary)">${formatDate(today())} · Overall: <strong style="color:var(--accent)">${overall}%</strong></p>
-    </div>
-  </div>
-  <div class="stats-row">
-    <div class="card stat-card"><div class="stat-value">${overall}%</div><div class="stat-label">Overall Score</div></div>
-    <div class="card stat-card"><div class="stat-value">${pillarNames.reduce((a,n)=>a+STATE.pillars[n].habits.length,0)}</div><div class="stat-label">Active Habits</div></div>
-    <div class="card stat-card"><div class="stat-value">${pillarNames.reduce((a,n)=>a+STATE.pillars[n].goals.length,0)}</div><div class="stat-label">Active Goals</div></div>
-    <div class="card stat-card"><div class="stat-value">${STATE.reviews.length}</div><div class="stat-label">Reviews Done</div></div>
-  </div>
-  <div class="dashboard-grid">${pillarCards}</div>
-  ${todaySection}
-  ${journalSection}
+  // Wrong
+  att.n++;
+  if(att.n>=MAX_ATT){att.u=Date.now()+LOCK_MS;att.n=0;document.getElementById('gl').textContent='Too many attempts. Locked 5 min.';document.getElementById('gl').style.display='block';}
+  satts(att);
+  const ge=document.getElementById('ge');ge.classList.add('on');
+  document.getElementById('gp').value='';
+  setTimeout(()=>ge.classList.remove('on'),3000);
+});
+
+function enter(){
+  document.getElementById('gate').classList.add('out');
+  const app=document.getElementById('app');
+  app.classList.add('on');
+  requestAnimationFrame(()=>requestAnimationFrame(()=>app.classList.add('vis')));
+  document.getElementById('navlinks').style.display='flex';
+  renderHome();
+  setTimeout(()=>document.getElementById('gate').style.display='none',700);
+}
+function dolock(){
+  KEY=null;S=null;
+  const app=document.getElementById('app');
+  app.classList.remove('vis');
+  setTimeout(()=>{app.classList.remove('on');},400);
+  const gate=document.getElementById('gate');
+  gate.style.display='flex';gate.style.opacity='';gate.style.transform='';gate.classList.remove('out');
+  document.getElementById('gp').value='';
+  document.getElementById('navlinks').style.display='none';
+  renderHome();
+}
+
+/* ═══════════════════════════════
+   HELPERS
+═══════════════════════════════ */
+const td=()=>new Date().toISOString().slice(0,10);
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,5);
+const flong=d=>new Date(d+'T12:00').toLocaleDateString('en',{month:'long',day:'numeric',year:'numeric'});
+const fshort=d=>new Date(d+'T12:00').toLocaleDateString('en',{month:'short',day:'numeric'});
+const dinit=d=>new Date(d+'T12:00').toLocaleDateString('en',{weekday:'short'}).charAt(0);
+
+function wkdays(){
+  const d=new Date(),day=d.getDay();
+  const mon=new Date(d);mon.setDate(d.getDate()-(day===0?6:day-1));
+  return Array.from({length:7},(_,i)=>{const x=new Date(mon);x.setDate(mon.getDate()+i);return x.toISOString().slice(0,10);});
+}
+
+function streak(h){
+  let s=0,d=new Date();
+  for(let i=0;i<400;i++){
+    const ds=new Date(d.getTime()-i*86400000).toISOString().slice(0,10);
+    if(h.checked?.[ds])s++;else if(i>0)break;
+  }
+  return s;
+}
+
+function pscore(name){
+  const p=S?.pillars[name];if(!p?.habits.length)return 0;
+  const wk=wkdays();let done=0,tot=0;
+  p.habits.forEach(h=>wk.forEach(d=>{tot++;if(h.checked?.[d])done++;}));
+  return tot?Math.round(done/tot*100):0;
+}
+
+function overall(){
+  const sc=Object.keys(PILLARS).map(pscore);
+  return Math.round(sc.reduce((a,b)=>a+b,0)/sc.length);
+}
+
+function greet(){
+  const h=new Date().getHours();
+  return h<5?'Late night':h<12?'Good morning':h<17?'Good afternoon':h<21?'Good evening':'Good night';
+}
+
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('on');
+  setTimeout(()=>t.classList.remove('on'),2200);
+}
+
+/* ═══════════════════════════════
+   ICON HELPER
+═══════════════════════════════ */
+function svgIcon(href,size=24,extra=''){
+  return `<svg width="${size}" height="${size}" viewBox="0 0 ${size<=20?20:36} ${size<=20?20:36}" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" ${extra}><use href="${href}"/></svg>`;
+}
+
+/* ═══════════════════════════════
+   HOME
+═══════════════════════════════ */
+function renderHome(){
+  if(!S)return;
+  const ov=overall(), tod=td();
+  const allH=Object.values(S.pillars).flatMap(p=>p.habits);
+  const doneT=allH.filter(h=>h.checked?.[tod]).length;
+
+  document.getElementById('hkicker').textContent=`— ${greet()}`;
+
+  document.getElementById('hh').innerHTML=`This is your life,<br><em>build it.</em>`;
+
+  const now=new Date();
+  const doy=Math.floor((now-new Date(now.getFullYear(),0,0))/86400000);
+  const wk=Math.ceil(doy/7);
+
+  document.getElementById('hm').innerHTML=`
+    <div class="home-meta-cell"><span class="hmc-label">Score</span><span class="hmc-value teal">${ov}%</span></div>
+    <div class="home-meta-cell"><span class="hmc-label">Today</span><span class="hmc-value">${doneT}/${allH.length}</span></div>
+    <div class="home-meta-cell"><span class="hmc-label">Week</span><span class="hmc-value">W${wk}</span></div>
+    <div class="home-meta-cell"><span class="hmc-label">Left in year</span><span class="hmc-value">${365-doy}d</span></div>
   `;
+
+  document.getElementById('pg').innerHTML=Object.entries(PILLARS).map(([k,p])=>{
+    const sc=pscore(k);
+    const ph=S.pillars[k].habits;
+    const minStr=ph.length?Math.min(...ph.map(streak)):0;
+    return `
+    <button class="p-card" style="--pillar-c:${p.c}" onclick="showv('${k}')">
+      <div class="p-card-icon" style="color:${p.c}">
+        <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <use href="${p.icon}"/>
+        </svg>
+      </div>
+      <span class="p-card-label">${p.label}</span>
+      <span class="p-card-score">${sc}%</span>
+      <span class="p-card-streak">${minStr}d streak</span>
+    </button>`;
+  }).join('');
 }
 
-function quickCheck(pillar, habitId) {
-  const h = STATE.pillars[pillar].habits.find(h => h.id === habitId);
-  if (h) {
-    if (!h.checked) h.checked = {};
-    h.checked[today()] = true;
-    saveState();
-    toast('✓ Done!');
-    renderView();
-  }
+/* ═══════════════════════════════
+   VIEW ROUTING
+═══════════════════════════════ */
+let curTab={};
+
+function gohome(){
+  document.querySelectorAll('.view').forEach(v=>{v.classList.remove('on');});
+  document.getElementById('v-home').classList.add('on');
+  renderHome();
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
-/* ═══════════════════════════════════════
+function showv(name){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('on'));
+  document.getElementById('v-'+name).classList.add('on');
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(PILLARS[name])renderPillar(name);
+  else if(name==='review')renderReview();
+}
+
+/* ═══════════════════════════════
    PILLAR VIEW
-   ═══════════════════════════════════════ */
-function renderPillar(name) {
-  const m = PILLAR_META[name];
-  const p = STATE.pillars[name];
-  const score = getPillarScore(name);
-  const week = weekDates();
-  const todayStr = today();
+═══════════════════════════════ */
+function renderPillar(name){
+  const p=PILLARS[name], pd=S.pillars[name], sc=pscore(name);
+  const tab=curTab[name]||'habits';
+  const el=document.getElementById('v-'+name);
+  el.style.setProperty('--pillar-c',p.c);
 
-  // Habit tracker
-  let habitsHTML = '';
-  if (p.habits.length > 0) {
-    habitsHTML = `<div class="habits-list">
-      ${p.habits.map(h => {
-        const streak = getHabitStreak(h);
-        return `
-        <div class="habit-row">
-          <span class="habit-name">${h.name}</span>
-          <span class="habit-streak">${streak}d 🔥</span>
-          <div class="habit-days">
-            ${week.map(d => {
-              const checked = h.checked && h.checked[d];
-              const isToday = d === todayStr;
-              return `<div class="habit-day${checked?' checked':''}${isToday?' today':''}"
-                onclick="toggleHabit('${name}','${h.id}','${d}')" title="${dayName(d)} ${d}">
-                ${checked?'✓':dayName(d).charAt(0)}
-              </div>`;
-            }).join('')}
-          </div>
-          <button class="btn-icon" onclick="deleteHabit('${name}','${h.id}')" title="Delete">✕</button>
-        </div>`;
-      }).join('')}
-    </div>`;
-  } else {
-    habitsHTML = `<div class="empty-state"><div class="empty-icon">📋</div><p>No habits yet. Add your first habit to start tracking.</p></div>`;
-  }
-
-  // Goals
-  let goalsHTML = '';
-  if (p.goals.length > 0) {
-    goalsHTML = p.goals.map(g => `
-    <div class="goal-item pillar-${name}">
-      <h4>${g.title}</h4>
-      <p>${g.description || ''}</p>
-      ${g.target ? `<div class="progress-bar" style="margin-top:.5rem"><div class="fill" style="width:${Math.min(100,Math.round((g.current||0)/g.target*100))}%;background:var(--pillar)"></div></div>
-      <p style="font-size:.75rem;margin-top:.25rem">${g.current||0} / ${g.target} ${g.unit||''}</p>` : ''}
-      <div class="goal-actions">
-        ${g.target ? `<button class="btn btn-sm btn-secondary" onclick="updateGoalProgress('${name}','${g.id}')">Update Progress</button>` : ''}
-        <button class="btn btn-sm btn-danger" onclick="deleteGoal('${name}','${g.id}')">Remove</button>
-      </div>
-    </div>`).join('');
-  } else {
-    goalsHTML = `<div class="empty-state"><div class="empty-icon">🎯</div><p>No goals set. Define what you're working toward.</p></div>`;
-  }
-
-  // Journal
-  const journalText = p.journal[todayStr] || '';
-  const pastEntries = Object.keys(p.journal).filter(d => d !== todayStr).sort().reverse().slice(0,7);
-  let journalHistory = pastEntries.map(d => `
-    <div class="journal-past">
-      <div class="journal-date">${formatDate(d)}</div>
-      <p>${p.journal[d]}</p>
-    </div>
-  `).join('');
-
-  // Links
-  let linksHTML = '';
-  if (p.links && p.links.length > 0) {
-    linksHTML = `<div class="links-grid">
-      ${p.links.map(l => `
-        <a href="${l.url}" target="_blank" class="link-card pillar-${name}">
-          <span class="link-icon">${l.icon||'🔗'}</span>
-          <div class="link-info"><h4>${l.title}</h4><p>${l.url.slice(0,40)}</p></div>
-          <button class="btn-icon" onclick="deleteLink('${name}','${l.id}');event.preventDefault();event.stopPropagation()" title="Remove">✕</button>
-        </a>
-      `).join('')}
-    </div>`;
-  }
-
-  return `
-  <div class="main-header pillar-${name}">
-    <div>
-      <h2>${m.icon} ${m.label}</h2>
-      <p style="font-size:.85rem;color:var(--text-secondary)">${m.desc} · <strong style="color:var(--pillar)">${score}%</strong> this week</p>
-    </div>
-    <div class="main-header-actions">
-      <button class="btn btn-primary" onclick="showAddHabitModal('${name}')">+ Habit</button>
-      <button class="btn btn-secondary" onclick="showAddGoalModal('${name}')">+ Goal</button>
-      <button class="btn btn-secondary" onclick="showAddLinkModal('${name}')">+ Link</button>
-    </div>
-  </div>
-
-  <div class="tabs" id="pillarTabs">
-    <button class="tab active" onclick="showPillarTab('habits',this)">Habits</button>
-    <button class="tab" onclick="showPillarTab('goals',this)">Goals</button>
-    <button class="tab" onclick="showPillarTab('journal',this)">Journal</button>
-    <button class="tab" onclick="showPillarTab('links',this)">Links</button>
-  </div>
-
-  <div id="pillarTabContent">
-    <div id="tab-habits">
-      <div class="card">${habitsHTML}</div>
-    </div>
-    <div id="tab-goals" style="display:none">
-      <div class="card">${goalsHTML}</div>
-    </div>
-    <div id="tab-journal" style="display:none">
-      <div class="card">
-        <div class="card-header"><span class="card-title">Today's Entry</span><span class="card-subtitle">${formatDate(todayStr)}</span></div>
-        <textarea class="journal-textarea" placeholder="Write your thoughts for today..."
-          oninput="saveJournal('${name}', this.value)">${journalText}</textarea>
-      </div>
-      ${journalHistory ? `<div class="card" style="margin-top:1rem"><div class="card-header"><span class="card-title">Past Entries</span></div>${journalHistory}</div>` : ''}
-    </div>
-    <div id="tab-links" style="display:none">
-      <div class="card">
-        ${linksHTML || '<div class="empty-state"><div class="empty-icon">🔗</div><p>No links yet. Save useful resources here.</p></div>'}
+  el.innerHTML=`
+    <div class="pv-header">
+      <div class="pv-eyebrow"><span></span>${p.tagline}</div>
+      <h2 class="pv-title">
+        <svg width="48" height="48" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:.5rem;color:${p.c}"><use href="${p.icon}"/></svg>
+        <em>${p.label}</em>
+      </h2>
+      <div class="pv-score-row">
+        <span class="pv-score-val">${sc}%</span>
+        <div class="pv-score-track"><div class="pv-score-fill" style="width:${sc}%;background:${p.c}"></div></div>
       </div>
     </div>
-  </div>
+    <div class="pv-tabs">
+      <button class="pv-tab ${tab==='habits'?'on':''}" onclick="switchtab('${name}','habits',this)">Habits</button>
+      <button class="pv-tab ${tab==='goals'?'on':''}" onclick="switchtab('${name}','goals',this)">Goals</button>
+      <button class="pv-tab ${tab==='journal'?'on':''}" onclick="switchtab('${name}','journal',this)">Journal</button>
+      <button class="pv-tab ${tab==='links'?'on':''}" onclick="switchtab('${name}','links',this)">Links</button>
+    </div>
+    <div id="tc-${name}">${rtab(name,tab)}</div>
   `;
 }
 
-function showPillarTab(tab, btn) {
-  document.querySelectorAll('#pillarTabContent > div').forEach(d => d.style.display = 'none');
-  document.getElementById('tab-'+tab).style.display = 'block';
-  document.querySelectorAll('#pillarTabs .tab').forEach(t => t.classList.remove('active'));
-  btn.classList.add('active');
+function switchtab(name,tab,btn){
+  curTab[name]=tab;
+  document.querySelectorAll(`#v-${name} .pv-tab`).forEach(t=>t.classList.remove('on'));
+  btn.classList.add('on');
+  document.getElementById('tc-'+name).innerHTML=rtab(name,tab);
 }
 
-function getHabitStreak(h) {
-  let streak = 0;
-  const d = new Date();
-  for (let i=0; i<365; i++) {
-    const dateStr = new Date(d.getTime()-i*86400000).toISOString().slice(0,10);
-    if (h.checked && h.checked[dateStr]) streak++; else if(i>0) break;
+function rtab(name,tab){
+  switch(tab){
+    case 'habits':  return rhabits(name);
+    case 'goals':   return rgoals(name);
+    case 'journal': return rjournal(name);
+    case 'links':   return rlinks(name);
   }
-  return streak;
+  return '';
 }
 
-function toggleHabit(pillar, habitId, date) {
-  const h = STATE.pillars[pillar].habits.find(h => h.id === habitId);
-  if (!h) return;
-  if (!h.checked) h.checked = {};
-  h.checked[date] = !h.checked[date];
-  if (!h.checked[date]) delete h.checked[date];
-  saveState();
-  renderView();
-}
-
-function deleteHabit(pillar, habitId) {
-  if (!confirm('Delete this habit?')) return;
-  STATE.pillars[pillar].habits = STATE.pillars[pillar].habits.filter(h => h.id !== habitId);
-  saveState(); renderView(); toast('Habit deleted');
-}
-
-function deleteGoal(pillar, goalId) {
-  if (!confirm('Delete this goal?')) return;
-  STATE.pillars[pillar].goals = STATE.pillars[pillar].goals.filter(g => g.id !== goalId);
-  saveState(); renderView(); toast('Goal deleted');
-}
-
-function deleteLink(pillar, linkId) {
-  STATE.pillars[pillar].links = STATE.pillars[pillar].links.filter(l => l.id !== linkId);
-  saveState(); renderView(); toast('Link removed');
-}
-
-let journalTimer = null;
-function saveJournal(pillar, text) {
-  clearTimeout(journalTimer);
-  journalTimer = setTimeout(() => {
-    STATE.pillars[pillar].journal[today()] = text;
-    saveState();
-  }, 500);
-}
-
-function updateGoalProgress(pillar, goalId) {
-  const g = STATE.pillars[pillar].goals.find(g => g.id === goalId);
-  if (!g) return;
-  const val = prompt(`Current progress (target: ${g.target} ${g.unit||''})`, g.current||0);
-  if (val !== null) {
-    g.current = parseFloat(val) || 0;
-    saveState(); renderView(); toast('Progress updated');
-  }
-}
-
-/* ═══════════════════════════════════════
-   MODALS
-   ═══════════════════════════════════════ */
-function openModal(html) {
-  document.getElementById('modalContent').innerHTML = html;
-  document.getElementById('modalOverlay').classList.add('show');
-}
-function closeModal(e) {
-  if (e && e.target !== e.currentTarget) return;
-  document.getElementById('modalOverlay').classList.remove('show');
-}
-
-function showAddHabitModal(pillar) {
-  openModal(`
-    <h3>Add Habit — ${PILLAR_META[pillar].label}</h3>
-    <label>Habit Name</label>
-    <input type="text" id="newHabitName" placeholder="e.g. Read 30 minutes" autofocus>
-    <div class="modal-actions">
-      <button class="btn btn-secondary" onclick="closeModal({target:document.getElementById('modalOverlay')})">Cancel</button>
-      <button class="btn btn-primary" onclick="addHabit('${pillar}')">Add Habit</button>
-    </div>
-  `);
-  setTimeout(() => document.getElementById('newHabitName')?.focus(), 100);
-}
-
-function addHabit(pillar) {
-  const name = document.getElementById('newHabitName').value.trim();
-  if (!name) return;
-  STATE.pillars[pillar].habits.push({ id:uid(), name, checked:{} });
-  saveState(); closeModal({target:document.getElementById('modalOverlay')}); renderView(); toast('Habit added!');
-}
-
-function showAddGoalModal(pillar) {
-  openModal(`
-    <h3>Add Goal — ${PILLAR_META[pillar].label}</h3>
-    <label>Goal Title</label>
-    <input type="text" id="newGoalTitle" placeholder="e.g. Finish online course" autofocus>
-    <label>Description (optional)</label>
-    <textarea id="newGoalDesc" rows="2" placeholder="Why this matters..."></textarea>
-    <label>Target Number (optional — for trackable goals)</label>
-    <input type="number" id="newGoalTarget" placeholder="e.g. 30">
-    <label>Unit (optional)</label>
-    <input type="text" id="newGoalUnit" placeholder="e.g. books, kg, sessions">
-    <div class="modal-actions">
-      <button class="btn btn-secondary" onclick="closeModal({target:document.getElementById('modalOverlay')})">Cancel</button>
-      <button class="btn btn-primary" onclick="addGoal('${pillar}')">Add Goal</button>
-    </div>
-  `);
-  setTimeout(() => document.getElementById('newGoalTitle')?.focus(), 100);
-}
-
-function addGoal(pillar) {
-  const title = document.getElementById('newGoalTitle').value.trim();
-  if (!title) return;
-  const goal = {
-    id:uid(), title,
-    description: document.getElementById('newGoalDesc').value.trim(),
-    target: parseFloat(document.getElementById('newGoalTarget').value) || 0,
-    unit: document.getElementById('newGoalUnit').value.trim(),
-    current: 0
-  };
-  STATE.pillars[pillar].goals.push(goal);
-  saveState(); closeModal({target:document.getElementById('modalOverlay')}); renderView(); toast('Goal added!');
-}
-
-function showAddLinkModal(pillar) {
-  openModal(`
-    <h3>Add Link — ${PILLAR_META[pillar].label}</h3>
-    <label>Title</label>
-    <input type="text" id="newLinkTitle" placeholder="e.g. Workout plan" autofocus>
-    <label>URL</label>
-    <input type="url" id="newLinkUrl" placeholder="https://...">
-    <label>Icon (emoji, optional)</label>
-    <input type="text" id="newLinkIcon" placeholder="🔗" maxlength="4">
-    <div class="modal-actions">
-      <button class="btn btn-secondary" onclick="closeModal({target:document.getElementById('modalOverlay')})">Cancel</button>
-      <button class="btn btn-primary" onclick="addLink('${pillar}')">Add Link</button>
-    </div>
-  `);
-  setTimeout(() => document.getElementById('newLinkTitle')?.focus(), 100);
-}
-
-function addLink(pillar) {
-  const title = document.getElementById('newLinkTitle').value.trim();
-  const url = document.getElementById('newLinkUrl').value.trim();
-  if (!title || !url) return;
-  if (!STATE.pillars[pillar].links) STATE.pillars[pillar].links = [];
-  STATE.pillars[pillar].links.push({
-    id:uid(), title, url,
-    icon: document.getElementById('newLinkIcon').value.trim() || '🔗'
-  });
-  saveState(); closeModal({target:document.getElementById('modalOverlay')}); renderView(); toast('Link added!');
-}
-
-/* ═══════════════════════════════════════
-   WEEKLY REVIEW VIEW
-   ═══════════════════════════════════════ */
-function renderReview() {
-  const pillars = Object.keys(PILLAR_META);
-
-  let reviewSections = pillars.map(name => {
-    const m = PILLAR_META[name];
+/* ── HABITS ── */
+function rhabits(name){
+  const p=S.pillars[name], wk=wkdays(), pc=PILLARS[name].c;
+  const rows=p.habits.map(h=>{
+    const st=streak(h);
+    const days=wk.map(d=>{
+      const done=!!h.checked?.[d], isT=d===td();
+      return `<div class="hd${done?' done':''}${isT?' today':''}" style="${done?`background:${pc};border-color:${pc}`:isT?`border-color:${pc}`:''}" onclick="tgh('${name}','${h.id}','${d}')" title="${fshort(d)}">${done?'✓':dinit(d)}</div>`;
+    }).join('');
     return `
-    <div class="review-section pillar-${name}">
-      <h4>${m.icon} ${m.label} — Score: ${getPillarScore(name)}%</h4>
-      <div class="review-question">
-        <label>What went well this week?</label>
-        <textarea id="review-${name}-wins" placeholder="Wins and progress..."></textarea>
-      </div>
-      <div class="review-question">
-        <label>What needs improvement?</label>
-        <textarea id="review-${name}-improve" placeholder="Challenges and gaps..."></textarea>
-      </div>
-      <div class="review-question">
-        <label>Score (1-10)</label>
-        <input type="number" id="review-${name}-score" min="1" max="10" placeholder="7">
-      </div>
+    <div class="habit-r">
+      <div class="habit-name-wrap"><span class="habit-name">${h.name}</span><span class="habit-streak-label">${st} day streak</span></div>
+      <div class="hweek">${days}</div>
+      <button class="hdel" onclick="delhab('${name}','${h.id}')" title="Remove">✕</button>
     </div>`;
   }).join('');
 
-  // Past reviews
-  let pastReviews = STATE.reviews.sort((a,b)=>b.date.localeCompare(a.date)).slice(0,5).map(r => `
-    <div class="card" style="margin-bottom:.75rem">
-      <div class="card-header"><span class="card-title">Week of ${formatDate(r.date)}</span><span class="card-subtitle">Overall: ${r.overallScore}/10</span></div>
-      ${Object.keys(r.pillars||{}).map(p => `
-        <div style="padding:.25rem 0;font-size:.85rem">
-          <strong>${PILLAR_META[p]?.icon||''} ${PILLAR_META[p]?.label||p}:</strong> ${r.pillars[p].score}/10
-          ${r.pillars[p].wins ? ` — ${r.pillars[p].wins.slice(0,80)}` : ''}
-        </div>
-      `).join('')}
-      ${r.notes ? `<p style="margin-top:.5rem;font-size:.85rem;color:var(--text-secondary)">${r.notes}</p>` : ''}
-    </div>
-  `).join('');
-
   return `
-  <div class="main-header">
-    <h2>📋 Weekly Review</h2>
-    <button class="btn btn-primary" onclick="saveReview()">Save Review</button>
-  </div>
-  <div class="card" style="margin-bottom:2rem">
-    <div class="card-header"><span class="card-title">This Week — ${formatDate(today())}</span></div>
-    ${reviewSections}
-    <div class="review-section">
-      <h4>📝 Overall Notes</h4>
-      <div class="review-question">
-        <label>Big picture reflections, adjustments, priorities for next week</label>
-        <textarea id="review-overall-notes" rows="4" placeholder="What matters most next week..."></textarea>
+    <div class="sa">
+      <button class="btn-outline" onclick="oaddh('${name}')">
+        ${svgIcon('#ico-add',14)} Add habit
+      </button>
+    </div>
+    ${p.habits.length?`<div class="habits">${rows}</div>`:`<p class="empty-state">No habits yet — start small.</p>`}`;
+}
+
+function tgh(name,id,date){
+  const h=S.pillars[name].habits.find(x=>x.id===id);if(!h)return;
+  if(!h.checked)h.checked={};
+  h.checked[date]=!h.checked[date];
+  if(!h.checked[date])delete h.checked[date];
+  save();renderPillar(name);renderHome();
+}
+function delhab(name,id){
+  S.pillars[name].habits=S.pillars[name].habits.filter(h=>h.id!==id);
+  save();renderPillar(name);toast('Habit removed');
+}
+function oaddh(name){
+  omodal(`<p class="modal-title">New habit — <em>${PILLARS[name].label}</em></p>
+    <div class="mf"><label>Name</label><input id="mh" autofocus placeholder="e.g. Read 30 min"></div>
+    <div class="m-acts">
+      <button class="btn-ghost-sm" onclick="cmodal()">Cancel</button>
+      <button class="btn-primary" onclick="addh('${name}')">Add</button>
+    </div>`);
+  setTimeout(()=>document.getElementById('mh')?.focus(),80);
+}
+function addh(name){
+  const nm=document.getElementById('mh').value.trim();if(!nm)return;
+  S.pillars[name].habits.push({id:uid(),name:nm,checked:{}});
+  save();cmodal();renderPillar(name);toast('Habit added');
+}
+
+/* ── GOALS ── */
+function rgoals(name){
+  const p=S.pillars[name], pc=PILLARS[name].c;
+  const rows=p.goals.map(g=>{
+    const pct=g.target?Math.min(100,Math.round(((g.current||0)/g.target)*100)):null;
+    return `
+    <div class="goal-r" style="--pillar-c:${pc}">
+      <div class="goal-top">
+        <span class="goal-title">${g.title}</span>
+        <button class="btn-danger" onclick="delg('${name}','${g.id}')">Remove</button>
       </div>
-    </div>
-  </div>
-  ${pastReviews ? `<h3 style="margin-bottom:1rem;font-family:var(--font-display)">Past Reviews</h3>${pastReviews}` : ''}
-  `;
-}
-
-function saveReview() {
-  const pillars = Object.keys(PILLAR_META);
-  const review = { id:uid(), date:today(), pillars:{}, notes:'', overallScore:0 };
-  let totalScore = 0;
-  pillars.forEach(name => {
-    const score = parseInt(document.getElementById(`review-${name}-score`)?.value) || 0;
-    review.pillars[name] = {
-      wins: document.getElementById(`review-${name}-wins`)?.value?.trim() || '',
-      improve: document.getElementById(`review-${name}-improve`)?.value?.trim() || '',
-      score
-    };
-    totalScore += score;
-  });
-  review.overallScore = Math.round(totalScore / pillars.length);
-  review.notes = document.getElementById('review-overall-notes')?.value?.trim() || '';
-  STATE.reviews.push(review);
-  saveState(); renderView(); toast('Review saved!');
-}
-
-/* ═══════════════════════════════════════
-   QUICK LINKS VIEW
-   ═══════════════════════════════════════ */
-function renderLinks() {
-  let allLinks = [];
-  Object.keys(STATE.pillars).forEach(name => {
-    (STATE.pillars[name].links||[]).forEach(l => allLinks.push({...l, pillar:name}));
-  });
-  (STATE.quickLinks||[]).forEach(l => allLinks.push({...l, pillar:'general'}));
-
-  let linksHTML = allLinks.length > 0 ? `
-    <div class="links-grid">
-      ${allLinks.map(l => `
-        <a href="${l.url}" target="_blank" class="link-card ${l.pillar!=='general'?'pillar-'+l.pillar:''}">
-          <span class="link-icon">${l.icon||'🔗'}</span>
-          <div class="link-info">
-            <h4>${l.title}</h4>
-            <p>${l.pillar!=='general'?PILLAR_META[l.pillar].label+' · ':''}${l.url.slice(0,35)}</p>
-          </div>
-        </a>
-      `).join('')}
-    </div>
-  ` : '<div class="empty-state"><div class="empty-icon">🔗</div><p>No links saved yet. Add links from any pillar section.</p></div>';
+      ${g.desc?`<p class="goal-desc">${g.desc}</p>`:''}
+      ${pct!==null?`
+        <div class="goal-track"><div class="goal-fill" style="width:${pct}%;background:${pc}"></div></div>
+        <p class="goal-prog-label">${g.current||0} / ${g.target} ${g.unit||''} · ${pct}%</p>
+        <div class="goal-acts"><button class="btn-outline" onclick="updg('${name}','${g.id}')">Update progress</button></div>
+      `:''}
+    </div>`;
+  }).join('');
 
   return `
-  <div class="main-header">
-    <h2>🔗 Quick Links</h2>
-    <button class="btn btn-primary" onclick="showAddQuickLinkModal()">+ Add Link</button>
-  </div>
-  <div class="card">${linksHTML}</div>
+    <div class="sa"><button class="btn-outline" onclick="oaddg('${name}')">${svgIcon('#ico-add',14)} Add goal</button></div>
+    ${p.goals.length?`<div class="goals">${rows}</div>`:`<p class="empty-state">No goals yet — define what matters.</p>`}`;
+}
+function oaddg(name){
+  omodal(`<p class="modal-title">New goal — <em>${PILLARS[name].label}</em></p>
+    <div class="mf"><label>Title</label><input id="mg-t" autofocus></div>
+    <div class="mf"><label>Description</label><textarea id="mg-d" rows="2"></textarea></div>
+    <div class="mf"><label>Target (optional)</label><input id="mg-n" type="number" placeholder="0"></div>
+    <div class="mf"><label>Unit</label><input id="mg-u" placeholder="books, kg, sessions…"></div>
+    <div class="m-acts">
+      <button class="btn-ghost-sm" onclick="cmodal()">Cancel</button>
+      <button class="btn-primary" onclick="addg('${name}')">Add</button>
+    </div>`);
+  setTimeout(()=>document.getElementById('mg-t')?.focus(),80);
+}
+function addg(name){
+  const t=document.getElementById('mg-t').value.trim();if(!t)return;
+  S.pillars[name].goals.push({id:uid(),title:t,desc:document.getElementById('mg-d').value.trim(),target:parseFloat(document.getElementById('mg-n').value)||0,unit:document.getElementById('mg-u').value.trim(),current:0});
+  save();cmodal();renderPillar(name);toast('Goal added');
+}
+function delg(name,id){S.pillars[name].goals=S.pillars[name].goals.filter(g=>g.id!==id);save();renderPillar(name);toast('Goal removed');}
+function updg(name,id){
+  const g=S.pillars[name].goals.find(x=>x.id===id);if(!g)return;
+  const v=prompt(`Progress (target: ${g.target} ${g.unit||''})`,g.current||0);
+  if(v!==null){g.current=parseFloat(v)||0;save();renderPillar(name);toast('Updated');}
+}
+
+/* ── JOURNAL ── */
+let jt={};
+function rjournal(name){
+  const p=S.pillars[name], today=td(), txt=p.journal[today]||'';
+  const past=Object.keys(p.journal).filter(d=>d!==today).sort().reverse().slice(0,8);
+  return `
+    <p class="j-date-lbl">${flong(today)}</p>
+    <textarea class="j-area" id="ja-${name}" placeholder="Write freely…" oninput="autosave('${name}',this.value)">${txt}</textarea>
+    <p class="j-hint">Auto-saves as you type.</p>
+    ${past.length?`
+      <div class="j-past">
+        <p class="j-past-label">Previous entries</p>
+        ${past.map(d=>`
+          <div class="j-entry">
+            <p class="j-entry-date">${flong(d)}</p>
+            <p class="j-entry-text">${p.journal[d]}</p>
+          </div>`).join('')}
+      </div>`:''}`;
+}
+function autosave(name,val){
+  clearTimeout(jt[name]);
+  jt[name]=setTimeout(()=>{S.pillars[name].journal[td()]=val;save();},600);
+}
+
+/* ── LINKS ── */
+function rlinks(name){
+  const p=S.pillars[name];
+  const rows=(p.links||[]).map(l=>`
+    <a href="${l.url}" target="_blank" rel="noopener" class="link-r">
+      <span class="link-ico">${l.icon||'→'}</span>
+      <div class="link-body">
+        <p class="link-title-t">${l.title}</p>
+        <p class="link-url-t">${l.url.replace(/^https?:\/\//,'').slice(0,55)}</p>
+      </div>
+      <span class="link-arr">→</span>
+      <button class="hdel" onclick="dellnk('${name}','${l.id}');event.preventDefault();event.stopPropagation()" title="Remove">✕</button>
+    </a>`).join('');
+  return `
+    <div class="sa"><button class="btn-outline" onclick="oaddl('${name}')">${svgIcon('#ico-add',14)} Add link</button></div>
+    ${p.links?.length?`<div class="links">${rows}</div>`:`<p class="empty-state">No links saved yet.</p>`}`;
+}
+function oaddl(name){
+  omodal(`<p class="modal-title">Add link — <em>${PILLARS[name].label}</em></p>
+    <div class="mf"><label>Title</label><input id="ml-t" autofocus></div>
+    <div class="mf"><label>URL</label><input id="ml-u" type="url" placeholder="https://"></div>
+    <div class="mf"><label>Icon (emoji)</label><input id="ml-i" placeholder="→" maxlength="4"></div>
+    <div class="m-acts">
+      <button class="btn-ghost-sm" onclick="cmodal()">Cancel</button>
+      <button class="btn-primary" onclick="addl('${name}')">Save</button>
+    </div>`);
+  setTimeout(()=>document.getElementById('ml-t')?.focus(),80);
+}
+function addl(name){
+  const t=document.getElementById('ml-t').value.trim(),u=document.getElementById('ml-u').value.trim();
+  if(!t||!u)return;
+  if(!S.pillars[name].links)S.pillars[name].links=[];
+  S.pillars[name].links.push({id:uid(),title:t,url:u,icon:document.getElementById('ml-i').value.trim()||'→'});
+  save();cmodal();renderPillar(name);toast('Link saved');
+}
+function dellnk(name,id){
+  S.pillars[name].links=S.pillars[name].links.filter(l=>l.id!==id);
+  save();renderPillar(name);toast('Link removed');
+}
+
+/* ═══════════════════════════════
+   REVIEW
+═══════════════════════════════ */
+function renderReview(){
+  const el=document.getElementById('v-review');
+  el.style.setProperty('--pillar-c','var(--teal-mid)');
+
+  const past=(S.reviews||[]).sort((a,b)=>b.date.localeCompare(a.date)).slice(0,5);
+
+  el.innerHTML=`
+    <div class="pv-header">
+      <div class="pv-eyebrow"><span style="background:var(--teal-mid)"></span>Reflection · Growth · Accountability</div>
+      <h2 class="pv-title"><em>Weekly Review</em></h2>
+    </div>
+    ${Object.entries(PILLARS).map(([k,p])=>`
+      <div class="rv-section" style="--pillar-c:${p.c}">
+        <p class="rv-head">
+          <svg width="18" height="18" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:.4rem;color:${p.c}"><use href="${p.icon}"/></svg>
+          ${p.label} — ${pscore(k)}% this week
+        </p>
+        <div class="rv-q"><label>Wins</label><textarea id="rv-${k}-w" placeholder="What went well…"></textarea></div>
+        <div class="rv-q"><label>Improve</label><textarea id="rv-${k}-i" placeholder="What to sharpen…"></textarea></div>
+        <div class="rv-q"><label>Score 1–10</label><input type="number" id="rv-${k}-s" min="1" max="10" placeholder="7"></div>
+      </div>`).join('')}
+    <div class="rv-section" style="--pillar-c:var(--teal-mid)">
+      <p class="rv-head">Overall reflection</p>
+      <div class="rv-q"><label>Notes & next week focus</label><textarea id="rv-notes" rows="4" style="min-height:100px" placeholder="Big picture…"></textarea></div>
+    </div>
+    <div class="sa"><button class="btn-primary" onclick="savrev()">Save Review</button></div>
+    ${past.length?`
+      <div class="rv-past">
+        <p class="rv-past-label">Past reviews</p>
+        ${past.map(r=>`
+          <div class="rv-item">
+            <p class="rv-item-date">${flong(r.date)} · Overall ${r.overall}/10</p>
+            <div class="rv-scores">
+              ${Object.entries(r.pillars||{}).map(([k,v])=>`
+                <div class="rv-score">
+                  <span class="rv-score-lbl">${PILLARS[k]?.label||k}</span>
+                  <span class="rv-score-val" style="color:${PILLARS[k]?.c||'inherit'}">${v.score}/10</span>
+                </div>`).join('')}
+            </div>
+            ${r.notes?`<p style="font-size:.82rem;color:var(--c-ink-3);margin-top:.75rem">${r.notes}</p>`:''}
+          </div>`).join('')}
+      </div>`:''}
   `;
 }
 
-function showAddQuickLinkModal() {
-  openModal(`
-    <h3>Add Quick Link</h3>
-    <label>Title</label>
-    <input type="text" id="qlTitle" placeholder="e.g. Google Drive folder" autofocus>
-    <label>URL</label>
-    <input type="url" id="qlUrl" placeholder="https://...">
-    <label>Icon (emoji)</label>
-    <input type="text" id="qlIcon" placeholder="🔗" maxlength="4">
-    <div class="modal-actions">
-      <button class="btn btn-secondary" onclick="closeModal({target:document.getElementById('modalOverlay')})">Cancel</button>
-      <button class="btn btn-primary" onclick="addQuickLink()">Add</button>
-    </div>
-  `);
+function savrev(){
+  const r={id:uid(),date:td(),pillars:{},notes:'',overall:0};
+  let tot=0;
+  Object.keys(PILLARS).forEach(k=>{
+    const sc=parseInt(document.getElementById(`rv-${k}-s`)?.value)||0;
+    r.pillars[k]={wins:document.getElementById(`rv-${k}-w`)?.value?.trim()||'',imp:document.getElementById(`rv-${k}-i`)?.value?.trim()||'',score:sc};
+    tot+=sc;
+  });
+  r.overall=Math.round(tot/Object.keys(PILLARS).length);
+  r.notes=document.getElementById('rv-notes')?.value?.trim()||'';
+  if(!S.reviews)S.reviews=[];
+  S.reviews.push(r);
+  save();renderReview();toast('Review saved ✓');
 }
 
-function addQuickLink() {
-  const title = document.getElementById('qlTitle').value.trim();
-  const url = document.getElementById('qlUrl').value.trim();
-  if (!title || !url) return;
-  if (!STATE.quickLinks) STATE.quickLinks = [];
-  STATE.quickLinks.push({ id:uid(), title, url, icon: document.getElementById('qlIcon').value.trim()||'🔗' });
-  saveState(); closeModal({target:document.getElementById('modalOverlay')}); renderView(); toast('Link added!');
+/* ═══════════════════════════════
+   MODAL
+═══════════════════════════════ */
+function omodal(html){document.getElementById('mbox').innerHTML=html;document.getElementById('mbg').classList.add('on');}
+function cmodal(){document.getElementById('mbg').classList.remove('on');}
+
+/* ═══════════════════════════════
+   EXPORT / IMPORT
+═══════════════════════════════ */
+function doexport(){
+  const b=new Blob([JSON.stringify(S,null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=`ahmad-life-${td()}.json`;a.click();
+  toast('Data exported');
+}
+function doimport(e){
+  const f=e.target.files[0];if(!f)return;
+  f.text().then(txt=>{
+    try{const d=JSON.parse(txt);if(d.pillars){S=d;save();renderHome();toast('Imported ✓');}else toast('Invalid file');}
+    catch{toast('Import failed');}
+    e.target.value='';
+  });
 }
 
-/* ═══════════════════════════════════════
-   DATA EXPORT / IMPORT
-   ═══════════════════════════════════════ */
-function exportAllData() {
-  const blob = new Blob([JSON.stringify(STATE, null, 2)], {type:'application/json'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = `ahmadov-life-data-${today()}.json`;
-  a.click();
-  URL.revokeObjectURL(a.href);
-  toast('Data exported!');
-}
-
-function importDataPrompt() {
-  document.getElementById('importFile').click();
-}
-
-async function handleImport(e) {
-  const file = e.target.files[0];
-  if (!file) return;
-  try {
-    const text = await file.text();
-    const data = JSON.parse(text);
-    if (data.pillars) {
-      STATE = data;
-      await saveState();
-      renderView();
-      toast('Data imported successfully!');
-    } else {
-      toast('Invalid data format', 'error');
-    }
-  } catch(err) { toast('Import failed: ' + err.message, 'error'); }
-  e.target.value = '';
-}
-
-/* ═══════════════════════════════════════
-   KEYBOARD SHORTCUTS & EVENTS
-   ═══════════════════════════════════════ */
-function bindEvents() {
-  // Keyboard shortcuts
-}
-
-document.addEventListener('keydown', (e) => {
-  // ESC to close modal
-  if (e.key === 'Escape') {
-    document.getElementById('modalOverlay').classList.remove('show');
-    document.getElementById('sidebar').classList.remove('open');
-  }
-  // Quick nav: Ctrl+1-5 for pillars
-  if (e.ctrlKey && e.key >= '1' && e.key <= '5') {
-    e.preventDefault();
-    const pillars = ['mind','body','soul','finance','social'];
-    switchView(pillars[parseInt(e.key)-1]);
-  }
-  // Ctrl+0 for dashboard
-  if (e.ctrlKey && e.key === '0') { e.preventDefault(); switchView('dashboard'); }
-});
-
-// Auto-save session check
-window.addEventListener('beforeunload', () => { if(STATE) saveState(); });
-
-// Mobile sidebar close on outside click
-document.addEventListener('click', (e) => {
-  const sidebar = document.getElementById('sidebar');
-  const toggle = document.getElementById('mobileNavToggle');
-  if (sidebar.classList.contains('open') && !sidebar.contains(e.target) && e.target !== toggle) {
-    sidebar.classList.remove('open');
+/* ═══════════════════════════════
+   KEYBOARD SHORTCUTS
+═══════════════════════════════ */
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape')cmodal();
+  if((e.ctrlKey||e.metaKey)&&!e.shiftKey){
+    const map={'1':'mind','2':'body','3':'soul','4':'finance','5':'social','0':'home','r':'review'};
+    const target=map[e.key];
+    if(target){e.preventDefault();target==='home'?gohome():showv(target);}
   }
 });
+
+window.addEventListener('beforeunload',()=>{if(S)save();});
 </script>
 </body>
 </html>
