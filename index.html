@@ -1,448 +1,197 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Ahmad Haidar — Figurative Sculptor</title>
-<meta name="description" content="Ahmad Haidar — a Kuwaiti sculptor in bas-relief and bronze. Heirs of Fire: a pantheon in bronze of the minds that shaped civilisation." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=yes">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Primary Meta -->
+<title>Ahmad Haider — Engineer. Designer. Sculptor.</title>
+<meta name="title" content="Ahmad Haider — Engineer. Designer. Sculptor.">
+<meta name="description" content="Multi-disciplinary creator based in Kuwait. Crafting digital products, brand identities, and physical sculptures. Specialized in tech apps, growth strategies, and traditional sculpture.">
+<meta name="keywords" content="Ahmad Haider, Product Designer, UX Designer, Sculptor, Kuwait, Brand Identity, App Design, Growth Strategy">
+<meta name="author" content="Ahmad Haider">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ahmadhaider.com">
+
+<!-- Theme -->
+<meta name="theme-color" content="#14b8a6">
+<meta name="msapplication-TileColor" content="#14b8a6">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Ahmad Haider">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ahmadhaider.com">
+<meta property="og:title" content="Ahmad Haider — Engineer. Designer. Sculptor.">
+<meta property="og:description" content="Multi-disciplinary creator based in Kuwait. Crafting digital products, brand identities, and physical sculptures.">
+<meta property="og:image" content="https://ahmadhaider.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ar_KW">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://ahmadhaider.com">
+<meta name="twitter:title" content="Ahmad Haider — Engineer. Designer. Sculptor.">
+<meta name="twitter:description" content="Multi-disciplinary creator based in Kuwait. Crafting digital products, brand identities, and physical sculptures.">
+<meta name="twitter:image" content="https://ahmadhaider.com/og-image.jpg">
+
+<!-- Security -->
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<!-- Favicons -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◈</text></svg>">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<!-- Preconnect -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Hanken+Grotesk:wght@300;400;500;600&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=DM+Sans:wght@400;500;600&family=Noto+Kufi+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Structured Data -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Ahmad Haider","url":"https://ahmadhaider.com","image":"https://ahmadhaider.com/ahmad-haider.jpg","jobTitle":["Product Designer","UX Designer","Sculptor"],"description":"Multi-disciplinary creator based in Kuwait specializing in digital products, brand identities, and traditional sculpture.","address":{"@type":"PostalAddress","addressCountry":"KW","addressLocality":"Kuwait"},"sameAs":["https://instagram.com/Ahmadov.kw","https://wa.me/96566458885"],"knowsAbout":["Product Design","UX/UI Design","Brand Identity","Sculpture","Growth Strategy"]}</script>
+
 <style>
-  :root{
-    --paper:#F7F4ED; --paper-2:#FCFBF7; --stone:#EDE8DD; --stone-2:#E5DFD2;
-    --ink:#2B2823; --ink-2:#3A362F; --ink-soft:#726B5E; --ink-faint:#9A9384;
-    --gold:#B0894E; --gold-soft:#C2A06A; --gold-deep:#876736;
-    --line:rgba(43,40,35,.12); --line-soft:rgba(43,40,35,.06);
-    --shadow:0 26px 60px -34px rgba(43,40,35,.30);
-    --shadow-sm:0 14px 34px -22px rgba(43,40,35,.26);
-    --serif:'Fraunces',Georgia,serif;
-    --sans:'Hanken Grotesk',-apple-system,Segoe UI,sans-serif;
-    --maxw:1280px; --pad:clamp(22px,5.5vw,72px);
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:400;
-    line-height:1.7;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
-  ::selection{background:var(--gold);color:#fff}
-  a{color:inherit;text-decoration:none}
-  img{display:block;max-width:100%}
-
-  /* Arabic */
-  body.ar [data-en]{font-family:'Amiri',var(--serif)}
-  body.ar .txt{direction:rtl;text-align:right}
-  body.ar .ctr{direction:rtl}
-  body.ar .lead-xl,body.ar .stmt p{line-height:1.95}
-
-  /* NAV */
-  .nav{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;
-    padding:20px var(--pad);transition:background .4s,padding .4s,border-color .4s,box-shadow .4s;border-bottom:1px solid transparent}
-  .nav--solid{background:rgba(247,244,237,.82);backdrop-filter:blur(14px) saturate(1.1);border-bottom:1px solid var(--line-soft);padding-top:14px;padding-bottom:14px}
-  .brand{font-family:var(--serif);font-weight:400;font-size:1.32rem;letter-spacing:.01em}
-  .brand .d{color:var(--gold)}
-  .nav__links{display:none;gap:34px;align-items:center}
-  .nav__links a{font-family:var(--sans);font-size:.74rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);transition:color .25s}
-  .nav__links a:hover{color:var(--ink)}
-  .nav__right{display:flex;align-items:center;gap:14px}
-  .lang{display:inline-flex;border:1px solid var(--line);border-radius:100px;overflow:hidden;font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.08em}
-  .lang button{background:none;border:0;color:var(--ink-soft);padding:7px 13px;cursor:pointer;transition:.25s;font:inherit}
-  .lang button.on{background:var(--gold);color:#fff}
-  .btn-enq{display:none;font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
-    border:1px solid var(--gold);color:var(--gold-deep);padding:10px 20px;border-radius:100px;transition:.3s}
-  .btn-enq:hover{background:var(--gold);color:#fff;border-color:var(--gold)}
-
-  /* shared */
-  .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--pad)}
-  .eyebrow{font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-deep);display:block}
-  .section{padding:clamp(96px,15vw,190px) 0}
-  .sec-soft{background:linear-gradient(180deg,var(--paper),var(--stone))}
-  h2.sec-title{font-family:var(--serif);font-weight:300;font-size:clamp(2.3rem,5.6vw,4rem);line-height:1.04;letter-spacing:-.015em;margin-top:18px}
-  .reveal{opacity:0;transform:translateY(20px);transition:opacity 1s ease,transform 1s ease}
-  .reveal.in{opacity:1;transform:none}
-
-  /* HERO */
-  .hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:150px var(--pad) 110px;overflow:hidden;
-    background:radial-gradient(110% 80% at 50% -12%,rgba(176,137,78,.10),transparent 55%),var(--paper)}
-  .hero__grid{max-width:var(--maxw);margin:0 auto;width:100%;display:grid;gap:clamp(44px,7vw,90px);align-items:center;grid-template-columns:1fr}
-  .hero__copy{position:relative;z-index:2}
-  .hero__name{font-family:var(--serif);font-optical-sizing:none;font-variation-settings:'opsz' 40,'wght' 480;font-size:clamp(3.3rem,11vw,7rem);line-height:.96;letter-spacing:-.025em;margin:22px 0 0;color:var(--ink)}
-  .hero__name .d{color:var(--gold)}
-  .hero__sub{font-size:clamp(1.12rem,2.3vw,1.4rem);color:var(--ink-soft);max-width:30ch;margin-top:26px;font-weight:300}
-  .hero__series{margin-top:34px;display:inline-flex;align-items:center;gap:11px;font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
-  .hero__series .pip{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 5px rgba(176,137,78,.16)}
-  .hero__cta{margin-top:44px;display:flex;flex-wrap:wrap;gap:14px}
-  .cta-solid{background:var(--gold);color:#fff;font-family:var(--sans);font-size:.76rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:16px 28px;border-radius:100px;transition:.3s;border:1px solid var(--gold)}
-  .cta-solid:hover{background:var(--gold-deep);border-color:var(--gold-deep)}
-  .cta-ghost{border:1px solid var(--line);color:var(--ink);font-family:var(--sans);font-size:.76rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:16px 28px;border-radius:100px;transition:.3s}
-  .cta-ghost:hover{border-color:var(--gold);color:var(--gold-deep)}
-  .hero__art{position:relative;z-index:1;justify-self:center;width:100%;max-width:400px}
-
-  .frame{position:relative;border-radius:4px;overflow:hidden;background:linear-gradient(165deg,#fff,#EFEADF);
-    border:1px solid var(--line-soft);box-shadow:var(--shadow)}
-  .frame--portrait{aspect-ratio:4/5}
-  .frame__glow{position:absolute;inset:0;background:radial-gradient(78% 55% at 50% 16%,rgba(176,137,78,.12),transparent 62%);pointer-events:none}
-  .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:26px}
-  .ph__icn{width:34px;height:34px;opacity:.45;color:var(--gold-deep)}
-  .ph__t{font-family:var(--sans);font-size:.66rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep)}
-  .ph__s{font-size:.92rem;color:var(--ink-soft);font-style:italic;max-width:24ch}
-
-  .scrollcue{position:absolute;left:50%;bottom:30px;transform:translateX(-50%);z-index:2;font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-faint);display:flex;flex-direction:column;align-items:center;gap:9px}
-  .scrollcue .line{width:1px;height:36px;background:linear-gradient(var(--gold),transparent);animation:cue 2.6s ease-in-out infinite}
-  @keyframes cue{0%,100%{opacity:.3;transform:scaleY(.6);transform-origin:top}50%{opacity:1;transform:scaleY(1);transform-origin:top}}
-
-  /* INTRO line */
-  .intro{max-width:920px}
-  .intro .lead-xl{font-family:var(--serif);font-weight:300;font-size:clamp(1.6rem,3.8vw,2.7rem);line-height:1.3;letter-spacing:-.01em;margin-top:24px;color:var(--ink-2)}
-  .intro .lead-xl em{font-style:italic;color:var(--gold-deep)}
-
-  /* STATEMENT (minimal) */
-  .stmt{max-width:880px}
-  .stmt .quote{font-family:var(--serif);font-weight:300;font-size:clamp(1.7rem,4vw,2.9rem);line-height:1.26;letter-spacing:-.01em;margin-top:24px;color:var(--ink)}
-  .stmt .quote em{font-style:italic;color:var(--gold-deep)}
-  .stmt p{font-size:1.1rem;line-height:1.78;color:var(--ink-soft);max-width:60ch;margin-top:30px}
-
-  /* SCROLLER (horizontal) */
-  .scroller-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:clamp(34px,5vw,58px)}
-  .scroller-head__t{display:flex;flex-direction:column;gap:8px}
-  .snav{display:none;gap:12px;align-items:center}
-  .sbtn{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:var(--paper-2);color:var(--ink);
-    display:grid;place-items:center;cursor:pointer;transition:.3s}
-  .sbtn:hover{border-color:var(--gold);color:var(--gold-deep)}
-  .sbtn:disabled{opacity:.3;cursor:default;border-color:var(--line-soft)}
-  .sbtn svg{width:18px;height:18px}
-  .scroller{display:flex;gap:clamp(22px,3vw,40px);overflow-x:auto;scroll-snap-type:x mandatory;
-    padding-inline:var(--pad);scroll-padding-inline:var(--pad);padding-bottom:6px;
-    -webkit-overflow-scrolling:touch;scrollbar-width:none;cursor:grab}
-  .scroller::-webkit-scrollbar{height:0;display:none}
-  .scroller.drag{cursor:grabbing;scroll-snap-type:none}
-  .scroller>*{scroll-snap-align:start;flex:0 0 auto}
-
-  /* WORK card */
-  .work{width:clamp(260px,80vw,360px)}
-  .work__frame{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:3px;background:linear-gradient(165deg,#fff,#ECE6DA);
-    border:1px solid var(--line-soft);box-shadow:var(--shadow-sm);transition:box-shadow .5s,transform .5s}
-  .work__frame img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
-  .work:hover .work__frame{box-shadow:var(--shadow);transform:translateY(-5px)}
-  .work:hover .work__frame img{transform:scale(1.04)}
-  .work__glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(72% 52% at 50% 14%,rgba(176,137,78,.10),transparent 64%)}
-  .label{margin-top:20px;padding-left:16px;border-left:1px solid var(--gold)}
-  body.ar .label{padding-left:0;padding-right:16px;border-left:0;border-right:1px solid var(--gold)}
-  .label__name{font-family:var(--serif);font-weight:400;font-size:1.3rem;color:var(--ink)}
-  .label__med{font-style:italic;color:var(--ink-soft);font-size:.95rem;margin-top:3px;font-family:var(--serif)}
-  .label__meta{font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--gold-deep);margin-top:10px}
-  .label__note{color:var(--ink-soft);font-size:.92rem;margin-top:10px;max-width:32ch}
-
-  /* REEL card */
-  .reel{width:clamp(220px,66vw,290px)}
-  .reel__frame{position:relative;aspect-ratio:9/16;border-radius:3px;overflow:hidden;background:linear-gradient(180deg,#fff,#EAE4D7);
-    border:1px solid var(--line-soft);box-shadow:var(--shadow-sm);display:flex;align-items:center;justify-content:center;transition:.4s}
-  .reel:hover .reel__frame{box-shadow:var(--shadow);transform:translateY(-4px)}
-  .reel__frame video,.reel__frame iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
-  .reel__inner{position:relative;z-index:2;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px;padding:22px}
-  .reel__play{width:58px;height:58px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;color:var(--gold-deep)}
-  .reel__t{font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
-  .hint{font-family:var(--sans);font-size:.66rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-top:22px;padding-inline:var(--pad)}
-
-  /* RECOGNITION */
-  .cv{max-width:940px;margin-top:clamp(38px,5vw,62px)}
-  .cv__row{display:grid;grid-template-columns:1fr;gap:5px 30px;padding:24px 0;border-top:1px solid var(--line)}
-  .cv__row:last-child{border-bottom:1px solid var(--line)}
-  .cv__k{font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);padding-top:3px}
-  .cv__v{font-size:1.06rem;color:var(--ink-2)}
-  .cv__v .ph-min{color:var(--ink-faint);font-style:italic}
-
-  /* CONTACT */
-  .contact{text-align:center}
-  .contact .big{font-family:var(--serif);font-weight:300;font-size:clamp(2.3rem,6.6vw,4.6rem);line-height:1.04;letter-spacing:-.015em;margin:18px auto 0;max-width:15ch;color:var(--ink)}
-  .contact .big em{font-style:italic;color:var(--gold-deep)}
-  .contact .sub{color:var(--ink-soft);margin:24px auto 0;max-width:44ch;font-size:1.05rem}
-  .contact__cta{margin-top:44px;display:flex;flex-wrap:wrap;gap:16px;justify-content:center}
-  .contact__meta{margin-top:48px;display:flex;flex-wrap:wrap;gap:12px 36px;justify-content:center;font-family:var(--sans);font-size:.8rem;font-weight:500;letter-spacing:.06em;color:var(--ink-soft)}
-  .contact__meta a:hover{color:var(--gold-deep)}
-
-  /* FOOTER */
-  .foot{border-top:1px solid var(--line);padding:40px var(--pad);display:flex;flex-direction:column;gap:16px;align-items:center;text-align:center}
-  .foot__brand{font-family:var(--serif);font-size:1.15rem}.foot__brand .d{color:var(--gold)}
-  .foot__small{font-family:var(--sans);font-size:.7rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
-
-  @media(min-width:760px){
-    .cv__row{grid-template-columns:240px 1fr;align-items:baseline}
-    body.ar .cv__row{direction:rtl}
-    .snav{display:flex}
-    .hint{display:none}
-  }
-  @media(min-width:920px){
-    .nav__links{display:flex}.btn-enq{display:inline-block}
-    .hero__grid{grid-template-columns:1.15fr .85fr}
-    body.ar .hero__copy{direction:rtl;text-align:right}
-  }
-  @media(max-width:919px){.hero__art{order:-1;max-width:320px}}
-  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}:root{--black:#000;--white:#fff;--gray-400:#737373;--gray-600:#525252;--gray-800:#e2e8e6;--gray-900:#f0f5f4;--teal-300:#5eead4;--teal-400:#2dd4bf;--teal-500:#14b8a6;--teal-600:#0d9488;--cyan-400:#22d3ee;--bg:#f7fafa;--bg-elevated:#fff;--bg-subtle:#eef6f5;--text:#0f2a26;--text-secondary:#4a6b65;--accent:var(--teal-500);--accent-light:rgba(20,184,166,.1);--font-display:'Fraunces',serif;--font-body:'DM Sans',-apple-system,sans-serif;--font-arabic:'Noto Kufi Arabic',sans-serif;--ease-out:cubic-bezier(.16,1,.3,1);--ease-smooth:cubic-bezier(.4,0,.2,1);--duration-slow:1.2s;--duration-medium:.8s;--duration-subtle:.5s}::selection{background:var(--accent);color:var(--bg)}html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}body{font-family:var(--font-body);background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}[dir="rtl"] body{font-family:var(--font-arabic)}.skip-link{position:absolute;top:-100%;left:50%;transform:translateX(-50%);background:var(--accent);color:var(--white);padding:.75rem 1.5rem;border-radius:0 0 8px 8px;z-index:9999;font-weight:600;text-decoration:none;transition:top .3s}.skip-link:focus{top:0}:focus-visible{outline:2px solid var(--accent);outline-offset:3px}header{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 2rem;display:flex;justify-content:space-between;align-items:center;opacity:0;animation:headerReveal var(--duration-slow) var(--ease-out) 1.8s forwards;will-change:opacity,transform}@keyframes headerReveal{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}.logo{font-family:var(--font-display);font-size:1.5rem;font-weight:500;color:var(--text);text-decoration:none;transition:opacity var(--duration-subtle) var(--ease-smooth)}[dir="rtl"] .logo{font-family:var(--font-arabic)}.logo:hover{opacity:.7}.logo span{color:var(--accent)}.header-controls{display:flex;align-items:center;gap:.75rem}.ctrl-btn{height:44px;padding:0 1.25rem;border:1px solid var(--gray-800);border-radius:50px;background:var(--bg-elevated);color:var(--text);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:600;font-family:var(--font-body);transition:border-color var(--duration-subtle) var(--ease-smooth),background var(--duration-subtle) var(--ease-smooth),box-shadow var(--duration-subtle) var(--ease-smooth);box-shadow:0 2px 8px rgba(0,0,0,.04)}[dir="rtl"] .ctrl-btn{font-family:var(--font-arabic)}.ctrl-btn:hover,.ctrl-btn:focus-visible{background:var(--bg-subtle);border-color:var(--accent)}.nav-toggle{width:44px;height:44px;padding:0;display:none;flex-direction:column;justify-content:center;gap:6px;cursor:pointer;background:var(--bg-elevated);border:1px solid var(--gray-800);border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.04)}.nav-toggle span{width:20px;height:2px;background:var(--text);margin:0 auto;transition:all var(--duration-subtle) var(--ease-out);border-radius:2px}.nav-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}.nav-toggle.active span:nth-child(2){opacity:0}.nav-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px)}.hero{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden;background:linear-gradient(180deg,var(--bg) 0%,var(--bg-subtle) 100%);content-visibility:auto}.hero-bg{position:absolute;inset:0;z-index:-1;opacity:0;animation:bgReveal 2.5s var(--ease-smooth) .5s forwards;will-change:opacity}@keyframes bgReveal{from{opacity:0}to{opacity:1}}.hero-bg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(94,234,212,.2) 0%,transparent 60%),radial-gradient(ellipse 60% 50% at 80% 50%,rgba(45,212,191,.15) 0%,transparent 50%),radial-gradient(ellipse 50% 40% at 20% 60%,rgba(34,211,238,.1) 0%,transparent 50%)}.hero-geometry{position:absolute;inset:0;z-index:-1;opacity:0;animation:geometryReveal 3s var(--ease-smooth) 1.5s forwards}.hero-geometry svg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(90vw,700px);height:min(90vw,700px);opacity:.06}@keyframes geometryReveal{from{opacity:0}to{opacity:1}}.hero-bg::after{content:'';position:absolute;inset:-50%;background:radial-gradient(circle at 50% 50%,rgba(20,184,166,.08) 0%,transparent 50%);animation:breathe 12s var(--ease-smooth) infinite;will-change:transform,opacity}@keyframes breathe{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.1);opacity:.8}}.hero-content{max-width:800px}.hero-badge{display:inline-flex;align-items:center;gap:.6rem;padding:.6rem 1.25rem;background:var(--bg-elevated);border:1px solid var(--gray-800);border-radius:50px;font-size:.9rem;color:var(--text-secondary);margin-bottom:2.5rem;opacity:0;transform:translateY(20px);animation:quietReveal var(--duration-slow) var(--ease-out) .3s forwards;box-shadow:0 4px 20px rgba(0,0,0,.04);will-change:opacity,transform}.hero-badge::before{content:'';width:8px;height:8px;background:var(--accent);border-radius:50%;animation:slowPulse 4s var(--ease-smooth) infinite}@keyframes slowPulse{0%,100%{opacity:1;transform:scale(1);box-shadow:0 0 0 0 rgba(20,184,166,.3)}50%{opacity:.8;transform:scale(1.1);box-shadow:0 0 0 6px rgba(20,184,166,0)}}@keyframes quietReveal{from{opacity:0;transform:translateY(20px);filter:blur(4px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}.hero-title{font-family:var(--font-display);font-size:clamp(3rem,11vw,6.5rem);font-weight:400;line-height:1;letter-spacing:-.03em;margin-bottom:2rem}[dir="rtl"] .hero-title{font-family:var(--font-arabic);font-weight:600;letter-spacing:0}.hero-title span{display:block;opacity:0;transform:translateY(30px);filter:blur(8px);animation:titleReveal 1.4s var(--ease-out) forwards;will-change:opacity,transform,filter}.hero-title span:nth-child(1){animation-delay:.4s}.hero-title span:nth-child(2){animation-delay:.6s}.hero-title span:nth-child(3){animation-delay:.8s}@keyframes titleReveal{from{opacity:0;transform:translateY(30px);filter:blur(8px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}.hero-title .accent{color:var(--accent);font-style:italic;position:relative;display:inline-block}[dir="rtl"] .hero-title .accent{font-style:normal}.hero-title .accent::after{content:'';position:absolute;bottom:.1em;left:0;width:100%;height:.08em;background:var(--accent);opacity:.6;border-radius:2px;transform:scaleX(0);transform-origin:left;animation:lineReveal 1s var(--ease-out) 1.4s forwards}[dir="rtl"] .hero-title .accent::after{transform-origin:right}@keyframes lineReveal{from{transform:scaleX(0)}to{transform:scaleX(1)}}.hero-subtitle{font-size:clamp(1rem,2.5vw,1.2rem);color:var(--text-secondary);max-width:600px;margin:0 auto 2.5rem;line-height:1.7;opacity:0;transform:translateY(20px);animation:quietReveal var(--duration-slow) var(--ease-out) 1s forwards}.hero-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;opacity:0;transform:translateY(20px);animation:quietReveal var(--duration-slow) var(--ease-out) 1.2s forwards}.btn{display:inline-flex;align-items:center;gap:.75rem;padding:1rem 2rem;border-radius:60px;font-size:1rem;font-weight:600;text-decoration:none;cursor:pointer;border:none;font-family:var(--font-body);transition:transform var(--duration-subtle) var(--ease-out),box-shadow var(--duration-medium) var(--ease-out),background var(--duration-subtle) var(--ease-smooth),border-color var(--duration-subtle) var(--ease-smooth)}[dir="rtl"] .btn{font-family:var(--font-arabic)}.btn-primary{background:var(--accent);color:var(--white);box-shadow:0 4px 20px rgba(20,184,166,.25)}.btn-primary:hover,.btn-primary:focus-visible{transform:translateY(-2px);box-shadow:0 12px 35px rgba(20,184,166,.35)}.btn-primary svg{width:22px;height:22px;transition:transform var(--duration-subtle) var(--ease-out)}.btn-primary:hover svg{transform:scale(1.05)}.btn-secondary{background:var(--bg-elevated);color:var(--text);border:1px solid var(--gray-800);box-shadow:0 2px 8px rgba(0,0,0,.04)}.btn-secondary:hover,.btn-secondary:focus-visible{border-color:var(--accent);background:var(--accent-light)}.scroll-indicator{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.75rem;color:var(--text-secondary);font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;opacity:0;animation:quietReveal var(--duration-slow) var(--ease-out) 2s forwards}.scroll-indicator::after{content:'';width:1px;height:40px;background:linear-gradient(to bottom,var(--accent),transparent);transform:scaleY(0);transform-origin:top;animation:scrollDraw 2.5s var(--ease-out) 2.5s forwards}@keyframes scrollDraw{0%{transform:scaleY(0);opacity:1}50%{transform:scaleY(1);opacity:1}100%{transform:scaleY(1);opacity:.3}}.about{padding:8rem 2rem;max-width:850px;margin:0 auto;content-visibility:auto;position:relative}.about-text{font-family:var(--font-display);font-size:clamp(1.4rem,3.5vw,2.25rem);font-weight:400;line-height:1.5;letter-spacing:-.01em;opacity:0;transform:translateY(40px);filter:blur(6px);transition:opacity 1.4s var(--ease-out),transform 1.4s var(--ease-out),filter 1.4s var(--ease-out);will-change:opacity,transform,filter}[dir="rtl"] .about-text{font-family:var(--font-arabic);font-weight:500}.about-text.visible{opacity:1;transform:translateY(0);filter:blur(0)}.about-text .highlight{color:var(--accent)}.services{padding:6rem 2rem 8rem;background:var(--bg-elevated);content-visibility:auto}.section-label{font-size:.75rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);text-align:center;display:block;margin-bottom:4rem;opacity:0;transform:translateY(20px);transition:opacity var(--duration-slow) var(--ease-out),transform var(--duration-slow) var(--ease-out)}.section-label.visible{opacity:1;transform:translateY(0)}.pillars{display:grid;grid-template-columns:repeat(3,1fr);max-width:1100px;margin:0 auto;position:relative}.pillars-connection{display:flex;justify-content:center;margin-bottom:3rem;opacity:0;transition:opacity 1.5s var(--ease-out)}.pillars-connection.visible{opacity:1}.pillars-connection svg{width:120px;height:120px}.pillar{padding:2.5rem 2rem;border-left:1px solid var(--gray-800);opacity:0;transform:translateY(30px);filter:blur(4px);transition:opacity 1.2s var(--ease-out),transform 1.2s var(--ease-out),filter 1.2s var(--ease-out);will-change:opacity,transform,filter;position:relative;overflow:hidden}.pillar::before{content:'';position:absolute;top:0;right:0;width:120px;height:100%;opacity:0;pointer-events:none;background-size:contain;background-repeat:no-repeat;background-position:center right}.pillar[data-pillar="digital"]::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 200' fill='none' stroke='%2314b8a6' stroke-width='0.5' opacity='0.15'%3E%3Crect x='10' y='20' width='30' height='30' rx='4'/%3E%3Crect x='50' y='60' width='25' height='25' rx='4'/%3E%3Crect x='20' y='100' width='35' height='35' rx='4'/%3E%3Cline x1='25' y1='50' x2='25' y2='60'/%3E%3Cline x1='62' y1='85' x2='62' y2='100'/%3E%3Cline x1='40' y1='35' x2='50' y2='35'/%3E%3Ccircle cx='70' cy='30' r='8'/%3E%3Ccircle cx='30' cy='150' r='12'/%3E%3Cpath d='M60 140 L80 140 L80 170 L60 170 Z' stroke-dasharray='4,2'/%3E%3C/svg%3E")}.pillar[data-pillar="brand"]::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 200' fill='none' stroke='%2314b8a6' stroke-width='0.5' opacity='0.15'%3E%3Ccircle cx='50' cy='40' r='25'/%3E%3Ccircle cx='30' cy='100' r='18'/%3E%3Ccircle cx='65' cy='120' r='22'/%3E%3Ccircle cx='45' cy='170' r='15'/%3E%3Cpath d='M20 50 Q40 30 60 50' fill='none'/%3E%3Cline x1='50' y1='65' x2='50' y2='82'/%3E%3Cline x1='48' y1='118' x2='43' y2='155'/%3E%3C/svg%3E")}.pillar[data-pillar="physical"]::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 200' fill='none' stroke='%2314b8a6' stroke-width='0.5' opacity='0.15'%3E%3Cpath d='M30 20 L70 20 L75 60 L60 80 L40 80 L25 60 Z'/%3E%3Cpath d='M35 100 Q50 90 65 100 Q70 130 50 150 Q30 130 35 100'/%3E%3Cline x1='20' y1='160' x2='80' y2='160'/%3E%3Cline x1='25' y1='170' x2='75' y2='170'/%3E%3Cline x1='30' y1='180' x2='70' y2='180'/%3E%3Ccircle cx='50' cy='50' r='5' fill='%2314b8a6' fill-opacity='0.1'/%3E%3Cpath d='M40 40 L45 35 M55 35 L60 40 M45 65 L55 65' stroke-linecap='round'/%3E%3C/svg%3E")}.pillar:first-child{border-left:none}[dir="rtl"] .pillar{border-left:none;border-right:1px solid var(--gray-800)}[dir="rtl"] .pillar:first-child{border-right:none}.pillar.visible{opacity:1;transform:translateY(0);filter:blur(0)}.pillar-icon{margin-bottom:1.25rem;display:flex;align-items:center;justify-content:flex-start;color:var(--accent);opacity:.8;transition:opacity var(--duration-subtle) var(--ease-smooth)}.pillar-icon svg{width:32px;height:32px}.pillar:hover .pillar-icon{opacity:1}.pillar h3{font-family:var(--font-display);font-size:1.5rem;font-weight:500;margin-bottom:1rem;letter-spacing:-.02em}[dir="rtl"] .pillar h3{font-family:var(--font-arabic);font-weight:600}.pillar ul{list-style:none}.pillar li{color:var(--text-secondary);font-size:.95rem;padding:.4rem 0;padding-left:0;position:relative;transition:color var(--duration-subtle) var(--ease-smooth),padding-left var(--duration-medium) var(--ease-out)}[dir="rtl"] .pillar li{padding-right:0;transition:color var(--duration-subtle) var(--ease-smooth),padding-right var(--duration-medium) var(--ease-out)}.pillar li::before{content:'→';position:absolute;left:0;color:var(--accent);opacity:0;transition:opacity var(--duration-medium) var(--ease-out)}[dir="rtl"] .pillar li::before{left:auto;right:0;content:'←'}.pillar:hover li{color:var(--text);padding-left:1.25rem}[dir="rtl"] .pillar:hover li{padding-left:0;padding-right:1.25rem}.pillar:hover li::before{opacity:1}.portfolio{padding:6rem 0 8rem;content-visibility:auto}.portfolio .section-label{padding:0 2rem;margin-bottom:2rem}.portfolio-filters{display:flex;justify-content:center;gap:.5rem;padding:0 2rem;margin-bottom:2.5rem;flex-wrap:wrap;opacity:0;transform:translateY(15px);transition:opacity var(--duration-slow) var(--ease-out),transform var(--duration-slow) var(--ease-out)}.portfolio-filters.visible{opacity:1;transform:translateY(0)}.filter-btn{padding:.6rem 1.25rem;background:var(--bg-elevated);border:1px solid var(--gray-800);border-radius:50px;color:var(--text-secondary);font-family:var(--font-body);font-size:.85rem;font-weight:500;cursor:pointer;transition:color var(--duration-subtle) var(--ease-smooth),border-color var(--duration-subtle) var(--ease-smooth),background var(--duration-subtle) var(--ease-smooth),box-shadow var(--duration-subtle) var(--ease-smooth);box-shadow:0 2px 8px rgba(0,0,0,.04)}[dir="rtl"] .filter-btn{font-family:var(--font-arabic)}.filter-btn:hover,.filter-btn:focus-visible{color:var(--text);border-color:var(--accent);background:var(--accent-light)}.filter-btn.active{color:var(--white);background:var(--accent);border-color:var(--accent);box-shadow:0 4px 15px rgba(20,184,166,.25)}.portfolio-track{display:flex;gap:1.25rem;padding:0 2rem;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;cursor:grab;-webkit-overflow-scrolling:touch}.portfolio-track::-webkit-scrollbar{display:none}.portfolio-track:active{cursor:grabbing}.portfolio-item{flex:0 0 auto;width:clamp(280px,65vw,450px);aspect-ratio:4/5;background:var(--bg-elevated);border-radius:16px;overflow:hidden;position:relative;scroll-snap-align:start;border:1px solid var(--gray-800);transition:transform var(--duration-medium) var(--ease-out),border-color var(--duration-subtle) var(--ease-smooth),box-shadow var(--duration-medium) var(--ease-out),opacity var(--duration-medium) var(--ease-out),width var(--duration-medium) var(--ease-out),margin var(--duration-medium) var(--ease-out);box-shadow:0 4px 20px rgba(0,0,0,.06)}.portfolio-item.hidden{opacity:0;width:0;margin:0;padding:0;border:none;pointer-events:none;overflow:hidden}.portfolio-item:hover{transform:scale(.98);border-color:var(--accent);box-shadow:0 8px 30px rgba(0,0,0,.08)}.portfolio-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(145deg,var(--bg-subtle),var(--bg))}.portfolio-placeholder-icon{font-size:3.5rem;margin-bottom:.75rem;opacity:.2;transition:opacity var(--duration-medium) var(--ease-smooth)}.portfolio-item:hover .portfolio-placeholder-icon{opacity:.35}.portfolio-placeholder-text{font-size:.75rem;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.1em}.portfolio-info{position:absolute;bottom:0;left:0;right:0;padding:1.75rem;background:linear-gradient(to top,rgba(15,42,38,.95),transparent);transform:translateY(10px);opacity:.8;transition:transform var(--duration-medium) var(--ease-out),opacity var(--duration-medium) var(--ease-out)}.portfolio-item:hover .portfolio-info{transform:translateY(0);opacity:1}.portfolio-info h4{font-family:var(--font-display);font-size:1.35rem;margin-bottom:.2rem;color:var(--white)}[dir="rtl"] .portfolio-info h4{font-family:var(--font-arabic)}.portfolio-info span{font-size:.8rem;color:var(--teal-300)}.portfolio-hint{text-align:center;margin-top:1.5rem;font-size:.8rem;color:var(--text-secondary);opacity:0;transition:opacity var(--duration-slow) var(--ease-out)}.portfolio-hint.visible{opacity:1}.contact{padding:8rem 2rem;text-align:center;position:relative;background:linear-gradient(180deg,var(--bg) 0%,var(--bg-subtle) 100%);content-visibility:auto}.contact::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:1px;height:0;background:linear-gradient(to bottom,transparent,var(--accent));transition:height 1.2s var(--ease-out)}.contact.visible::before{height:80px}.contact-heading{font-family:var(--font-display);font-size:clamp(2.25rem,7vw,4.5rem);font-weight:400;letter-spacing:-.02em;margin-bottom:1.25rem;line-height:1.1;opacity:0;transform:translateY(30px);filter:blur(6px);transition:opacity 1.2s var(--ease-out),transform 1.2s var(--ease-out),filter 1.2s var(--ease-out)}.contact.visible .contact-heading{opacity:1;transform:translateY(0);filter:blur(0)}[dir="rtl"] .contact-heading{font-family:var(--font-arabic);font-weight:600}.contact-sub{font-size:1.05rem;color:var(--text-secondary);margin-bottom:2.5rem;max-width:480px;margin-left:auto;margin-right:auto;opacity:0;transition:opacity 1.2s var(--ease-out) .2s}.contact.visible .contact-sub{opacity:1}.contact-cta{margin-bottom:3.5rem;opacity:0;transform:translateY(15px);transition:opacity 1s var(--ease-out) .4s,transform 1s var(--ease-out) .4s}.contact.visible .contact-cta{opacity:1;transform:translateY(0)}.contact-links{display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;opacity:0;transition:opacity 1s var(--ease-out) .6s}.contact.visible .contact-links{opacity:1}.contact-link{display:flex;align-items:center;gap:.5rem;color:var(--text-secondary);text-decoration:none;font-size:.95rem;transition:color var(--duration-subtle) var(--ease-smooth)}.contact-link svg{flex-shrink:0}.contact-link:hover,.contact-link:focus-visible{color:var(--accent)}.curiosities{padding:3rem 2rem;text-align:center;border-top:1px solid var(--gray-800);background:var(--bg-elevated);opacity:0;transition:opacity 1s var(--ease-out)}.curiosities.visible{opacity:1}.curiosities-label{font-size:.7rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--text-secondary);margin-bottom:1rem;display:block}.curiosities-list{font-family:var(--font-display);font-size:clamp(.95rem,2vw,1.1rem);color:var(--text-secondary);font-style:italic;letter-spacing:.01em}[dir="rtl"] .curiosities-list{font-family:var(--font-arabic);font-style:normal}.curiosities-list span{color:var(--accent);opacity:.6;margin:0 .5rem}.notebook-annotation{position:absolute;bottom:-2rem;right:2rem;font-family:var(--font-display);font-size:.75rem;color:var(--text-secondary);font-style:italic;opacity:0;transform:rotate(-2deg);transition:opacity 1s var(--ease-out) .8s}[dir="rtl"] .notebook-annotation{right:auto;left:2rem;transform:rotate(2deg)}.about.visible .notebook-annotation{opacity:.5}.notebook-annotation::before{content:'*';color:var(--accent);margin-right:.3rem}footer{padding:2rem;text-align:center;border-top:1px solid var(--gray-800);background:var(--bg-elevated)}footer p{font-size:.85rem;color:var(--text-secondary)}.wa-float{position:fixed;bottom:2rem;right:2rem;width:58px;height:58px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.3);z-index:90;opacity:0;transform:translateY(20px);animation:quietReveal var(--duration-slow) var(--ease-out) 3s forwards;transition:transform var(--duration-medium) var(--ease-out),box-shadow var(--duration-medium) var(--ease-out)}[dir="rtl"] .wa-float{right:auto;left:2rem}.wa-float:hover,.wa-float:focus-visible{transform:translateY(-3px);box-shadow:0 12px 35px rgba(37,211,102,.4)}.wa-float svg{width:26px;height:26px}.nav-overlay{position:fixed;inset:0;background:var(--bg);z-index:99;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;opacity:0;visibility:hidden;transition:opacity var(--duration-medium) var(--ease-out),visibility var(--duration-medium) var(--ease-out)}.nav-overlay.active{opacity:1;visibility:visible}.nav-overlay a{font-family:var(--font-display);font-size:2rem;color:var(--text);text-decoration:none;opacity:0;transform:translateY(20px);transition:opacity var(--duration-medium) var(--ease-out),transform var(--duration-medium) var(--ease-out),color var(--duration-subtle) var(--ease-smooth)}[dir="rtl"] .nav-overlay a{font-family:var(--font-arabic)}.nav-overlay.active a{opacity:1;transform:translateY(0)}.nav-overlay.active a:nth-child(1){transition-delay:.15s}.nav-overlay.active a:nth-child(2){transition-delay:.25s}.nav-overlay.active a:nth-child(3){transition-delay:.35s}.nav-overlay.active a:nth-child(4){transition-delay:.45s}.nav-overlay a:hover,.nav-overlay a:focus-visible{color:var(--accent)}@media(max-width:900px){.pillars{grid-template-columns:1fr}.pillar{border-left:none;border-top:1px solid var(--gray-800);padding:2rem 0;padding-right:100px}.pillar::before{opacity:1}[dir="rtl"] .pillar{padding-right:0;padding-left:100px}.pillar:first-child{border-top:none}[dir="rtl"] .pillar{border-right:none;border-top:1px solid var(--gray-800)}[dir="rtl"] .pillar::before{right:auto;left:0}.pillars-connection svg{width:100px;height:100px}}@media(max-width:768px){.nav-toggle{display:flex}}@media(max-width:600px){header{padding:1rem 1.5rem}.hero{padding:5rem 1.5rem 3rem}.hero-geometry{opacity:.4}.hero-title{font-size:clamp(2.5rem,13vw,3.5rem)}.hero-badge{font-size:.8rem;padding:.5rem 1rem}.hero-cta{flex-direction:column;align-items:center}.btn{width:100%;max-width:280px;justify-content:center}.about{padding:5rem 1.5rem}.about-text{font-size:clamp(1.2rem,5vw,1.5rem)}.services{padding:4rem 1.5rem 5rem}.portfolio{padding:4rem 0 5rem}.portfolio-track{padding:0 1.5rem;gap:1rem}.portfolio-item{width:82vw}.contact{padding:5rem 1.5rem}.contact-links{flex-direction:column;gap:1rem}.wa-float{bottom:1.5rem;right:1.5rem;width:54px;height:54px}[dir="rtl"] .wa-float{right:auto;left:1.5rem}.scroll-indicator{display:none}.notebook-annotation{display:none}.curiosities{padding:2rem 1.5rem}.curiosities-list{font-size:.9rem}.pillars-connection svg{width:80px;height:80px}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 </style>
 </head>
 <body>
-
-<nav class="nav" id="nav">
-  <a href="#top" class="brand">Ahmad <span class="d">Haidar</span></a>
-  <div class="nav__links">
-    <a href="#works" data-en="Work" data-ar="الأعمال">Work</a>
-    <a href="#statement" data-en="Series" data-ar="السلسلة">Series</a>
-    <a href="#process" data-en="Process" data-ar="المرسم">Process</a>
-    <a href="#recognition" data-en="About" data-ar="السيرة">About</a>
-    <a href="#contact" data-en="Contact" data-ar="تواصل">Contact</a>
-  </div>
-  <div class="nav__right">
-    <div class="lang" role="group" aria-label="Language">
-      <button id="lang-en" class="on" type="button">EN</button>
-      <button id="lang-ar" type="button">ع</button>
-    </div>
-    <a href="#contact" class="btn-enq" data-en="Enquire" data-ar="للتواصل">Enquire</a>
-  </div>
-</nav>
-
-<span id="top"></span>
-
-<!-- HERO -->
-<header class="hero">
-  <div class="hero__grid">
-    <div class="hero__copy ctr">
-      <span class="eyebrow" data-en="Figurative Sculptor — Kuwait" data-ar="نحّاتٌ تشكيليّ — الكويت">Figurative Sculptor — Kuwait</span>
-      <h1 class="hero__name" data-en="Ahmad Haidar" data-ar="أحمد حيدر">Ahmad Haidar</h1>
-      <p class="hero__sub" data-en="Relief and bronze portraits of the minds that shaped civilisation." data-ar="بورتريهات بالنحت البارز والبرونز للعقول التي صاغت الحضارة.">Relief and bronze portraits of the minds that shaped civilisation.</p>
-      <div class="hero__series"><span class="pip"></span><span data-en="New series — Heirs of Fire" data-ar="سلسلة جديدة — ورثة النار">New series — Heirs of Fire</span></div>
-      <div class="hero__cta">
-        <a href="#works" class="cta-solid" data-en="View the Work" data-ar="شاهد الأعمال">View the Work</a>
-        <a href="#contact" class="cta-ghost" data-en="Enquire" data-ar="للتواصل">Enquire</a>
-      </div>
-    </div>
-    <div class="hero__art">
-      <!-- REPLACE the .ph block with <img src="hero.jpg" alt="Ahmad Haidar beside Antarah ibn Shaddad"> -->
-      <div class="frame frame--portrait"><div class="frame__glow"></div>
-        <div class="ph">
-          <svg class="ph__icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="1.5"/><circle cx="8.5" cy="9" r="1.6"/><path d="M3 17l5-4 4 3 4-4 5 5"/></svg>
-          <span class="ph__t">Hero image</span>
-          <span class="ph__s" data-en="The artist beside &#8216;Antarah ibn Shaddad&#8217;" data-ar="الفنان إلى جانب «عنترة بن شداد»">The artist beside &#8216;Antarah ibn Shaddad&#8217;</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="scrollcue ctr"><span data-en="Scroll" data-ar="انزل">Scroll</span><span class="line"></span></div>
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Navigation menu">
+<a href="#about" data-en="About" data-ar="عني">About</a>
+<a href="#services" data-en="Services" data-ar="الخدمات">Services</a>
+<a href="#work" data-en="Work" data-ar="الأعمال">Work</a>
+<a href="#contact" data-en="Contact" data-ar="تواصل">Contact</a>
+</div>
+<header>
+<a href="#" class="logo" aria-label="Ahmad Haider - Home">Ahmadov<span>.me</span></a>
+<div class="header-controls">
+<button class="ctrl-btn" id="langToggle" aria-label="Toggle language between English and Arabic">EN</button>
+<button class="nav-toggle" id="navToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navOverlay">
+<span></span><span></span><span></span>
+</button>
+</div>
 </header>
-
-<!-- INTRO line -->
-<section class="section">
-  <div class="wrap intro reveal">
-    <span class="eyebrow" data-en="The Sculptor" data-ar="النحّات">The Sculptor</span>
-    <p class="lead-xl txt" data-en="A Kuwaiti sculptor working in bas-relief and bronze — modelling the human face with classical precision, and returning to it a subject the discipline long set aside: the depiction of greatness." data-ar="نحّاتٌ كويتيٌّ يعملُ في النحتِ البارزِ والبرونز، ينحتُ الوجهَ الإنسانيَّ بدقّةٍ كلاسيكيّة، ويُعيدُ إليه موضوعاً طالما أُهمِل: تصويرَ العظمة.">A Kuwaiti sculptor working in bas-relief and bronze — modelling the human face with classical precision, and returning to it a subject the discipline long set aside: <em>the depiction of greatness.</em></p>
-  </div>
+<main id="main">
+<section class="hero" aria-label="Introduction">
+<div class="hero-bg" aria-hidden="true"></div>
+<div class="hero-geometry" aria-hidden="true">
+<svg viewBox="0 0 400 400" fill="none" stroke="currentColor" stroke-width="0.5" color="var(--accent)">
+<!-- Golden Ratio Spiral Construction -->
+<circle cx="200" cy="200" r="150" opacity="0.4"/>
+<circle cx="200" cy="200" r="92.7" opacity="0.3"/>
+<circle cx="200" cy="200" r="57.3" opacity="0.25"/>
+<circle cx="200" cy="200" r="35.4" opacity="0.2"/>
+<!-- Construction lines -->
+<line x1="50" y1="200" x2="350" y2="200" opacity="0.15"/>
+<line x1="200" y1="50" x2="200" y2="350" opacity="0.15"/>
+<line x1="94" y1="94" x2="306" y2="306" opacity="0.1"/>
+<line x1="306" y1="94" x2="94" y2="306" opacity="0.1"/>
+<!-- Golden spiral approximation -->
+<path d="M200,200 Q200,50 350,200 Q200,200 200,350 Q50,200 200,200" opacity="0.2" fill="none"/>
+<!-- Triangle (trinity of disciplines) -->
+<polygon points="200,65 330,270 70,270" opacity="0.12" fill="none"/>
+</svg>
+</div>
+<div class="hero-content">
+<div class="hero-badge" data-en="Available for projects" data-ar="متاح للمشاريع">Available for projects</div>
+<h1 class="hero-title">
+<span data-en="Engineer." data-ar="مهندس.">Engineer.</span>
+<span data-en="Designer." data-ar="مصمم.">Designer.</span>
+<span class="accent" data-en="Sculptor." data-ar="نحّات.">Sculptor.</span>
+</h1>
+<p class="hero-subtitle" data-en="Crafting digital products, brand identities, and physical forms. Specialized in tech apps, growth strategies, and traditional sculpture." data-ar="أصنع المنتجات الرقمية، الهويات التجارية، والأعمال الملموسة. متخصص في تطبيقات التقنية، استراتيجيات النمو، والنحت التقليدي.">Crafting digital products, brand identities, and physical forms. Specialized in tech apps, growth strategies, and traditional sculpture.</p>
+<div class="hero-cta">
+<a href="https://wa.me/96566458885" class="btn btn-primary" target="_blank" rel="noopener noreferrer" aria-label="Start a WhatsApp conversation">
+<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+<span data-en="Let's Talk" data-ar="لنتحدث">Let's Talk</span>
+</a>
+<a href="#work" class="btn btn-secondary" data-en="View Work" data-ar="عرض الأعمال">View Work</a>
+</div>
+</div>
+<div class="scroll-indicator" aria-hidden="true" data-en="Scroll" data-ar="مرر">Scroll</div>
 </section>
-
-<!-- STATEMENT (minimal) -->
-<section class="section sec-soft" id="statement">
-  <div class="wrap stmt reveal">
-    <span class="eyebrow" data-en="The Series" data-ar="السلسلة">The Series</span>
-    <h2 class="sec-title" data-en="Heirs of Fire" data-ar="ورثة النار">Heirs of Fire</h2>
-    <p class="quote txt" data-en="A pantheon in bronze of the minds that shaped civilisation — cast to return greatness to view." data-ar="بانثيون برونزيّ للعقول التي صاغت الحضارة — سُبكت لتُعيد العظمة إلى الأنظار.">A pantheon in bronze of the minds that shaped civilisation — cast to <em>return greatness to view.</em></p>
-    <p class="txt" data-en="Not nostalgia, but conviction: that greatness is a matter of will, belonging to no single people or century. Each face is drawn out of the wall in bronze — a reminder that the fire was never extinguished, only set down." data-ar="ليست حنيناً، بل يقيناً: أنّ العظمةَ فعلُ إرادة، لا تخصُّ شعباً بعينه ولا قرناً بعينه. كلُّ وجهٍ يُنتشَل من الجدارِ بالبرونز — تذكيرٌ بأنّ النارَ لم تنطفئ قط، إنما وُضِعت جانباً.">Not nostalgia, but conviction: that greatness is a matter of will, belonging to no single people or century. Each face is drawn out of the wall in bronze — a reminder that the fire was never extinguished, only set down.</p>
-  </div>
+<section class="about" id="about" aria-label="About Ahmad">
+<p class="about-text" data-en="I'm a <span class='highlight'>multi-disciplinary creator</span> based in Kuwait. My work bridges <span class='highlight'>digital products</span> and <span class='highlight'>physical sculpture</span>—bringing the same attention to form and permanence to every project. I believe the best work happens at the intersection of disciplines." data-ar="أنا <span class='highlight'>مبدع متعدد التخصصات</span> من الكويت. عملي يجمع بين <span class='highlight'>المنتجات الرقمية</span> و<span class='highlight'>النحت الملموس</span>—بنفس الاهتمام بالشكل والتفاصيل في كل مشروع. أؤمن أن أفضل الأعمال تولد عند تقاطع التخصصات.">I'm a <span class="highlight">multi-disciplinary creator</span> based in Kuwait. My work bridges <span class="highlight">digital products</span> and <span class="highlight">physical sculpture</span>—bringing the same attention to form and permanence to every project. I believe the best work happens at the intersection of disciplines.</p>
+<span class="notebook-annotation" aria-hidden="true" data-en="form follows intention" data-ar="الشكل يتبع النية">form follows intention</span>
 </section>
-
-<!-- WORKS (horizontal) -->
-<section class="section" id="works">
-  <div class="wrap">
-    <div class="scroller-head">
-      <div class="scroller-head__t reveal">
-        <span class="eyebrow" data-en="Selected Works" data-ar="مختارات من الأعمال">Selected Works</span>
-        <h2 class="sec-title" data-en="The Pantheon" data-ar="البانثيون">The Pantheon</h2>
-      </div>
-      <div class="snav">
-        <button class="sbtn" data-prev aria-label="Previous works"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 5l-7 7 7 7"/></svg></button>
-        <button class="sbtn" data-next aria-label="More works"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5l7 7-7 7"/></svg></button>
-      </div>
-    </div>
-  </div>
-  <div class="scroller" data-scroller tabindex="0" role="region" aria-label="Selected works, scroll horizontally">
-
-    <figure class="work">
-      <div class="work__frame"><div class="work__glow"></div>
-        <!-- REPLACE with <img src="antar.jpg" alt="Antarah ibn Shaddad, bronze relief"> -->
-        <div class="ph"><span class="ph__t">Plate 01</span><span class="ph__s" data-en="Antarah — your photograph" data-ar="عنترة — صورتك">Antarah — your photograph</span></div>
-      </div>
-      <figcaption class="label">
-        <div class="label__name" data-en="Antarah ibn Shaddad" data-ar="عنترة بن شداد">Antarah ibn Shaddad</div>
-        <div class="label__med" data-en="Bronze, relief" data-ar="برونز، نحت بارز">Bronze, relief</div>
-        <div class="label__meta" data-en="Life-size · 2025" data-ar="الحجم الطبيعي · ٢٠٢٥">Life-size · 2025</div>
-        <div class="label__note txt" data-en="Born into bondage, made free by his own hand." data-ar="وُلد في الأَسر، فحرّر نفسه بيده.">Born into bondage, made free by his own hand.</div>
-      </figcaption>
-    </figure>
-
-    <figure class="work">
-      <div class="work__frame"><div class="work__glow"></div>
-        <div class="ph"><span class="ph__t">Plate 02</span><span class="ph__s" data-en="Jabir — your photograph" data-ar="جابر — صورتك">Jabir — your photograph</span></div>
-      </div>
-      <figcaption class="label">
-        <div class="label__name" data-en="Jabir ibn Hayyan" data-ar="جابر بن حيّان">Jabir ibn Hayyan</div>
-        <div class="label__med" data-en="Bronze, bas-relief" data-ar="برونز، نحت بارز">Bronze, bas-relief</div>
-        <div class="label__meta" data-en="Half life-size · 2025" data-ar="نصف الحجم · ٢٠٢٥">Half life-size · 2025</div>
-        <div class="label__note txt" data-en="The father of chemistry." data-ar="أبو الكيمياء.">The father of chemistry.</div>
-      </figcaption>
-    </figure>
-
-    <figure class="work">
-      <div class="work__frame"><div class="work__glow"></div>
-        <div class="ph"><span class="ph__t">Plate 03</span><span class="ph__s" data-en="Ibn al-Haytham — your photograph" data-ar="ابن الهيثم — صورتك">Ibn al-Haytham — your photograph</span></div>
-      </div>
-      <figcaption class="label">
-        <div class="label__name" data-en="Ibn al-Haytham" data-ar="ابن الهيثم">Ibn al-Haytham</div>
-        <div class="label__med" data-en="Bronze, bas-relief" data-ar="برونز، نحت بارز">Bronze, bas-relief</div>
-        <div class="label__meta" data-en="Half life-size · 2025" data-ar="نصف الحجم · ٢٠٢٥">Half life-size · 2025</div>
-        <div class="label__note txt" data-en="Pioneer of the experimental method." data-ar="رائد المنهج التجريبي.">Pioneer of the experimental method.</div>
-      </figcaption>
-    </figure>
-
-    <figure class="work">
-      <div class="work__frame"><div class="work__glow"></div>
-        <div class="ph"><span class="ph__t">Plate 04</span><span class="ph__s" data-en="Ibn Sina — your photograph" data-ar="ابن سينا — صورتك">Ibn Sina — your photograph</span></div>
-      </div>
-      <figcaption class="label">
-        <div class="label__name" data-en="Ibn Sina" data-ar="ابن سينا">Ibn Sina</div>
-        <div class="label__med" data-en="Bronze, relief" data-ar="برونز، نحت بارز">Bronze, relief</div>
-        <div class="label__meta" data-en="Life-size head · 2025" data-ar="رأس بالحجم الطبيعي · ٢٠٢٥">Life-size head · 2025</div>
-        <div class="label__note txt" data-en="Physician and philosopher." data-ar="الطبيب والفيلسوف.">Physician and philosopher.</div>
-      </figcaption>
-    </figure>
-
-    <figure class="work">
-      <div class="work__frame"><div class="work__glow"></div>
-        <div class="ph"><span class="ph__t">Plate 05</span><span class="ph__s" data-en="Leonardo — your photograph" data-ar="ليوناردو — صورتك">Leonardo — your photograph</span></div>
-      </div>
-      <figcaption class="label">
-        <div class="label__name" data-en="Leonardo da Vinci" data-ar="ليوناردو دا فينشي">Leonardo da Vinci</div>
-        <div class="label__med" data-en="Bronze, relief" data-ar="برونز، نحت بارز">Bronze, relief</div>
-        <div class="label__meta" data-en="Life-size head · 2025" data-ar="رأس بالحجم الطبيعي · ٢٠٢٥">Life-size head · 2025</div>
-        <div class="label__note txt" data-en="The universal man of the Renaissance." data-ar="إنسان النهضة الشامل.">The universal man of the Renaissance.</div>
-      </figcaption>
-    </figure>
-
-    <figure class="work">
-      <div class="work__frame"><div class="work__glow"></div>
-        <div class="ph"><span class="ph__t">Plate 06</span><span class="ph__s" data-en="Nietzsche — your photograph" data-ar="نيتشه — صورتك">Nietzsche — your photograph</span></div>
-      </div>
-      <figcaption class="label">
-        <div class="label__name" data-en="Friedrich Nietzsche" data-ar="فريدريك نيتشه">Friedrich Nietzsche</div>
-        <div class="label__med" data-en="Bronze, relief" data-ar="برونز، نحت بارز">Bronze, relief</div>
-        <div class="label__meta" data-en="Life-size head · 2025" data-ar="رأس بالحجم الطبيعي · ٢٠٢٥">Life-size head · 2025</div>
-        <div class="label__note txt" data-en="Philosopher of self-overcoming." data-ar="فيلسوف تجاوز الذات.">Philosopher of self-overcoming.</div>
-      </figcaption>
-    </figure>
-
-  </div>
-  <div class="hint" data-en="Drag to explore →" data-ar="← اسحب للاستكشاف">Drag to explore →</div>
+<section class="services" id="services" aria-label="Services">
+<span class="section-label" data-en="What I Do" data-ar="ما أقدمه">What I Do</span>
+<div class="pillars-connection" aria-hidden="true">
+<svg viewBox="0 0 100 100" fill="none" stroke="var(--accent)" stroke-width="0.5" opacity="0.4">
+<circle cx="50" cy="30" r="25" stroke-dasharray="2,3"/>
+<circle cx="28" cy="70" r="25" stroke-dasharray="2,3"/>
+<circle cx="72" cy="70" r="25" stroke-dasharray="2,3"/>
+<circle cx="50" cy="55" r="8" fill="var(--accent)" fill-opacity="0.2" stroke="none"/>
+</svg>
+</div>
+<div class="pillars" role="list">
+<article class="pillar" role="listitem" data-pillar="digital">
+<span class="pillar-icon" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></span>
+<h3 data-en="Digital" data-ar="الرقمي">Digital</h3>
+<ul><li data-en="Product Design" data-ar="تصميم المنتجات">Product Design</li><li data-en="UX/UI Design" data-ar="تصميم تجربة المستخدم">UX/UI Design</li><li data-en="Growth Strategy" data-ar="استراتيجية النمو">Growth Strategy</li><li data-en="UX Audits" data-ar="تدقيق تجربة المستخدم">UX Audits</li></ul>
+</article>
+<article class="pillar" role="listitem" data-pillar="brand">
+<span class="pillar-icon" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></span>
+<h3 data-en="Brand" data-ar="استراتيجي">Strategist </h3>
+<ul><li data-en="Logo Design" data-ar="تصميم الشعارات">Logo Design</li><li data-en="Visual Identity" data-ar="الهوية البصرية">Visual Identity</li><li data-en="Brand Strategy" data-ar="استراتيجية العلامة">Brand Strategy</li><li data-en="Color Systems" data-ar="أنظمة الألوان">Color Systems</li></ul>
+</article>
+<article class="pillar" role="listitem" data-pillar="physical">
+<span class="pillar-icon" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>
+<h3 data-en="Physical" data-ar="الملموس">Physical</h3>
+<ul><li data-en="Traditional Sculpture" data-ar="النحت التقليدي">Traditional Sculpture</li><li data-en="Relief Work" data-ar="النحت البارز">Relief Work</li><li data-en="Molding & Casting" data-ar="القولبة والصب">Molding & Casting</li><li data-en="Commissioned Pieces" data-ar="الأعمال المخصصة">Commissioned Pieces</li></ul>
+</article>
+</div>
 </section>
-
-<!-- PROCESS (horizontal) -->
-<section class="section sec-soft" id="process">
-  <div class="wrap">
-    <div class="scroller-head">
-      <div class="scroller-head__t reveal">
-        <span class="eyebrow" data-en="In the Studio" data-ar="في المرسم">In the Studio</span>
-        <h2 class="sec-title" data-en="From clay to bronze" data-ar="من الطين إلى البرونز">From clay to bronze</h2>
-      </div>
-      <div class="snav">
-        <button class="sbtn" data-prev aria-label="Previous films"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 5l-7 7 7 7"/></svg></button>
-        <button class="sbtn" data-next aria-label="More films"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5l7 7-7 7"/></svg></button>
-      </div>
-    </div>
-  </div>
-  <div class="scroller" data-scroller tabindex="0" role="region" aria-label="Process films, scroll horizontally">
-    <!-- REPLACE each .reel__inner with <video src="reel.mp4" controls poster="..."></video> -->
-    <div class="reel"><div class="reel__frame"><div class="reel__inner"><span class="reel__play"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="reel__t" data-en="Process film 01" data-ar="فيلم ٠١">Process film 01</span></div></div></div>
-    <div class="reel"><div class="reel__frame"><div class="reel__inner"><span class="reel__play"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="reel__t" data-en="Process film 02" data-ar="فيلم ٠٢">Process film 02</span></div></div></div>
-    <div class="reel"><div class="reel__frame"><div class="reel__inner"><span class="reel__play"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="reel__t" data-en="Process film 03" data-ar="فيلم ٠٣">Process film 03</span></div></div></div>
-    <div class="reel"><div class="reel__frame"><div class="reel__inner"><span class="reel__play"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="reel__t" data-en="Process film 04" data-ar="فيلم ٠٤">Process film 04</span></div></div></div>
-    <div class="reel"><div class="reel__frame"><div class="reel__inner"><span class="reel__play"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span><span class="reel__t" data-en="Process film 05" data-ar="فيلم ٠٥">Process film 05</span></div></div></div>
-  </div>
-  <div class="hint" data-en="Drag to explore →" data-ar="← اسحب للاستكشاف">Drag to explore →</div>
+<section class="portfolio" id="work" aria-label="Portfolio">
+<span class="section-label" data-en="Selected Work" data-ar="أعمال مختارة">Selected Work</span>
+<div class="portfolio-filters" role="group" aria-label="Filter projects by category">
+<button class="filter-btn active" data-filter="all" data-en="All" data-ar="الكل" aria-pressed="true">All</button>
+<button class="filter-btn" data-filter="digital" data-en="Digital" data-ar="الرقمي" aria-pressed="false">Digital</button>
+<button class="filter-btn" data-filter="brand" data-en="Brand" data-ar="الهوية" aria-pressed="false">Brand</button>
+<button class="filter-btn" data-filter="physical" data-en="Physical" data-ar="الملموس" aria-pressed="false">Physical</button>
+</div>
+<div class="portfolio-track" id="portfolioTrack" role="list" aria-label="Project gallery">
+<article class="portfolio-item" data-category="digital" role="listitem"><div class="portfolio-placeholder"><span class="portfolio-placeholder-icon" aria-hidden="true">📱</span><span class="portfolio-placeholder-text" data-en="Your Image" data-ar="صورتك">Your Image</span></div><div class="portfolio-info"><h4 data-en="App Redesign" data-ar="إعادة تصميم التطبيق">App Redesign</h4><span data-en="Digital" data-ar="الرقمي">Digital</span></div></article>
+<article class="portfolio-item" data-category="brand" role="listitem"><div class="portfolio-placeholder"><span class="portfolio-placeholder-icon" aria-hidden="true">✦</span><span class="portfolio-placeholder-text" data-en="Your Image" data-ar="صورتك">Your Image</span></div><div class="portfolio-info"><h4 data-en="Brand Identity" data-ar="الهوية التجارية">Brand Identity</h4><span data-en="Brand" data-ar="الهوية">Brand</span></div></article>
+<article class="portfolio-item" data-category="physical" role="listitem"><div class="portfolio-placeholder"><span class="portfolio-placeholder-icon" aria-hidden="true">🗿</span><span class="portfolio-placeholder-text" data-en="Your Image" data-ar="صورتك">Your Image</span></div><div class="portfolio-info"><h4 data-en="Relief Sculpture" data-ar="النحت البارز">Relief Sculpture</h4><span data-en="Physical" data-ar="الملموس">Physical</span></div></article>
+<article class="portfolio-item" data-category="digital" role="listitem"><div class="portfolio-placeholder"><span class="portfolio-placeholder-icon" aria-hidden="true">🚀</span><span class="portfolio-placeholder-text" data-en="Your Image" data-ar="صورتك">Your Image</span></div><div class="portfolio-info"><h4 data-en="Growth Campaign" data-ar="حملة النمو">Growth Campaign</h4><span data-en="Digital" data-ar="الرقمي">Digital</span></div></article>
+<article class="portfolio-item" data-category="physical" role="listitem"><div class="portfolio-placeholder"><span class="portfolio-placeholder-icon" aria-hidden="true">◈</span><span class="portfolio-placeholder-text" data-en="Your Image" data-ar="صورتك">Your Image</span></div><div class="portfolio-info"><h4 data-en="Stone Work" data-ar="العمل الحجري">Stone Work</h4><span data-en="Physical" data-ar="الملموس">Physical</span></div></article>
+<article class="portfolio-item" data-category="brand" role="listitem"><div class="portfolio-placeholder"><span class="portfolio-placeholder-icon" aria-hidden="true">◎</span><span class="portfolio-placeholder-text" data-en="Your Image" data-ar="صورتك">Your Image</span></div><div class="portfolio-info"><h4 data-en="Logo System" data-ar="نظام الشعارات">Logo System</h4><span data-en="Brand" data-ar="الهوية">Brand</span></div></article>
+</div>
+<p class="portfolio-hint" data-en="← Drag to explore →" data-ar="← اسحب للاستكشاف →">← Drag to Explore →</p>
 </section>
-
-<!-- RECOGNITION -->
-<section class="section" id="recognition">
-  <div class="wrap">
-    <span class="eyebrow reveal" data-en="Training &amp; Recognition" data-ar="التدريب والسيرة">Training &amp; Recognition</span>
-    <h2 class="sec-title reveal" data-en="Practice" data-ar="المسيرة">Practice</h2>
-    <div class="cv reveal">
-      <div class="cv__row"><div class="cv__k" data-en="Training" data-ar="التدريب">Training</div><div class="cv__v txt" data-en="The Florence Academy of Art — classical figurative sculpture &amp; portraiture" data-ar="أكاديمية فلورنسا للفنون — النحت التشكيلي الكلاسيكي والبورتريه">The Florence Academy of Art — classical figurative sculpture &amp; portraiture</div></div>
-      <div class="cv__row"><div class="cv__k" data-en="Practice" data-ar="مجال العمل">Practice</div><div class="cv__v txt" data-en="Bas-relief · portrait busts · bronze" data-ar="نحت بارز · تماثيل بورتريه · برونز">Bas-relief · portrait busts · bronze</div></div>
-      <div class="cv__row"><div class="cv__k" data-en="Workshops" data-ar="ورش العمل">Workshops</div><div class="cv__v txt" data-en="Founder, Waqti — sculpture workshops, Kuwait" data-ar="مؤسّس «وقتي» — ورش النحت، الكويت">Founder, Waqti — sculpture workshops, Kuwait</div></div>
-      <div class="cv__row"><div class="cv__k" data-en="Exhibitions" data-ar="المعارض">Exhibitions</div><div class="cv__v txt"><span data-en="Heirs of Fire — " data-ar="ورثة النار — ">Heirs of Fire — </span><span class="ph-min" data-en="[ venue, 2026 — forthcoming ]" data-ar="[ المكان، ٢٠٢٦ — قريباً ]">[ venue, 2026 — forthcoming ]</span></div></div>
-      <div class="cv__row"><div class="cv__k" data-en="Based" data-ar="المقر">Based</div><div class="cv__v txt" data-en="Kuwait" data-ar="الكويت">Kuwait</div></div>
-    </div>
-  </div>
+<section class="contact" id="contact" aria-label="Contact">
+<h2 class="contact-heading" data-en="Let's build something." data-ar="لنبني شيئاً معاً.">Let's build something.</h2>
+<p class="contact-sub" data-en="Whether it's digital, brand, or physical—I'd love to hear from you." data-ar="سواء كان رقمياً، هوية تجارية، أو عملاً ملموساً—يسعدني التواصل معك.">Whether it's digital, strategies, or physical—I'd love to hear from you.</p>
+<div class="contact-cta">
+<a href="https://wa.me/96566458885" class="btn btn-primary" target="_blank" rel="noopener noreferrer" aria-label="Start a WhatsApp conversation">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+<span data-en="Start a Conversation" data-ar="ابدأ المحادثة">Start a Conversation</span>
+</a>
+</div>
+<div class="contact-links">
+<a href="tel:+96566458885" class="contact-link" aria-label="Call +965 6645 8885"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>+965 6645 8885</span></a>
+<a href="https://instagram.com/Ahmadov.kw" class="contact-link" target="_blank" rel="noopener noreferrer" aria-label="Visit Instagram profile @Ahmadov.kw"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg><span>@Ahmadov.kw</span></a>
+</div>
 </section>
-
-<!-- CONTACT -->
-<section class="section sec-soft contact" id="contact">
-  <div class="wrap reveal">
-    <span class="eyebrow" data-en="Enquiries" data-ar="للتواصل">Enquiries</span>
-    <h2 class="big ctr" data-en="Let us speak about the work." data-ar="لنتحدّث عن العمل.">Let us speak about <em>the work.</em></h2>
-    <p class="sub ctr" data-en="For commissions, acquisitions, workshops, and press." data-ar="للتكليفات، والاقتناء، وورش العمل، والصحافة.">For commissions, acquisitions, workshops, and press.</p>
-    <div class="contact__cta">
-      <a href="https://wa.me/96566458885" class="cta-solid" target="_blank" rel="noopener" data-en="Start a conversation" data-ar="ابدأ محادثة">Start a conversation</a>
-      <a href="https://instagram.com/ahmadov.kw" class="cta-ghost" target="_blank" rel="noopener" data-en="Instagram" data-ar="إنستغرام">Instagram</a>
-    </div>
-    <div class="contact__meta">
-      <a href="https://wa.me/96566458885" target="_blank" rel="noopener">+965 6645 8885</a>
-      <a href="https://instagram.com/ahmadov.kw" target="_blank" rel="noopener">@ahmadov.kw</a>
-      <a href="mailto:studio@ahmadov.me">studio@ahmadov.me</a>
-    </div>
-  </div>
+</main>
+<section class="curiosities" aria-label="Other interests">
+<span class="curiosities-label" data-en="Also exploring" data-ar="أستكشف أيضاً">Also exploring</span>
+<p class="curiosities-list" data-en="Architecture <span>·</span> Philosophy <span>·</span> Calligraphy <span>·</span> Systems Thinking" data-ar="العمارة <span>·</span> الفلسفة <span>·</span> الخط العربي <span>·</span> التفكير المنظومي">Philosophy<span>·</span> Economics <span>·</span> Systems Thinking <span>·</span> Technology</p>
 </section>
-
-<footer class="foot">
-  <div class="foot__brand">Ahmad <span class="d">Haidar</span></div>
-  <div class="foot__small" data-en="Figurative Sculptor · Kuwait" data-ar="نحّات تشكيلي · الكويت">Figurative Sculptor · Kuwait</div>
-  <div class="foot__small">© 2025 Ahmad Haidar</div>
-</footer>
-
+<footer><p data-en="© 2025 Ahmad Haider" data-ar="© 2025 أحمد حيدر">© 2025 Ahmad Haider</p></footer>
+<a href="https://wa.me/96566458885" class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Contact on WhatsApp">
+<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 <script>
-  const nav=document.getElementById('nav');
-  const onScroll=()=>nav.classList.toggle('nav--solid',window.scrollY>40);
-  onScroll();addEventListener('scroll',onScroll,{passive:true});
-
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.14});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-  // horizontal scrollers: arrows + drag + edge-disable
-  document.querySelectorAll('section').forEach(sec=>{
-    const sc=sec.querySelector('[data-scroller]'); if(!sc) return;
-    const prev=sec.querySelector('[data-prev]'), next=sec.querySelector('[data-next]');
-    const rtl=()=>getComputedStyle(sc).direction==='rtl';
-    const step=()=>{const c=sc.querySelector('*');return c?c.getBoundingClientRect().width+ (parseFloat(getComputedStyle(sc).columnGap)||32):320;};
-    const upd=()=>{if(!prev)return;const max=sc.scrollWidth-sc.clientWidth-2;const x=Math.abs(sc.scrollLeft);
-      prev.disabled=x<=2; next.disabled=x>=max;};
-    if(next)next.addEventListener('click',()=>sc.scrollBy({left:(rtl()?-1:1)*step(),behavior:'smooth'}));
-    if(prev)prev.addEventListener('click',()=>sc.scrollBy({left:(rtl()?1:-1)*step(),behavior:'smooth'}));
-    sc.addEventListener('scroll',upd,{passive:true}); setTimeout(upd,60);
-    // pointer drag
-    let down=false,sx=0,sl=0;
-    sc.addEventListener('pointerdown',e=>{down=true;sx=e.clientX;sl=sc.scrollLeft;sc.classList.add('drag');sc.setPointerCapture(e.pointerId);});
-    sc.addEventListener('pointermove',e=>{if(down)sc.scrollLeft=sl-(e.clientX-sx);});
-    const end=()=>{down=false;sc.classList.remove('drag');};
-    sc.addEventListener('pointerup',end);sc.addEventListener('pointercancel',end);sc.addEventListener('pointerleave',end);
-  });
-
-  // language
-  const enBtn=document.getElementById('lang-en'), arBtn=document.getElementById('lang-ar');
-  const nodes=document.querySelectorAll('[data-en]');
-  function setLang(l){
-    document.documentElement.lang=l;
-    document.documentElement.dir=l==='ar'?'rtl':'ltr';
-    document.body.classList.toggle('ar',l==='ar');
-    nodes.forEach(n=>{const v=n.dataset[l];if(v!==undefined)n.textContent=v;});
-    enBtn.classList.toggle('on',l==='en');arBtn.classList.toggle('on',l==='ar');
-  }
-  enBtn.onclick=()=>setLang('en');arBtn.onclick=()=>setLang('ar');
-  document.documentElement.dir='ltr';
+(function(){'use strict';const d=document,w=window,ls=localStorage;let lang=ls.getItem('lang')||'en';const $=s=>d.querySelector(s),$$=s=>d.querySelectorAll(s);function init(){d.documentElement.lang=lang;d.documentElement.dir=lang==='ar'?'rtl':'ltr';$('#langToggle').textContent=lang==='en'?'EN':'ع';if(lang==='ar')$$('[data-ar]').forEach(e=>e.innerHTML=e.dataset.ar);initNav();initReveal();initPortfolio();initSmoothScroll()}function initNav(){const toggle=$('#navToggle'),overlay=$('#navOverlay');function closeNav(){toggle.classList.remove('active');toggle.setAttribute('aria-expanded','false');overlay.classList.remove('active');d.body.style.overflow=''}toggle.addEventListener('click',()=>{const isOpen=overlay.classList.contains('active');if(isOpen){closeNav()}else{toggle.classList.add('active');toggle.setAttribute('aria-expanded','true');overlay.classList.add('active');d.body.style.overflow='hidden'}});overlay.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeNav));d.addEventListener('keydown',e=>{if(e.key==='Escape'&&overlay.classList.contains('active'))closeNav()})}function initReveal(){const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.15,rootMargin:'0px 0px -50px 0px'});$$('.about,.about-text,.pillar,.section-label,.portfolio-filters,.portfolio-hint,.contact,.pillars-connection,.curiosities').forEach(el=>obs.observe(el));$$('.pillar').forEach((el,i)=>el.style.transitionDelay=`${i*.2}s`)}function initPortfolio(){const track=$('#portfolioTrack'),btns=$$('.filter-btn'),items=$$('.portfolio-item');let isDown=false,startX,scrollL;track.addEventListener('mousedown',e=>{isDown=true;startX=e.pageX-track.offsetLeft;scrollL=track.scrollLeft},{passive:true});track.addEventListener('mouseleave',()=>isDown=false);track.addEventListener('mouseup',()=>isDown=false);track.addEventListener('mousemove',e=>{if(!isDown)return;e.preventDefault();track.scrollLeft=scrollL-(e.pageX-track.offsetLeft-startX)*1.2});track.addEventListener('touchstart',()=>{},{passive:true});btns.forEach(btn=>{btn.addEventListener('click',()=>{btns.forEach(b=>{b.classList.remove('active');b.setAttribute('aria-pressed','false')});btn.classList.add('active');btn.setAttribute('aria-pressed','true');const f=btn.dataset.filter;items.forEach(item=>{item.classList.toggle('hidden',f!=='all'&&item.dataset.category!==f)});track.scrollTo({left:0,behavior:'smooth'})})})}function initSmoothScroll(){$$('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=$(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})})}$('#langToggle').addEventListener('click',()=>{lang=lang==='en'?'ar':'en';d.documentElement.lang=lang;d.documentElement.dir=lang==='ar'?'rtl':'ltr';$('#langToggle').textContent=lang==='en'?'EN':'ع';$$('[data-en]').forEach(el=>el.innerHTML=el.dataset[lang]);ls.setItem('lang',lang)});if(d.readyState==='loading'){d.addEventListener('DOMContentLoaded',init)}else{init()}})();
 </script>
 </body>
 </html>
