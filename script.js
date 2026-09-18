@@ -176,6 +176,20 @@
     });
   }
 
+  /* ---------- 09b · theme toggle (manual override; automatic stays system-driven) ---------- */
+  var themeBtn = $('#themeToggle');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      if (current !== 'dark' && current !== 'light') {
+        current = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      var next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+  }
+
   /* ---------- 09 · language ---------- */
   var lang = 'en';
   var langBtn = $('#lang'), langLabel = $('#langLabel');

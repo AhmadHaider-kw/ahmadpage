@@ -105,6 +105,19 @@ html[dir="rtl"] .progress{transform-origin:100% 50%}
 #lang span{display:inline-block;transition:transform .32s var(--ease-out),opacity .2s}
 #lang.flip span{transform:translateY(-110%);opacity:0}
 
+.theme-toggle{width:46px;height:46px;padding:0;display:grid;place-content:center;border-radius:50%}
+.theme-toggle svg{transition:opacity .25s var(--ease-out),transform .25s var(--ease-out)}
+.theme-toggle .icon-sun,.theme-toggle .icon-moon{display:none}
+.theme-toggle .icon-moon{display:block}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .theme-toggle .icon-moon{display:none}
+  :root:not([data-theme="light"]) .theme-toggle .icon-sun{display:block}
+}
+:root[data-theme="dark"] .theme-toggle .icon-moon{display:none}
+:root[data-theme="dark"] .theme-toggle .icon-sun{display:block}
+:root[data-theme="light"] .theme-toggle .icon-moon{display:block}
+:root[data-theme="light"] .theme-toggle .icon-sun{display:none}
+
 .burger{width:46px;height:46px;padding:0;display:grid;place-content:center;gap:5px;border-radius:14px}
 .burger i{display:block;width:20px;height:2.2px;background:var(--text);border-radius:2px;
   transition:transform .4s var(--ease-out),opacity .2s}
