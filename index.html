@@ -976,6 +976,11 @@ html[dir="rtl"] .fab{right:auto;left:18px}
       var v = n.getAttribute('data-' + lang + '-alt');
       if (v !== null) n.setAttribute('alt', v);
     });
+    // Switching direction leaves the horizontal rails parked at the wrong
+    // end in WebKit (it keeps the pixel offset from the left edge, which in
+    // RTL is the LAST card). scrollLeft = 0 is the logical start in both
+    // engines and in both directions.
+    $$('.rail').forEach(function (r) { r.scrollLeft = 0; });
     var url = new URL(location);
     lang === 'ar' ? url.searchParams.set('lang', 'ar') : url.searchParams.delete('lang');
     history.replaceState(null, '', url);
