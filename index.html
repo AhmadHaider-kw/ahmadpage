@@ -395,6 +395,13 @@ h2{font-family:var(--font-display);font-weight:500;font-size:clamp(32px,8vw,52px
 /* 08 · active step lifts as it centres */
 .step.active{transform:translateY(-6px);box-shadow:0 18px 44px rgba(0,0,0,.09)}
 .step.active b{color:var(--accent)}
+.step-img{display:block;margin:-28px -24px 20px;border-radius:16px 16px 0 0;
+  overflow:hidden;background:var(--bg-subtle)}
+.step-img img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;
+  transition:transform .7s var(--ease-out)}
+@media(hover:hover){.step:hover .step-img img{transform:scale(1.03)}}
+@media(prefers-reduced-motion:reduce){.step-img img{transition:none}
+  @media(hover:hover){.step:hover .step-img img{transform:none}}}
 .step b{display:block;font-size:12px;letter-spacing:.14em;color:var(--text-secondary);
   margin-bottom:14px;font-weight:500;transition:color .35s}
 .step h3{font-family:var(--font-display);font-weight:500;font-size:25px;margin:0 0 10px;letter-spacing:-.02em}
@@ -614,22 +621,50 @@ html[dir="rtl"] .fab{right:auto;left:18px}
 <!-- ================= PROCESS ================= -->
 <section class="band" id="process">
   <div class="wrap">
-    <p class="eyebrow rv" data-en="PROCESS" data-ar="المراحل">PROCESS</p>
-    <h2 class="rv" data-en="Image to cast" data-ar="من الصورة إلى البرونز">Image to cast</h2>
+    <p class="eyebrow rv" data-en="MY PROCESS" data-ar="مراحل عملي">MY PROCESS</p>
+    <h2 class="rv" data-en="Idea to cast" data-ar="من الفكرة إلى البرونز">Idea to cast</h2>
     <div class="rail-wrap rv">
       <div class="rail steps">
-        <div class="step"><b data-en="ONE" data-ar="الأولى">ONE</b>
-          <h3 data-en="Image" data-ar="الصورة">Image</h3>
-          <p data-en="Sittings, photographs, measurements. Scale and material fixed." data-ar="جلسات وصور وقياسات. يُحدَّد الحجم والخامة والمكان.">Sittings, photographs, measurements. Scale and material fixed.</p></div>
-        <div class="step"><b data-en="TWO" data-ar="الثانية">TWO</b>
+        <div class="step">
+          <picture class="step-img">
+            <source type="image/avif" srcset="./process/idea-320.avif 320w, ./process/idea-600.avif 600w, ./process/idea-900.avif 900w" sizes="(min-width:960px) 250px, min(76vw, 290px)">
+            <source type="image/webp" srcset="./process/idea-320.webp 320w, ./process/idea-600.webp 600w, ./process/idea-900.webp 900w" sizes="(min-width:960px) 250px, min(76vw, 290px)">
+            <img src="./process/idea-600.jpg" width="600" height="750" loading="lazy" decoding="async"
+                 alt="Preparatory drawing for the Jabir ibn Hayyan relief" data-en-alt="Preparatory drawing for the Jabir ibn Hayyan relief" data-ar-alt="رسم تحضيري للوحة جابر بن حيان">
+          </picture>
+          <b data-en="ONE" data-ar="الأولى">ONE</b>
+          <h3 data-en="Idea" data-ar="الفكرة">Idea</h3>
+          <p data-en="The subject, the composition, the scale — drawn and agreed before any clay is touched." data-ar="الموضوع والتكوين والحجم — تُرسم ويُتفق عليها قبل لمس الطين.">The subject, the composition, the scale — drawn and agreed before any clay is touched.</p></div>
+        <div class="step">
+          <picture class="step-img">
+            <source type="image/avif" srcset="./process/clay-320.avif 320w, ./process/clay-600.avif 600w, ./process/clay-900.avif 900w" sizes="(min-width:960px) 250px, min(76vw, 290px)">
+            <source type="image/webp" srcset="./process/clay-320.webp 320w, ./process/clay-600.webp 600w, ./process/clay-900.webp 900w" sizes="(min-width:960px) 250px, min(76vw, 290px)">
+            <img src="./process/clay-600.jpg" width="600" height="750" loading="lazy" decoding="async"
+                 alt="The relief modelled in clay in the studio" data-en-alt="The relief modelled in clay in the studio" data-ar-alt="اللوحة منمذجة بالطين في المرسم">
+          </picture>
+          <b data-en="TWO" data-ar="الثانية">TWO</b>
           <h3 data-en="Clay" data-ar="الطين">Clay</h3>
-          <p data-en="Built over an armature. Still soft — your last point of free revision." data-ar="يُبنى العمل على هيكل معدني. الطين لا يزال ليّناً — آخر مرحلة للتعديل الحر.">Built over an armature. Still soft — your last point of free revision.</p></div>
-        <div class="step"><b data-en="THREE" data-ar="الثالثة">THREE</b>
+          <p data-en="Modelled by hand over an armature. Still soft — the last point of free revision." data-ar="يُنمذَج يدوياً على هيكل. الطين لا يزال ليّناً — آخر مرحلة للتعديل الحر.">Modelled by hand over an armature. Still soft — the last point of free revision.</p></div>
+        <div class="step">
+          <picture class="step-img">
+            <source type="image/avif" srcset="./process/mould-320.avif 320w, ./process/mould-600.avif 600w, ./process/mould-900.avif 900w" sizes="(min-width:960px) 250px, min(76vw, 290px)">
+            <source type="image/webp" srcset="./process/mould-320.webp 320w, ./process/mould-600.webp 600w, ./process/mould-900.webp 900w" sizes="(min-width:960px) 250px, min(76vw, 290px)">
+            <img src="./process/mould-600.jpg" width="600" height="750" loading="lazy" decoding="async"
+                 alt="Silicone mould taken from the finished clay" data-en-alt="Silicone mould taken from the finished clay" data-ar-alt="قالب السيليكون المأخوذ من الطين">
+          </picture>
+          <b data-en="THREE" data-ar="الثالثة">THREE</b>
           <h3 data-en="Mould" data-ar="القالب">Mould</h3>
-          <p data-en="Silicone and plaster. The clay is lost; the form becomes permanent." data-ar="قالب من السيليكون والجبس. يُفقد الطين ويصبح الشكل ثابتاً.">Silicone and plaster. The clay is lost; the form becomes permanent.</p></div>
-        <div class="step"><b data-en="FOUR" data-ar="الرابعة">FOUR</b>
+          <p data-en="Silicone and plaster. The clay is lost; the form becomes permanent." data-ar="سيليكون وجبس. يُفقد الطين ويصبح الشكل ثابتاً.">Silicone and plaster. The clay is lost; the form becomes permanent.</p></div>
+        <div class="step">
+          <picture class="step-img">
+            <source type="image/avif" srcset="./process/cast-320.avif 320w, ./process/cast-600.avif 600w, ./process/cast-900.avif 900w" sizes="(min-width:960px) 250px, min(76vw, 290px)">
+            <source type="image/webp" srcset="./process/cast-320.webp 320w, ./process/cast-600.webp 600w, ./process/cast-900.webp 900w" sizes="(min-width:960px) 250px, min(76vw, 290px)">
+            <img src="./process/cast-600.jpg" width="600" height="750" loading="lazy" decoding="async"
+                 alt="The finished relief cast in bronze" data-en-alt="The finished relief cast in bronze" data-ar-alt="اللوحة النهائية مصبوبة بالبرونز">
+          </picture>
+          <b data-en="FOUR" data-ar="الرابعة">FOUR</b>
           <h3 data-en="Cast" data-ar="الصب">Cast</h3>
-          <p data-en="Lost wax bronze, chased and finished. Patina, mounting, delivery." data-ar="صبّ بالبرونز بطريقة الشمع المفقود، ثم التشطيب والباتينا والتسليم.">Lost wax bronze, chased and finished. Patina, mounting, delivery.</p></div>
+          <p data-en="Cast in bronze, chased and finished. Patina, mounting, delivery." data-ar="يُصبّ بالبرونز، ثم التشطيب والباتينا والتركيب والتسليم.">Cast in bronze, chased and finished. Patina, mounting, delivery.</p></div>
       </div>
       <div class="bar steps-bar"><i></i></div>
     </div>
@@ -923,6 +958,10 @@ html[dir="rtl"] .fab{right:auto;left:18px}
     $$('[data-en-href]').forEach(function (n) {
       var v = n.getAttribute('data-' + lang + '-href');
       if (v !== null) n.setAttribute('href', v);
+    });
+    $$('[data-en-alt]').forEach(function (n) {
+      var v = n.getAttribute('data-' + lang + '-alt');
+      if (v !== null) n.setAttribute('alt', v);
     });
     var url = new URL(location);
     lang === 'ar' ? url.searchParams.set('lang', 'ar') : url.searchParams.delete('lang');
