@@ -3,4 +3,4 @@ Allow: /
 Disallow: /private/
 Disallow: /embargo/
 
-Sitemap: https://ahmadov.me/sitemap.xml
+Sitemap: https://ahmadhaider.com/sitemap.xml
