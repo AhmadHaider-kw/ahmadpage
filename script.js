@@ -15,9 +15,15 @@
   var bar = $('#progress');
   var last = 0, ticking = false;
 
+  var maxScroll = 0;
+  function measure() { maxScroll = document.documentElement.scrollHeight - innerHeight; }
+  measure();
+  addEventListener('resize', measure);
+  addEventListener('load', measure);
+
   function onScroll() {
     var y = window.scrollY;
-    var max = document.documentElement.scrollHeight - innerHeight;
+    var max = maxScroll;
     bar.style.setProperty('--p', max > 0 ? (y / max).toFixed(4) : 0);
 
     hdr.classList.toggle('stuck', y > 20);
@@ -190,11 +196,21 @@
     });
   }
 
+  /* ---------- 09a · Arabic webfont, loaded on demand ---------- */
+  function loadArabicFont() {
+    if (document.getElementById('arFont')) return;
+    var l = document.createElement('link');
+    l.id = 'arFont'; l.rel = 'stylesheet';
+    l.href = 'https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700&display=swap';
+    document.head.appendChild(l);
+  }
+
   /* ---------- 09 · language ---------- */
   var lang = 'en';
   var langBtn = $('#lang'), langLabel = $('#langLabel');
 
   function paint() {
+    if (lang === 'ar') loadArabicFont();
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
     langLabel.textContent = lang === 'ar' ? 'AR' : 'EN';
