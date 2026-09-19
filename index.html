@@ -110,6 +110,19 @@ html[dir="rtl"] .training-label{font-family:var(--font-arabic)}
   background:linear-gradient(90deg,var(--teal-400),var(--teal-500));
   transition:transform .12s linear;pointer-events:none;
 }
+/* Arabic sets taller than Latin: hamza (أ) and shadda (ّ) rise above the
+   Latin ascender. h1's reveal mask (overflow:hidden) was slicing them off,
+   and the tight Latin leading elsewhere left no room for the marks. */
+html[dir="rtl"] h1{line-height:1.55;letter-spacing:0}
+html[dir="rtl"] h1 em{padding-bottom:.16em}
+html[dir="rtl"] h2{line-height:1.38;letter-spacing:0}
+html[dir="rtl"] .about-lead{line-height:1.55;letter-spacing:0}
+html[dir="rtl"] .about-body{line-height:1.95}
+html[dir="rtl"] .sub{line-height:1.85}
+html[dir="rtl"] .training-label{line-height:1.9}
+html[dir="rtl"] .school{line-height:1.62}
+html[dir="rtl"] .step h3,html[dir="rtl"] .card h3{line-height:1.45;letter-spacing:0}
+html[dir="rtl"] .eyebrow{line-height:1.8}
 html[dir="rtl"] .progress{transform-origin:100% 50%}
 
 /* ============ header ============ */
