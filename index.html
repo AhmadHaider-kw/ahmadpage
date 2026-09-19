@@ -125,6 +125,8 @@ html[dir="rtl"] .progress{transform-origin:100% 50%}
 .hdr.hide{transform:translateY(-110%)}
 .hdr-in{display:flex;align-items:center;justify-content:flex-end;gap:12px;
   max-width:1140px;margin:0 auto;padding-inline:var(--gut)}
+/* keep the controls pinned to the right in both directions (flex-end is direction-aware, so RTL needs flex-start) */
+html[dir="rtl"] .hdr-in{justify-content:flex-start}
 
 
 .hdr-r{display:flex;align-items:center;gap:10px}
