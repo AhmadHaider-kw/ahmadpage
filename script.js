@@ -206,6 +206,10 @@
       var v = n.getAttribute('data-' + lang + '-html');
       if (v !== null) n.innerHTML = v;
     });
+    $$('[data-en-href]').forEach(function (n) {
+      var v = n.getAttribute('data-' + lang + '-href');
+      if (v !== null) n.setAttribute('href', v);
+    });
     var url = new URL(location);
     lang === 'ar' ? url.searchParams.set('lang', 'ar') : url.searchParams.delete('lang');
     history.replaceState(null, '', url);

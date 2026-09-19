@@ -308,6 +308,27 @@ h2{font-family:var(--font-display);font-weight:500;font-size:clamp(32px,8vw,52px
 .card li{font-size:14.5px;color:var(--text-secondary);padding:9px 0;border-top:1px solid var(--line)}
 .card li:first-child{border-top:0}
 
+
+/* card CTA — pre-filled WhatsApp enquiry */
+.card-cta{display:inline-flex;align-items:center;gap:9px;
+  margin-top:clamp(18px,3.6vw,22px);padding:11px 18px;border-radius:50px;
+  background:var(--accent-light);color:var(--accent);
+  font-family:var(--font-body);font-size:14px;font-weight:600;
+  letter-spacing:.005em;text-decoration:none;line-height:1;
+  transition:background .35s var(--ease-smooth),color .35s var(--ease-smooth),
+             box-shadow .4s var(--ease-out),transform .35s var(--ease-out)}
+.card-cta svg{width:16px;height:16px;flex:0 0 auto}
+.card-cta .arw{transition:transform .35s var(--ease-out)}
+.card-cta:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+@media(hover:hover){
+  .card-cta:hover{background:var(--accent);color:#fff;
+    box-shadow:0 10px 26px rgba(20,184,166,.3);transform:translateY(-1px)}
+  .card-cta:hover .arw{transform:translateX(3px)}
+}
+[dir="rtl"] .card-cta{font-family:var(--font-arabic)}
+[dir="rtl"] .card-cta .arw{transform:scaleX(-1)}
+@media(hover:hover){[dir="rtl"] .card-cta:hover .arw{transform:scaleX(-1) translateX(3px)}}
+
 /* ============ rails ============ */
 .rail-wrap{position:relative}
 .rail{
