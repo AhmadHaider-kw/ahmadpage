@@ -439,10 +439,8 @@ h2{font-family:var(--font-display);font-weight:500;font-size:clamp(32px,8vw,52px
 }
 .plate img{width:100%;height:100%;object-fit:cover;display:block}
 @media(hover:hover){.work:hover .plate{box-shadow:0 20px 48px rgba(0,0,0,.12)}}
-.plate span{font-family:var(--font-display);font-style:italic;font-size:18px;
-  color:var(--text-secondary);opacity:.55;letter-spacing:.02em}
 .work h3{font-family:var(--font-display);font-weight:500;font-size:17px;
-  margin:15px 0 3px;text-align:center;letter-spacing:-.01em}
+  margin:15px 0 3px;text-align:center;letter-spacing:-.01em;text-wrap:balance}
 .work p{margin:0;text-align:center;font-size:13px;color:var(--text-secondary)}
 
 /* ============ contact ============ */
@@ -684,29 +682,57 @@ html[dir="rtl"] .fab{right:auto;left:18px}
   </div>
 </section>
 
-<!-- ================= WORK =================
-     Replace each  <div class="plate"><span …>Soon</span></div>  with
-     <div class="plate"><img src="./work/01.jpg" alt="…" loading="lazy" width="800" height="1000"></div>
-     then fill the meta line under it.
-     ======================================== -->
+<!-- ================= WORK ================= -->
 <section class="band band-s" id="work">
   <div class="wrap">
     <p class="eyebrow rv" data-en="SELECTED WORK" data-ar="أعمال مختارة">SELECTED WORK</p>
-    <h2 class="rv" data-en="Six pieces" data-ar="ستة أعمال">Six pieces</h2>
+    <h2 class="rv" data-en="Four pieces" data-ar="أربعة أعمال">Four pieces</h2>
     <div class="rail-wrap rv">
       <div class="rail">
-        <figure class="work"><div class="plate"><span data-en="Soon" data-ar="قريباً">Soon</span></div>
-          <h3 data-en="Portrait bust" data-ar="تمثال نصفي">Portrait bust</h3><p data-en="Bronze · —" data-ar="برونز · —">Bronze · —</p></figure>
-        <figure class="work"><div class="plate"><span data-en="Soon" data-ar="قريباً">Soon</span></div>
-          <h3 data-en="Relief panel" data-ar="لوحة بارزة">Relief panel</h3><p data-en="Clay, cast · —" data-ar="طين، مصبوب · —">Clay, cast · —</p></figure>
-        <figure class="work"><div class="plate"><span data-en="Soon" data-ar="قريباً">Soon</span></div>
-          <h3 data-en="Portrait study" data-ar="دراسة بورتريه">Portrait study</h3><p data-en="Clay · —" data-ar="طين · —">Clay · —</p></figure>
-        <figure class="work"><div class="plate"><span data-en="Soon" data-ar="قريباً">Soon</span></div>
-          <h3 data-en="Equine head" data-ar="رأس حصان">Equine head</h3><p data-en="Bronze · —" data-ar="برونز · —">Bronze · —</p></figure>
-        <figure class="work"><div class="plate"><span data-en="Soon" data-ar="قريباً">Soon</span></div>
-          <h3 data-en="Écorché" data-ar="دراسة تشريحية">Écorché</h3><p data-en="Clay, plaster · —" data-ar="طين وجبس · —">Clay, plaster · —</p></figure>
-        <figure class="work"><div class="plate"><span data-en="Soon" data-ar="قريباً">Soon</span></div>
-          <h3 data-en="Figure" data-ar="تمثال">Figure</h3><p data-en="Bronze · —" data-ar="برونز · —">Bronze · —</p></figure>
+        <figure class="work">
+          <div class="plate">
+            <picture>
+              <source type="image/avif" srcset="./works/jabir-320.avif 320w, ./works/jabir-520.avif 520w, ./works/jabir-780.avif 780w" sizes="min(64vw, 250px)">
+              <source type="image/webp" srcset="./works/jabir-320.webp 320w, ./works/jabir-520.webp 520w, ./works/jabir-780.webp 780w" sizes="min(64vw, 250px)">
+              <img src="./works/jabir-520.jpg" width="520" height="650" loading="lazy" decoding="async"
+                   alt="Bronze relief of Jabir ibn Hayyan at his distillation apparatus" data-en-alt="Bronze relief of Jabir ibn Hayyan at his distillation apparatus" data-ar-alt="لوحة برونزية بارزة لجابر بن حيان أمام جهاز التقطير">
+            </picture>
+          </div>
+          <h3 data-en="Jabir ibn Hayyan" data-ar="جابر بن حيان">Jabir ibn Hayyan</h3>
+          <p data-en="Bronze relief" data-ar="نحت بارز · برونز">Bronze relief</p></figure>
+        <figure class="work">
+          <div class="plate">
+            <picture>
+              <source type="image/avif" srcset="./works/horse-320.avif 320w, ./works/horse-520.avif 520w, ./works/horse-780.avif 780w" sizes="min(64vw, 250px)">
+              <source type="image/webp" srcset="./works/horse-320.webp 320w, ./works/horse-520.webp 520w, ./works/horse-780.webp 780w" sizes="min(64vw, 250px)">
+              <img src="./works/horse-520.jpg" width="520" height="650" loading="lazy" decoding="async"
+                   alt="Glazed ceramic horse head" data-en-alt="Glazed ceramic horse head" data-ar-alt="رأس حصان من السيراميك المزجّج">
+            </picture>
+          </div>
+          <h3 data-en="Horse head" data-ar="رأس حصان">Horse head</h3>
+          <p data-en="Ceramic" data-ar="سيراميك">Ceramic</p></figure>
+        <figure class="work">
+          <div class="plate">
+            <picture>
+              <source type="image/avif" srcset="./works/nietzsche-320.avif 320w, ./works/nietzsche-520.avif 520w, ./works/nietzsche-780.avif 780w" sizes="min(64vw, 250px)">
+              <source type="image/webp" srcset="./works/nietzsche-320.webp 320w, ./works/nietzsche-520.webp 520w, ./works/nietzsche-780.webp 780w" sizes="min(64vw, 250px)">
+              <img src="./works/nietzsche-520.jpg" width="520" height="650" loading="lazy" decoding="async"
+                   alt="Plaster relief portrait of Friedrich Nietzsche in a turned wood frame" data-en-alt="Plaster relief portrait of Friedrich Nietzsche in a turned wood frame" data-ar-alt="بورتريه بارز من الجبس لفريدريش نيتشه في إطار خشبي">
+            </picture>
+          </div>
+          <h3 data-en="Nietzsche" data-ar="نيتشه">Nietzsche</h3>
+          <p data-en="Plaster relief" data-ar="نحت بارز · جبس">Plaster relief</p></figure>
+        <figure class="work">
+          <div class="plate">
+            <picture>
+              <source type="image/avif" srcset="./works/nawaf-320.avif 320w, ./works/nawaf-520.avif 520w, ./works/nawaf-780.avif 780w" sizes="min(64vw, 250px)">
+              <source type="image/webp" srcset="./works/nawaf-320.webp 320w, ./works/nawaf-520.webp 520w, ./works/nawaf-780.webp 780w" sizes="min(64vw, 250px)">
+              <img src="./works/nawaf-520.jpg" width="520" height="650" loading="lazy" decoding="async"
+                   alt="Bronze bust of Sheikh Nawaf Al-Ahmad Al-Sabah on a wooden plinth" data-en-alt="Bronze bust of Sheikh Nawaf Al-Ahmad Al-Sabah on a wooden plinth" data-ar-alt="تمثال نصفي برونزي للشيخ نواف الأحمد الصباح على قاعدة خشبية">
+            </picture>
+          </div>
+          <h3 data-en="Sheikh Nawaf Al‑Ahmad Al‑Sabah" data-ar="الشيخ نواف الأحمد الصباح">Sheikh Nawaf Al‑Ahmad Al‑Sabah</h3>
+          <p data-en="Bronze bust" data-ar="تمثال نصفي · برونز">Bronze bust</p></figure>
       </div>
       <div class="bar"><i></i></div>
     </div>
