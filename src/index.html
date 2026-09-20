@@ -255,7 +255,7 @@ h1 em>i{text-decoration:underline;text-decoration-thickness:2px;text-underline-o
 @keyframes lineUp{to{transform:none}}
 
 .sub{color:var(--text-secondary);font-size:clamp(16px,4.2vw,19px);line-height:1.6;
-  max-width:30ch;margin:20px auto 0}
+  max-width:30ch;margin:20px auto 0;text-align:center;text-wrap:balance}
 
 .btns{display:grid;gap:14px;margin-top:clamp(32px,8vw,44px);justify-content:center}
 @media(min-width:620px){.btns{grid-auto-flow:column}}
@@ -411,11 +411,6 @@ h2{font-family:var(--font-display);font-weight:500;font-size:clamp(32px,8vw,52px
 .rail.dragging *{pointer-events:none}
 
 /* 07 · rail progress bar */
-.bar{height:2px;background:var(--line);border-radius:2px;overflow:hidden;max-width:180px;margin:0 auto}
-.bar i{display:block;height:100%;width:100%;background:var(--accent);border-radius:2px;
-  transform-origin:left;transform:scaleX(var(--w,.25)) translateX(var(--o,0));
-  transition:transform .18s var(--ease-smooth)}
-
 .step{
   flex:0 0 76%;max-width:290px;scroll-snap-align:center;
   background:var(--bg-elevated);border-radius:16px;padding:28px 24px;
@@ -440,21 +435,7 @@ h2{font-family:var(--font-display);font-weight:500;font-size:clamp(32px,8vw,52px
   .rail.steps{display:grid;grid-template-columns:repeat(4,1fr);overflow:visible;
     padding-inline:0;margin-inline:0;cursor:default}
   .rail.steps .step{flex:none;max-width:none}
-  .bar.steps-bar{display:none}
 }
-
-/* the work and the process are the same bronze; these are the two doors between them */
-.xlink{display:inline-flex;align-items:center;gap:6px;margin-top:6px;
-  /* 3px of padding takes the tap target past the 24px minimum */
-  padding:3px 1px;font-size:13px;letter-spacing:.01em;
-  color:var(--accent-text);text-decoration:none;white-space:nowrap;
-  border-bottom:1px solid transparent;transition:border-color .3s,opacity .3s}
-.xlink i{font-style:normal;transition:transform .35s var(--ease-out)}
-@media(hover:hover){.xlink:hover{border-bottom-color:currentColor}
-  .xlink:hover i{transform:translateY(3px)}}
-.work .xlink{margin-top:4px}
-.process-back{text-align:center;margin:clamp(26px,6vw,38px) 0 0}
-.process-back .xlink{font-size:14px}
 
 /* ============ work plates ============ */
 .work{flex:0 0 64%;max-width:250px;scroll-snap-align:center;margin:0;perspective:900px}
@@ -714,9 +695,7 @@ html[dir="rtl"] .fab{right:auto;left:18px}
           <h3 data-en="Cast" data-ar="الصب">Cast</h3>
           <p data-en="Cast in bronze, chased and finished. Patina, mounting, delivery." data-ar="يُصبّ بالبرونز، ثم التشطيب والباتينا والتركيب والتسليم.">Cast in bronze, chased and finished. Patina, mounting, delivery.</p></div>
       </div>
-      <div class="bar steps-bar"><i></i></div>
     </div>
-    <p class="process-back rv"><a class="xlink" href="#work"><span data-en="See the finished piece" data-ar="شاهد العمل النهائي">See the finished piece</span><i aria-hidden="true">↓</i></a></p>
   </div>
 </section>
 
@@ -737,8 +716,7 @@ html[dir="rtl"] .fab{right:auto;left:18px}
             </picture>
           </div>
           <h3 data-en="Jabir ibn Hayyan" data-ar="جابر بن حيان">Jabir ibn Hayyan</h3>
-          <p data-en="Bronze relief" data-ar="نحت بارز · برونز">Bronze relief</p>
-          <a class="xlink" href="#process"><span data-en="See how this was made" data-ar="شاهد كيف صُنع">See how this was made</span><i aria-hidden="true">↓</i></a></figure>
+          <p data-en="Bronze relief" data-ar="نحت بارز · برونز">Bronze relief</p></figure>
         <figure class="work">
           <div class="plate">
             <picture>
@@ -773,7 +751,6 @@ html[dir="rtl"] .fab{right:auto;left:18px}
           <h3 data-en="Sheikh Nawaf Al‑Ahmad Al‑Sabah" data-ar="الشيخ نواف الأحمد الصباح">Sheikh Nawaf Al‑Ahmad Al‑Sabah</h3>
           <p data-en="Bronze bust" data-ar="تمثال نصفي · برونز">Bronze bust</p></figure>
       </div>
-      <div class="bar"><i></i></div>
     </div>
   </div>
 </section>
@@ -954,18 +931,9 @@ html[dir="rtl"] .fab{right:auto;left:18px}
 
   /* ---------- 07 · rails: drag to scroll, progress, active step ---------- */
   $$('.rail').forEach(function (rail) {
-    var wrap = rail.closest('.rail-wrap');
-    var fill = wrap ? $('.bar i', wrap) : null;
     var steps = $$('.step', rail);
 
     function update() {
-      var max = rail.scrollWidth - rail.clientWidth;
-      if (fill) {
-        var ratio = rail.clientWidth / rail.scrollWidth;
-        var pos = max > 0 ? rail.scrollLeft / max : 0;
-        fill.style.setProperty('--w', Math.min(1, ratio).toFixed(3));
-        fill.style.setProperty('--o', (pos * (1 / Math.max(ratio, .001) - 1) * 100).toFixed(2) + '%');
-      }
       if (steps.length) {
         var mid = rail.getBoundingClientRect().left + rail.clientWidth / 2;
         var best = null, bestD = Infinity;
