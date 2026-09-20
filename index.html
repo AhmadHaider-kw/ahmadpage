@@ -29,7 +29,12 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://ahmadhaider.com/og-image.jpg">
 
+<link rel="icon" href="./favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<link rel="manifest" href="./site.webmanifest">
+
 <link rel="preload" href="./fonts/fraunces-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="./fonts/fraunces-italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="./fonts/dmsans-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 @font-face{font-family:'Fraunces';font-style:normal;font-weight:100 900;font-display:swap;src:url('./fonts/fraunces-normal.woff2') format('woff2')}
@@ -37,7 +42,7 @@
 @font-face{font-family:'DM Sans';font-style:normal;font-weight:100 1000;font-display:swap;src:url('./fonts/dmsans-normal.woff2') format('woff2')}
 
 /* ============================================================
-   Ahmad Haidar — Sculptor
+   Ahmad Haider — Sculptor
    styles.css
    Palette, type and chrome carried over from the original build.
    ============================================================ */
@@ -56,6 +61,9 @@
   --text:#0f2a26;
   --text-secondary:#4a6b65;
   --accent:var(--teal-500);
+  /* teal-500 as TEXT is 2.4:1 on --bg. These two pass AA; --accent stays for fills. */
+  --accent-text:#0f766e;    /* 5.2:1 — small text */
+  --accent-strong:#0d9488;  /* 3.6:1 — large text */
   --accent-light:rgba(20,184,166,.1);
   --line:rgba(15,42,38,.09);
 
@@ -76,13 +84,13 @@
   :root:not([data-theme="light"]){
     --bg:#0b1a18;--bg-subtle:#10221f;--bg-elevated:#152b27;--white:#152b27;
     --text:#e9f2f0;--text-secondary:#93b0ab;
-    --line:rgba(233,242,240,.12);--accent:var(--teal-400);
+    --line:rgba(233,242,240,.12);--accent:var(--teal-400);--accent-text:var(--teal-400);--accent-strong:var(--teal-400);
   }
 }
 :root[data-theme="dark"]{
   --bg:#0b1a18;--bg-subtle:#10221f;--bg-elevated:#152b27;--white:#152b27;
   --text:#e9f2f0;--text-secondary:#93b0ab;
-  --line:rgba(233,242,240,.12);--accent:var(--teal-400);
+  --line:rgba(233,242,240,.12);--accent:var(--teal-400);--accent-text:var(--teal-400);--accent-strong:var(--teal-400);
 }
 
 *,*::before,*::after{box-sizing:border-box}
@@ -93,7 +101,7 @@ body{
   -webkit-font-smoothing:antialiased;overflow-x:hidden;
 }
 a{color:inherit}
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+:focus-visible{outline:2px solid var(--accent-text);outline-offset:3px;border-radius:6px}
 html[dir="rtl"] body,
 html[dir="rtl"] h1,html[dir="rtl"] h2,html[dir="rtl"] h3,
 html[dir="rtl"] .about-lead,html[dir="rtl"] .about-body,
@@ -207,7 +215,7 @@ html[dir="rtl"] .hdr-in{justify-content:flex-start}
   background:var(--accent);transform:translateX(-50%);
   transition:width .4s var(--ease-out);
 }
-.menu a:hover{color:var(--accent)}
+.menu a:hover{color:var(--accent-text)}
 .menu a:hover::after{width:100%}
 
 /* ============ hero ============ */
@@ -241,7 +249,7 @@ h1 span>i,h1 em>i{display:block;font-style:inherit;transform:translateY(105%);
   animation:lineUp 1.05s var(--ease-out) forwards}
 h1 span>i{animation-delay:.12s}
 h1 em>i{animation-delay:.24s}
-h1 em{font-style:italic;font-weight:400;color:var(--accent);padding-bottom:.08em}
+h1 em{font-style:italic;font-weight:400;color:var(--accent-strong);padding-bottom:.08em}
 h1 em>i{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:.1em}
 @keyframes lineUp{to{transform:none}}
 
@@ -288,6 +296,8 @@ h1 em>i{text-decoration:underline;text-decoration-thickness:2px;text-underline-o
 section{scroll-margin-top:72px}
 .band{padding-block:clamp(64px,14vw,120px)}
 .band-s{background:linear-gradient(180deg,var(--bg) 0%,var(--bg-subtle) 100%)}
+/* the commissions eyebrow IS that section's heading; keep it looking like the others */
+h2.eyebrow{font-family:var(--font-body);font-weight:400;line-height:1.5}
 .eyebrow{text-align:center;font-size:13px;letter-spacing:.16em;color:var(--text-secondary);
   margin:0 0 clamp(26px,6vw,40px)}
 h2{font-family:var(--font-display);font-weight:500;font-size:clamp(32px,8vw,52px);
@@ -303,7 +313,7 @@ h2{font-family:var(--font-display);font-weight:500;font-size:clamp(32px,8vw,52px
   font-size:clamp(16.5px,3.5vw,19px);line-height:1.68;letter-spacing:.002em;
   color:var(--text-secondary);text-align:center;max-width:52ch;margin:0 auto;
   text-wrap:pretty}
-.about-body b{font-weight:600;color:var(--accent)}
+.about-body b{font-weight:600;color:var(--accent-text)}
 
 .training{max-width:54ch;margin:clamp(32px,6.5vw,46px) auto 0;
   padding-top:clamp(22px,4.8vw,30px);border-top:1px solid var(--line)}
@@ -314,7 +324,7 @@ h2{font-family:var(--font-display);font-weight:500;font-size:clamp(32px,8vw,52px
 @media(min-width:720px){.training-list{grid-template-columns:1fr 1fr;gap:28px}}
 .training-list li{display:flex;flex-direction:column;gap:8px;text-align:center}
 .training-list .where{margin-top:auto;padding-top:2px}
-.about b{font-weight:400;color:var(--accent)}
+.about b{font-weight:400;color:var(--accent-text)}
 
 /* academies — display optical size, italic cut, accent rule beneath */
 .school{
@@ -354,7 +364,7 @@ h2{font-family:var(--font-display);font-weight:500;font-size:clamp(32px,8vw,52px
 }
 @media(hover:hover){
   .card:hover{transform:translateY(-6px);box-shadow:0 18px 44px rgba(0,0,0,.09)}
-  .card:hover h3{color:var(--accent)}
+  .card:hover h3{color:var(--accent-text)}
 }
 .card::before{
   content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--accent);
@@ -371,14 +381,14 @@ h2{font-family:var(--font-display);font-weight:500;font-size:clamp(32px,8vw,52px
 /* card CTA — pre-filled WhatsApp enquiry */
 .card-cta{display:inline-flex;align-items:center;gap:9px;
   margin-top:clamp(18px,3.6vw,22px);padding:11px 18px;border-radius:50px;
-  background:var(--accent-light);color:var(--accent);
+  background:var(--accent-light);color:var(--accent-text);
   font-family:var(--font-body);font-size:14px;font-weight:600;
   letter-spacing:.005em;text-decoration:none;line-height:1;
   transition:background .35s var(--ease-smooth),color .35s var(--ease-smooth),
              box-shadow .4s var(--ease-out),transform .35s var(--ease-out)}
 .card-cta svg{width:16px;height:16px;flex:0 0 auto}
 .card-cta .arw{transition:transform .35s var(--ease-out)}
-.card-cta:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.card-cta:focus-visible{outline:2px solid var(--accent-text);outline-offset:3px}
 @media(hover:hover){
   .card-cta:hover{background:var(--accent);color:#fff;
     box-shadow:0 10px 26px rgba(20,184,166,.3);transform:translateY(-1px)}
@@ -413,7 +423,7 @@ h2{font-family:var(--font-display);font-weight:500;font-size:clamp(32px,8vw,52px
 }
 /* 08 · active step lifts as it centres */
 .step.active{transform:translateY(-6px);box-shadow:0 18px 44px rgba(0,0,0,.09)}
-.step.active b{color:var(--accent)}
+.step.active b{color:var(--accent-text)}
 .step-img{display:block;margin:-28px -24px 20px;border-radius:16px 16px 0 0;
   overflow:hidden;background:var(--bg-subtle)}
 .step-img img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;
@@ -459,7 +469,7 @@ h2{font-family:var(--font-display);font-weight:500;font-size:clamp(32px,8vw,52px
   text-decoration:none;display:inline-flex;align-items:center;gap:9px;position:relative;
   transition:color .3s;
 }
-.links a:hover,.links button:hover{color:var(--accent)}
+.links a:hover,.links button:hover{color:var(--accent-text)}
 .links .mail-row{flex:0 0 100%;display:flex;justify-content:center;margin-top:2px}
 .links svg{width:19px;height:19px;flex:none;transition:transform .45s var(--ease-out)}
 .links a:hover svg,.links button:hover svg{transform:scale(1.15)}
@@ -529,7 +539,7 @@ html[dir="rtl"] .fab{right:auto;left:18px}
 </head>
 
 <body>
-<a class="skip" href="#main">Skip to content</a>
+<a class="skip" href="#main" data-en="Skip to content" data-ar="تخطى إلى المحتوى">Skip to content</a>
 <div class="progress" id="progress"></div>
 
 <header class="hdr" id="hdr">
@@ -579,7 +589,7 @@ html[dir="rtl"] .fab{right:auto;left:18px}
 <!-- ================= ABOUT ================= -->
 <section class="band" id="about">
   <div class="wrap">
-    <p class="about-lead rv" data-en="I'm a sculptor based in Kuwait." data-ar="أنا نحّات مقيم في الكويت.">I'm a sculptor based in Kuwait.</p>
+    <h2 class="about-lead rv" data-en="I'm a sculptor based in Kuwait." data-ar="أنا نحّات مقيم في الكويت.">I'm a sculptor based in Kuwait.</h2>
     <p class="about-body rv d1" data-en-html="I make portraits, reliefs, and figures &mdash; modelled by hand in the traditional sequence, then cast in <b>bronze</b>, <b>ceramic</b>, or <b>plaster</b>." data-ar-html="أنحت البورتريه والنحت البارز والتماثيل &mdash; يدوياً وبالطريقة التقليدية، ثم تُصبّ في <b>البرونز</b> أو <b>السيراميك</b> أو <b>الجبس</b>.">I make portraits, reliefs, and figures &mdash; modelled by hand in the traditional sequence, then cast in <b>bronze</b>, <b>ceramic</b>, or <b>plaster</b>.</p>
     <div class="training rv d2">
       <p class="training-label" data-en="Trained under master sculptors at" data-ar="تدرّبت على يد أساتذة النحت في">Trained under master sculptors at</p>
@@ -600,7 +610,7 @@ html[dir="rtl"] .fab{right:auto;left:18px}
 <!-- ================= COMMISSIONS ================= -->
 <section class="band band-s" id="commissions">
   <div class="wrap">
-    <p class="eyebrow rv" data-en="COMMISSIONS" data-ar="التكليفات">COMMISSIONS</p>
+    <h2 class="eyebrow rv" data-en="COMMISSIONS" data-ar="التكليفات">COMMISSIONS</h2>
     <div class="cards">
       <div class="card rv">
         <h3 data-en="Portrait" data-ar="البورتريه">Portrait</h3>
@@ -640,7 +650,7 @@ html[dir="rtl"] .fab{right:auto;left:18px}
 <section class="band" id="process">
   <div class="wrap">
     <p class="eyebrow rv" data-en="MY PROCESS" data-ar="مراحل عملي">MY PROCESS</p>
-    <h2 class="rv" data-en="Idea to cast" data-ar="من الفكرة إلى البرونز">Idea to cast</h2>
+    <h2 class="rv" data-en="Idea to Cast" data-ar="من الفكرة إلى البرونز">Idea to Cast</h2>
     <div class="rail-wrap rv">
       <div class="rail steps">
         <div class="step">
@@ -782,7 +792,7 @@ html[dir="rtl"] .fab{right:auto;left:18px}
 
 <script>
 /* ============================================================
-   Ahmad Haidar — Sculptor
+   Ahmad Haider — Sculptor
    script.js  ·  vanilla, no dependencies
    ============================================================ */
 (function () {
@@ -824,16 +834,34 @@ html[dir="rtl"] .fab{right:auto;left:18px}
   onScroll();
 
   /* ---------- 02 · menu ---------- */
-  var burger = $('#burger'), menu = $('#menu');
-  function setMenu(open) {
+  var burger = $('#burger'), menu = $('#menu'), opener = null;
+  function setMenu(open, restore) {
     burger.classList.toggle('open', open);
     menu.classList.toggle('open', open);
     burger.setAttribute('aria-expanded', open);
     document.body.style.overflow = open ? 'hidden' : '';
+    if (open) {
+      opener = document.activeElement;
+      var first = menu.querySelector('a[href]');
+      if (first) first.focus();
+    } else if (restore && opener) {
+      opener.focus();
+      opener = null;
+    }
   }
-  burger.addEventListener('click', function () { setMenu(!menu.classList.contains('open')); });
-  menu.addEventListener('click', function (e) { if (e.target.tagName === 'A') setMenu(false); });
-  addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+  burger.addEventListener('click', function () { setMenu(!menu.classList.contains('open'), true); });
+  // a nav link should land you at the section, so don't drag focus back here
+  menu.addEventListener('click', function (e) { if (e.target.tagName === 'A') setMenu(false, false); });
+  addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false, true); });
+  // the overlay covers the page: without this, Tab walks into what it hides
+  addEventListener('keydown', function (e) {
+    if (e.key !== 'Tab' || !menu.classList.contains('open')) return;
+    var items = menu.querySelectorAll('a[href]');
+    if (!items.length) return;
+    var first = items[0], last = items[items.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
 
   /* ---------- 03 · hero gradient follows the pointer ---------- */
   var hero = $('.hero');
