@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <script>(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}})();</script>
 <title>Ahmad Haider — Sculptor | أحمد حيدر نحات الكويت</title>
-<meta name="description" content="Ahmad Haider (أحمد حيدر) — sculptor in Kuwait. Commissioned portrait busts, relief, and bronze. نحات كويتي: بورتريه، نحت بارز، تماثيل برونزية.">
+<meta name="description" content="Ahmad Haider (أحمد حيدر) — sculptor in Kuwait. Commissioned portrait busts, reliefs and figures, cast in bronze, ceramic or plaster. نحات كويتي: بورتريه، نحت بارز، تماثيل برونزية.">
 <meta name="keywords" content="Ahmad Haider, Ahmad Haidar, sculptor Kuwait, Kuwait sculptor, bronze sculptor, portrait bust Kuwait, bas relief, أحمد حيدر, أحمد حيدر نحات, نحات, نحات كويتي, نحت, نحت بارز, تمثال نصفي, تماثيل برونزية, نحات في الكويت">
 <meta name="author" content="Ahmad Haider">
 <link rel="canonical" href="https://ahmadhaider.com/">
@@ -18,7 +18,7 @@
 <meta name="theme-color" content="#14b8a6">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Ahmad Haider — Sculptor | أحمد حيدر نحات">
-<meta property="og:description" content="Sculptor in Kuwait. Commissioned portrait busts, relief, and bronze.">
+<meta property="og:description" content="Sculptor in Kuwait. Commissioned portrait busts, reliefs and figures, cast in bronze, ceramic or plaster.">
 <meta property="og:url" content="https://ahmadhaider.com/">
 <meta property="og:image" content="https://ahmadhaider.com/og-image.jpg">
 <meta property="og:image:width" content="1200">
@@ -100,8 +100,14 @@ html[dir="rtl"] .about-lead,html[dir="rtl"] .about-body,
 html[dir="rtl"] .training-label{font-family:var(--font-arabic)}
 
 .wrap{width:100%;max-width:1140px;margin:0 auto;padding-inline:var(--gut)}
-.skip{position:absolute;left:-9999px}
-.skip:focus{left:12px;top:12px;z-index:99;background:var(--white);padding:10px 16px;border-radius:12px}
+/* left:-9999px pushed the page 10,000px wide in RTL, where a negative left
+   sits outside the RIGHT edge. Clip instead: costs no scroll width either way. */
+.skip{position:absolute;width:1px;height:1px;margin:-1px;padding:0;border:0;
+  overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+.skip:focus{position:fixed;width:auto;height:auto;margin:0;overflow:visible;
+  clip:auto;clip-path:none;inset-inline-start:12px;top:12px;z-index:99;
+  background:var(--white);color:var(--text);padding:10px 16px;border-radius:12px;
+  box-shadow:0 10px 28px rgba(0,0,0,.16)}
 
 /* ============ 01 · scroll progress hairline ============ */
 .progress{
@@ -454,6 +460,7 @@ h2{font-family:var(--font-display);font-weight:500;font-size:clamp(32px,8vw,52px
   transition:color .3s;
 }
 .links a:hover,.links button:hover{color:var(--accent)}
+.links .mail-row{flex:0 0 100%;display:flex;justify-content:center;margin-top:2px}
 .links svg{width:19px;height:19px;flex:none;transition:transform .45s var(--ease-out)}
 .links a:hover svg,.links button:hover svg{transform:scale(1.15)}
 /* 10 · copy-to-clipboard confirmation */
@@ -504,15 +511,15 @@ html[dir="rtl"] .fab{right:auto;left:18px}
 {"@context":"https://schema.org","@graph":[
 {"@type":"Person","@id":"https://ahmadhaider.com/#p","name":"Ahmad Haider",
 "alternateName":["أحمد حيدر","احمد حيدر","Ahmad Haidar","أحمد حيدر النحات"],
-"jobTitle":"Sculptor","url":"https://ahmadhaider.com/","telephone":"+96566458885",
-"description":"Sculptor in Kuwait. Commissioned portrait busts, relief and bronze.",
+"jobTitle":"Sculptor","url":"https://ahmadhaider.com/","telephone":"+96566458885","email":"ahmad.haider.kw@gmail.com",
+"description":"Sculptor in Kuwait. Commissioned portrait busts, reliefs and figures, cast in bronze, ceramic or plaster.",
 "knowsLanguage":["ar","en"],
 "knowsAbout":["Sculpture","النحت","Portrait sculpture","Bas-relief","النحت البارز","Bronze casting","Figurative sculpture","تماثيل برونزية"],
 "address":{"@type":"PostalAddress","addressCountry":"KW","addressLocality":"Kuwait"},
 "sameAs":["https://instagram.com/ahmadhaidar.kw"],
-"alumniOf":[{"@type":"EducationalOrganization","name":"The Florence Academy of Art"},{"@type":"EducationalOrganization","name":"Figura Academy, Amsterdam"}]},
+"alumniOf":[{"@type":"EducationalOrganization","name":"The Florence Academy of Art","sameAs":"https://www.florenceacademyofart.edu/"},{"@type":"EducationalOrganization","name":"Figura, Dutch Academy of Figurative Sculpture","sameAs":"https://www.figura-sculpture.com/"}]},
 {"@type":"ProfessionalService","name":"Ahmad Haider — Sculpture Studio","alternateName":"أحمد حيدر للنحت",
-"founder":{"@id":"https://ahmadhaider.com/#p"},"url":"https://ahmadhaider.com/","telephone":"+96566458885",
+"founder":{"@id":"https://ahmadhaider.com/#p"},"url":"https://ahmadhaider.com/","telephone":"+96566458885","email":"ahmad.haider.kw@gmail.com",
 "areaServed":["KW","GCC"],"address":{"@type":"PostalAddress","addressCountry":"KW"},
 "hasOfferCatalog":{"@type":"OfferCatalog","name":"Commissions","itemListElement":[
 {"@type":"Offer","itemOffered":{"@type":"Service","name":"Portrait — commissioned busts"}},
@@ -573,16 +580,16 @@ html[dir="rtl"] .fab{right:auto;left:18px}
 <section class="band" id="about">
   <div class="wrap">
     <p class="about-lead rv" data-en="I'm a sculptor based in Kuwait." data-ar="أنا نحّات مقيم في الكويت.">I'm a sculptor based in Kuwait.</p>
-    <p class="about-body rv d1" data-en-html="I make portraits, relief, and figures &mdash; modelled by hand in the traditional sequence, then cast in <b>bronze</b>, <b>ceramic</b>, or <b>plaster</b>." data-ar-html="أنحت البورتريه والنحت البارز والتماثيل &mdash; يدوياً وبالطريقة التقليدية، ثم تُصبّ في <b>البرونز</b> أو <b>السيراميك</b> أو <b>الجبس</b>.">I make portraits, relief, and figures &mdash; modelled by hand in the traditional sequence, then cast in <b>bronze</b>, <b>ceramic</b>, or <b>plaster</b>.</p>
+    <p class="about-body rv d1" data-en-html="I make portraits, reliefs, and figures &mdash; modelled by hand in the traditional sequence, then cast in <b>bronze</b>, <b>ceramic</b>, or <b>plaster</b>." data-ar-html="أنحت البورتريه والنحت البارز والتماثيل &mdash; يدوياً وبالطريقة التقليدية، ثم تُصبّ في <b>البرونز</b> أو <b>السيراميك</b> أو <b>الجبس</b>.">I make portraits, reliefs, and figures &mdash; modelled by hand in the traditional sequence, then cast in <b>bronze</b>, <b>ceramic</b>, or <b>plaster</b>.</p>
     <div class="training rv d2">
-      <p class="training-label" data-en="Trained under master sculptors at" data-ar="تدرّبت على يد نحّاتين محترفين في">Trained under master sculptors at</p>
+      <p class="training-label" data-en="Trained under master sculptors at" data-ar="تدرّبت على يد أساتذة النحت في">Trained under master sculptors at</p>
       <ul class="training-list">
         <li>
           <span class="school" data-en="The Florence Academy of Art" data-ar="أكاديمية فلورنسا للفنون">The Florence Academy of Art</span>
           <span class="where" data-en="Florence, Italy" data-ar="فلورنسا، إيطاليا">Florence, Italy</span>
         </li>
         <li>
-          <span class="school" data-en="Dutch Academy of Figurative Sculpture" data-ar="الأكاديمية الهولندية للنحت التصويري">Dutch Academy of Figurative Sculpture</span>
+          <span class="school" data-en="Figura, Dutch Academy of Figurative Sculpture" data-ar="فيغورا، الأكاديمية الهولندية للنحت التصويري">Figura, Dutch Academy of Figurative Sculpture</span>
           <span class="where" data-en="Amsterdam, Netherlands" data-ar="أمستردام، هولندا">Amsterdam, Netherlands</span>
         </li>
       </ul>
@@ -598,7 +605,7 @@ html[dir="rtl"] .fab{right:auto;left:18px}
       <div class="card rv">
         <h3 data-en="Portrait" data-ar="البورتريه">Portrait</h3>
         <ul>
-          <li data-en="Busts, life &amp; over-life scale" data-ar="تماثيل نصفية بالحجم الطبيعي وأكبر">Busts, life &amp; over-life scale</li>
+          <li data-en="Busts, life and over-life scale" data-ar="تماثيل نصفية بالحجم الطبيعي وأكبر">Busts, life and over-life scale</li>
           <li data-en="From sittings or photographs" data-ar="من جلسات حيّة أو من الصور">From sittings or photographs</li>
           <li data-en="Commemorative likeness" data-ar="أعمال تذكارية">Commemorative likeness</li>
           <li data-en="Cast in bronze" data-ar="تُصبّ بالبرونز">Cast in bronze</li>
@@ -758,6 +765,10 @@ html[dir="rtl"] .fab{right:auto;left:18px}
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
         <span dir="ltr">@ahmadhaidar.kw</span>
       </a>
+      <div class="mail-row"><a class="mail" href="mailto:ahmad.haider.kw@gmail.com?subject=Sculpture%20commission" data-en-href="mailto:ahmad.haider.kw@gmail.com?subject=Sculpture%20commission" data-ar-href="mailto:ahmad.haider.kw@gmail.com?subject=%D8%AA%D9%83%D9%84%D9%8A%D9%81%20%D8%B9%D9%85%D9%84%20%D9%86%D8%AD%D8%AA%D9%8A" aria-label="Email Ahmad Haider">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="4.8" width="18.8" height="14.4" rx="2.6"/><path d="M3.2 6.6 12 13l8.8-6.4"/></svg>
+        <span dir="ltr">ahmad.haider.kw@gmail.com</span>
+      </a></div>
     </div>
   </div>
 </section>
